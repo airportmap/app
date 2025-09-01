@@ -1,0 +1,3 @@
+server:
+  host: airportmap.de
+  port: 3000
