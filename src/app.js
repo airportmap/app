@@ -8,6 +8,7 @@ import i18nextMiddleware from 'i18next-http-middleware';
 import Backend from 'i18next-fs-backend';
 
 import { DIR, CFG } from './includes/config.js';
+import router from './includes/router.js';
 
 const app = express();
 
@@ -31,5 +32,7 @@ app.use( i18nextMiddleware.handle( i18next ) );
 
 app.set( 'view engine', 'pug' );
 app.set( 'views', path.join( DIR, 'app/templates/' ) );
+
+router( app );
 
 app.listen( CFG.server.port );

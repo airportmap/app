@@ -6,6 +6,7 @@
  * - Determines the project root directory (DIR)
  * - Loads environment-specific configuration from YAML files
  * - Exposes constants DIR, ENV, and CFG for use throughout the app
+ * - Also loads express routes from a YAML file (ROUTES)
  */
 
 import fs from 'fs';
@@ -28,15 +29,11 @@ export const DIR = path.resolve(
  */
 export const ENV = process.env.NODE_ENV || 'default';
 
-/** 
- * Path to the YAML config file for the current environment
+/**
+ * Load YAML configuration file
  */
 const cfgPath = path.join( DIR, `config/${ENV}.yml` );
 
-/**
- * Load YAML configuration file
- * Throws an error if the file is missing
- */
 if ( ! fs.existsSync( cfgPath ) ) throw new Error (
     `Config file not found: ${cfgPath}`
 );
@@ -47,4 +44,21 @@ if ( ! fs.existsSync( cfgPath ) ) throw new Error (
  */
 export const CFG = yaml.load(
     fs.readFileSync( cfgPath, 'utf-8' )
+);
+
+/**
+ * Load express routes
+ */
+const routesPath = path.join( DIR, `config/routes.yml` );
+
+if ( ! fs.existsSync( routesPath ) ) throw new Error (
+    `Express routes can not be loaded`
+);
+
+/**
+ * Parsed express routes object
+ * Will be used by the app router
+ */
+export const ROUTES = yaml.load(
+    fs.readFileSync( routesPath, 'utf-8' )
 );
