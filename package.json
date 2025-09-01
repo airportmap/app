@@ -1,0 +1,21 @@
+{
+  "name": "airportmap-app",
+  "description": "Main application of the Airportmap, frontend ui / web interface",
+  "license": "MIT",
+  "version": "2.0.0",
+  "author": {
+    "name": "komed3 (Paul Köhler)",
+    "email": "webmaster@komed3.de",
+    "url": "https://komed3.de"
+  },
+  "homepage": "https://github.com/airportmap/app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/airportmap/app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/airportmap/app/issues"
+  },
+  "type": "module",
+  "main": "app.js"
+}
