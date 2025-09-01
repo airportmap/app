@@ -17,5 +17,8 @@
     "url": "https://github.com/airportmap/app/issues"
   },
   "type": "module",
-  "main": "app.js"
+  "main": "app.js",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
