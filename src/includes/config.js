@@ -1,8 +1,6 @@
 'use strict';
 
 /**
- * src/includes/config.js
- * ----------
  * Central configuration loader for the Airportmap App.
  * 
  * - Determines the project root directory (DIR)
