@@ -1,3 +1,8 @@
 server:
   host: airportmap.de
   port: 3000
+
+i18n:
+  fallback: en
+  preload: [ en, de ]
+  secure: true
