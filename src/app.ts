@@ -2,6 +2,8 @@
 
 import express from 'express';
 
+import { CFG } from './includes/config';
+
 const app = express();
 
-app.listen();
+app.listen( CFG.server.port );
