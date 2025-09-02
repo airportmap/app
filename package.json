@@ -16,12 +16,5 @@
   "bugs": {
     "url": "https://github.com/airportmap/app/issues"
   },
-  "type": "module",
-  "main": "src/app.js",
-  "scripts": {
-    "start": "cross-env NODE_ENV=dev nodemon src/app.js"
-  },
-  "devDependencies": {
-    "cross-env": "^10.0.0"
-  }
+  "type": "module"
 }
