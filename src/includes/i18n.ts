@@ -1,7 +1,5 @@
 'use strict';
 
-import type { Express } from 'express';
-
 import { join } from 'path';
 
 import i18next from 'i18next';
@@ -12,44 +10,40 @@ import LocalStorageBackend from 'i18next-localstorage-backend';
 
 import { DIR, CFG } from './config';
 
-function i18n_setup ( app: Express ) : void {
+const {
+    fallback = 'en',
+    preload = [ 'en' ],
+    https = false,
+    expire = 86400
+} = CFG.i18n ?? {};
 
-    const {
-        fallback = 'en',
-        preload = [ 'en' ],
-        https = false,
-        expire = 86400
-    } = CFG.i18n ?? {};
+i18next
+    .use( ChainedBackend )
+    .use( LanguageDetector )
+    .init( {
+        fallbackLng: fallback,
+        preload: preload,
+        defaultNS: 'generic',
+        backend: {
+            backends: [
+                LocalStorageBackend,
+                HttpBackend
+            ],
+            backendOptions: [ {
+                expirationTime: expire
+            }, {
+                loadPath: join( DIR, 'locales/{{lng}}/{{ns}}.json' )
+            } ]
+        },
+        detection: {
+            order: [ 'cookie', 'header' ],
+            lookupCookie: 'locale',
+            caches: [ 'cookie' ],
+            cookieSameSite: "strict",
+            cookieSecure: https
+        }
+    } );
 
-    i18next
-        .use( ChainedBackend )
-        .use( LanguageDetector )
-        .init( {
-            fallbackLng: fallback,
-            preload: preload,
-            defaultNS: 'generic',
-            backend: {
-                backends: [
-                    LocalStorageBackend,
-                    HttpBackend
-                ],
-                backendOptions: [ {
-                    expirationTime: expire
-                }, {
-                    loadPath: join( DIR, 'locales/{{lng}}/{{ns}}.json' )
-                } ]
-            },
-            detection: {
-                order: [ 'cookie', 'header' ],
-                lookupCookie: 'locale',
-                caches: [ 'cookie' ],
-                cookieSameSite: "strict",
-                cookieSecure: https
-            }
-        } );
+const i18n = handle( i18next );
 
-    app.use( handle( i18next ) );
-
-};
-
-export { i18n_setup };
+export { i18n };
