@@ -6,24 +6,38 @@ import { join } from 'path';
 
 import i18next from 'i18next';
 import { LanguageDetector, handle } from 'i18next-http-middleware';
-import Backend from 'i18next-fs-backend';
+import ChainedBackend from 'i18next-chained-backend';
+import HttpBackend from 'i18next-http-backend';
+import LocalStorageBackend from 'i18next-localstorage-backend';
 
 import { DIR, CFG } from './config';
 
 function i18n_setup ( app: Express ) : void {
 
-    const { fallback = 'en', preload = [ 'en' ], https = false } = CFG.i18n ?? {};
+    const {
+        fallback = 'en',
+        preload = [ 'en' ],
+        https = false,
+        expire = 86400
+    } = CFG.i18n ?? {};
 
     i18next
-        .use( Backend )
+        .use( ChainedBackend )
         .use( LanguageDetector )
         .init( {
             fallbackLng: fallback,
             preload: preload,
             defaultNS: 'generic',
-            nonExplicitSupportedLngs: true,
             backend: {
-                loadPath: join( DIR, 'locales/{{lng}}/{{ns}}.json' )
+                backends: [
+                    LocalStorageBackend,
+                    HttpBackend
+                ],
+                backendOptions: [ {
+                    expirationTime: expire
+                }, {
+                    loadPath: join( DIR, 'locales/{{lng}}/{{ns}}.json' )
+                } ]
             },
             detection: {
                 order: [ 'cookie', 'header' ],

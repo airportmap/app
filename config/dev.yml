@@ -7,3 +7,4 @@ i18n:
   fallback: en
   preload: [ en, de ]
   https: false
+  expire: 604800000
