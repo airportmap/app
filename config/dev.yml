@@ -1,3 +1,9 @@
 server:
   host: localhost
+  https: false
   port: 3000
+
+i18n:
+  fallback: en
+  preload: [ en, de ]
+  https: false
