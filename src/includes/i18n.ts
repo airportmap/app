@@ -12,7 +12,7 @@ import { DIR, CFG } from './config';
 
 function i18n_setup ( app: Express ) : void {
 
-    const { fallback = 'en', preload = [ 'en' ], https = false } = CFG.i18n;
+    const { fallback = 'en', preload = [ 'en' ], https = false } = CFG.i18n ?? {};
 
     i18next
         .use( Backend )
