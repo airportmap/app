@@ -1,12 +1,11 @@
 'use strict';
 
-import { join } from 'path';
-
 import i18next from 'i18next';
 import { LanguageDetector, handle } from 'i18next-http-middleware';
 import ChainedBackend from 'i18next-chained-backend';
 import HttpBackend from 'i18next-http-backend';
 import LocalStorageBackend from 'i18next-localstorage-backend';
+import { join } from 'path';
 
 import { DIR, CFG } from './config';
 

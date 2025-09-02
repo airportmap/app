@@ -8,7 +8,7 @@ import { i18n } from './includes/i18n';
 import { locals } from './includes/locals';
 import { routes } from './includes/routing';
 
-const { port = 3000 } = CFG.server;
+const { port = 3000 } = CFG.server ?? {};
 
 const app = express();
 
