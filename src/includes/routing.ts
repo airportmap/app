@@ -2,14 +2,16 @@
 
 import type { RequestHandler } from 'express';
 
-import home from '../handlers/home';
+import { home } from '../handlers/home';
 
-export interface RouteConfig {
+interface RouteConfig {
     path: string;
     method: 'get' | 'post';
     handler: RequestHandler;
 }
 
-export const routes: RouteConfig[] = [
+const routes: RouteConfig[] = [
     { path: '{/}', method: 'get', handler: home }
 ];
+
+export { type RouteConfig, routes };

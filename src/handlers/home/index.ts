@@ -2,8 +2,10 @@
 
 import type { Request, Response } from 'express';
 
-export default function home ( req: Request, res: Response ) : void {
+function handler ( req: Request, res: Response ) : void {
 
     res.render( 'layout', {} );
 
 }
+
+export { handler as home };
