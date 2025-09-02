@@ -4,7 +4,7 @@ server:
   port: 3000
 
 i18n:
-  fallback: en
-  preload: [ en, de ]
+  fallback: en-US
+  preload: [ en-US, de-DE ]
   https: false
-  expire: 604800000
+  debug: false

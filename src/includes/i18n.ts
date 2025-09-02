@@ -3,35 +3,31 @@
 import i18next from 'i18next';
 import { LanguageDetector, handle } from 'i18next-http-middleware';
 import ChainedBackend from 'i18next-chained-backend';
-import HttpBackend from 'i18next-http-backend';
-import LocalStorageBackend from 'i18next-localstorage-backend';
+import FsBackend from 'i18next-fs-backend';
 import { join } from 'path';
 
 import { DIR, CFG } from './config';
 
 const {
-    fallback = 'en',
-    preload = [ 'en' ],
-    https = false,
-    expire = 86400
+    fallback = 'en-US', preload = [ 'en-US' ],
+    https = false, debug = false
 } = CFG.i18n ?? {};
 
 i18next
     .use( ChainedBackend )
     .use( LanguageDetector )
     .init( {
+        debug: debug,
         fallbackLng: fallback,
         preload: preload,
         defaultNS: 'generic',
+        ns: [ 'generic' ],
         backend: {
             backends: [
-                LocalStorageBackend,
-                HttpBackend
+                FsBackend
             ],
             backendOptions: [ {
-                expirationTime: expire
-            }, {
-                loadPath: join( DIR, 'locales/{{lng}}/{{ns}}.json' )
+                loadPath: join( DIR, 'locales/{{ns}}/{{lng}}.json' )
             } ]
         },
         detection: {
