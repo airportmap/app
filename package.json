@@ -21,6 +21,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=dev nodemon src/app.js"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "cross-env": "^10.0.0"
+  }
 }
