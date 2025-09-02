@@ -1,0 +1,13 @@
+{
+  "ext": "ts,js,json",
+  "execMap": {
+    "js": "node",
+    "ts": "tsx"
+  },
+  "exec": "tsx ./src/app.ts",
+  "env": {
+    "NODE_ENV": "dev"
+  },
+  "watch": [ "src" ],
+  "verbose": true
+}

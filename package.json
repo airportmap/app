@@ -16,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/airportmap/app/issues"
   },
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
 }
