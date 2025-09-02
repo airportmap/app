@@ -20,8 +20,8 @@ i18next
         debug: debug,
         fallbackLng: fallback,
         preload: preload,
-        defaultNS: 'generic',
-        ns: [ 'generic' ],
+        defaultNS: 'app.generic',
+        ns: [ 'app.generic' ],
         backend: {
             backends: [
                 FsBackend
