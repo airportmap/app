@@ -12,7 +12,7 @@ const { port = 3000 } = CFG.server ?? {};
 
 const app = express();
 
-app.set( 'views', join( DIR, 'templates' ) );
+app.set( 'views', join( DIR, 'views' ) );
 app.set( 'view engine', 'pug' );
 
 app.use( i18n, locals );
