@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/airportmap/app/issues"
   },
-  "type": "module",
   "main": "dist/app.js",
   "scripts": {
     "dev": "NODE_ENV=development ts-node src/app.ts",
@@ -33,6 +32,8 @@
     "pug": "^3.0.3"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.3.0",
     "esbuild": "^0.25.9",
     "nodemon": "^3.1.10",
     "sass": "^1.92.0",
