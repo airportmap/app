@@ -8,57 +8,9 @@ paths:
   temp: "./temp"
   buildScripts: "./build-scripts"
 
-compilation:
+build:
   typescript:
     server:
-      configFile: "./tsconfig.json"
-      outDir: "./dist"
-      exclude: [ "**/*.client.ts", "**/*.test.ts" ]
-
+      configFile: "./tsconfig.server.json"
     client:
-      pattern: "src/**/*.client.ts"
-      outDir: "./dist/public/js"
-      bundle: true
-      minify: true
-      target: "es2020"
-
-  scss:
-    shared:
-      pattern: "src/shared/**/*.scss"
-      outputDir: "./dist/public/css"
-
-    pages:
-      pattern: "src/pages/**/*.scss"
-      outputDir: "./dist/public/css/pages"
-      includePaths: [ "src/shared/styles" ]
-
-    minify: true
-    sourceMaps: false
-
-  views:
-    pattern: "src/**/*.pug"
-    outputDir: "./dist/views"
-    preserveStructure: true
-
-static:
-  pattern: "src/shared/static/**/*"
-  outputDir: "./dist/public"
-
-environments:
-  development:
-    compilation:
-      typescript:
-        client:
-          minify: false
-      scss:
-        minify: false
-        sourceMaps: true
-
-  production:
-    compilation:
-      typescript:
-        client:
-          minify: true
-      scss:
-        minify: true
-        sourceMaps: false
+      configFile: "./tsconfig.client.json"
