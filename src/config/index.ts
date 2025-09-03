@@ -7,6 +7,7 @@ export interface AppConfig {
         host: string;
         https: boolean;
         port: number;
+        debug: boolean;
     };
     i18n: {
         defaultLanguage: string;
@@ -41,6 +42,8 @@ export async function loadConfig () : Promise< AppConfig > {
             config.server.https = Boolean ( process.env.HTTPS );
         if ( process.env.PORT )
             config.server.port = Number ( process.env.PORT );
+        if ( process.env.DEBUG )
+            config.server.debug = Boolean ( process.env.DEBUG );
         if ( process.env.LANG )
             config.i18n.defaultLanguage = process.env.LANG;
 

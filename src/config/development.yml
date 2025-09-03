@@ -2,6 +2,7 @@ server:
   host: "localhost"
   https: false
   port: 3000
+  debug: true
 
 i18n:
   defaultLanguage: "en-US"

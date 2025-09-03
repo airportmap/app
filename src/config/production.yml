@@ -2,6 +2,7 @@ server:
   host: "airportmap.de"
   https: true
   port: 3000
+  debug: false
 
 i18n:
   defaultLanguage: "en-US"
