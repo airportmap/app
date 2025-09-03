@@ -1,0 +1,13 @@
+server:
+  host: "airportmap.de"
+  port: 3000
+  https: true
+  debug: false
+
+i18n:
+  defaultLanguage: "en-US"
+  supportedLanguages:
+    - "en-US"
+    - "de-DE"
+  namespaces:
+    - "app.generic"

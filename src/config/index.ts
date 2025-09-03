@@ -34,7 +34,6 @@ export async function loadConfig () : Promise< AppConfig > {
     try {
 
         const cfgContent = readFileSync( cfgPath, 'utf8' );
-
         return load( cfgContent ) as AppConfig;
 
     } catch ( err ) {

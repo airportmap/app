@@ -5,12 +5,8 @@ i18n:
   pattern: "{{lng}}/{{ns}}.json"
 
   languages:
-    - "en"
-    - "de"
+    - "en-US"
+    - "de-DE"
 
   namespaces:
     - "app.generic"
-
-  fallback:
-    language: "en"
-    namespace: "app.generic"
