@@ -2,7 +2,26 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { load } from 'js-yaml';
 
-export interface AppConfig {}
+export interface AppConfig {
+    server: {
+        host: string;
+        https: boolean;
+        port: number;
+    };
+    i18n: {
+        defaultLanguage: string;
+        supportedLanguages: string[];
+        namespaces: string[];
+    };
+    modules: {
+        enabled: string[];
+    };
+    paths: {
+        views: string;
+        public: string;
+        locales: string;
+    };
+}
 
 export const ENV: string = process.env.NODE_ENV || 'production';
 
