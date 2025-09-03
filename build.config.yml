@@ -1,0 +1,65 @@
+project:
+  name: "airportmap"
+  version: "2.0.0"
+
+paths:
+  source: "./src"
+  output: "./dist"
+  temp: "./temp"
+  buildScripts: "./build-scripts"
+
+compilation:
+  typescript:
+    server:
+      configFile: "./tsconfig.json"
+      outDir: "./dist"
+      exclude: [ "**/*.client.ts", "**/*.test.ts" ]
+
+    client:
+      pattern: "src/**/*.client.ts"
+      outDir: "./dist/public/js"
+      bundle: true
+      minify: true
+      target: "es2020"
+
+  scss:
+    shared:
+      pattern: "src/shared/**/*.scss"
+      outputDir: "./dist/public/css"
+
+    pages:
+      pattern: "src/pages/**/*.scss"
+      outputDir: "./dist/public/css/pages"
+      includePaths: [ "src/shared/styles" ]
+
+    minify: true
+    sourceMaps: false
+
+  views:
+    pattern: "src/**/*.pug"
+    outputDir: "./dist/views"
+    preserveStructure: true
+
+static:
+  patterns:
+    - "src/shared/static/**/*"
+  outputDir: "./dist/public"
+
+environments:
+  development:
+    compilation:
+      typescript:
+        client:
+          minify: false
+      scss:
+        minify: false
+        sourceMaps: true
+
+  production:
+    compilation:
+      typescript:
+        client:
+          minify: true
+      scss:
+        minify: true
+        sourceMaps: false
