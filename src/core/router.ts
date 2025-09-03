@@ -37,7 +37,7 @@ export async function setupRoutes ( app: Application ) : Promise< void > {
 
         } catch ( err ) {
 
-            console.warn( `Failed to load handler for route ${ route.path }:`, err );
+            console.warn( `Failed to load handler for route < ${ route.path } >`, err );
 
         }
 

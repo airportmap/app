@@ -1,4 +1,4 @@
 routes:
   - path: "{/}"
-    handler: "home/home.controler"
-    method: [ "GET" ]
+    handler: "home/controller"
+    methods: [ "GET" ]
