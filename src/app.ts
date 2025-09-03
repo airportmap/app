@@ -1,6 +1,6 @@
 import { loadConfig } from '@config/index';
 
-async function bootstrap () : Promise<void> {
+async function bootstrap () : Promise< void > {
 
     try {
 
