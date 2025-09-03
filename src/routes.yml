@@ -1,4 +1,0 @@
-routes:
-  - path: "{/}"
-    handler: "home/controller"
-    methods: [ "GET" ]
