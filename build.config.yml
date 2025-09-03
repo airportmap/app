@@ -41,8 +41,7 @@ compilation:
     preserveStructure: true
 
 static:
-  patterns:
-    - "src/shared/static/**/*"
+  pattern: "src/shared/static/**/*"
   outputDir: "./dist/public"
 
 environments:
