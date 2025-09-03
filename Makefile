@@ -13,12 +13,12 @@ TS := $(shell date +%Y%m%d_%H%M%S)
 
 # Instruction set
 .PHONY: \
-	all clean install setup-external setup-modules setup-i18n build \
-	compile-server compile-client compile-scss compile-views assets \
-	package create-deployment dev dev-build watch deploy help
+	all clean clean-temp install setup-external setup-modules setup-i18n build \
+	compile-server compile-client compile-scss compile-views assets package \
+	create-deployment dev dev-build watch deploy help
 
 # Main targets
-all: clean install setup-external build package
+all: clean install setup-external build package clean-temp
 
 # Clean everything
 clean:
@@ -28,6 +28,13 @@ clean:
 	rm -rf src/modules/
 	rm -rf locales/
 	rm -rf releases/
+
+# Clean temporary files
+clean-temp:
+	@echo "Cleaning temporary files ..."
+	rm -rf temp/
+	rm -rf src/modules/
+	rm -rf locales/
 
 # Install dependencies
 install:
@@ -124,6 +131,7 @@ help:
 	@echo "  package        - Create deployment package"
 	@echo "  deploy         - Full build and package"
 	@echo "  clean          - Clean all build artifacts"
+	@echo "  clean-temp     - Clean temporary files"
 	@echo ""
 	@echo "Setup targets:"
 	@echo "  install        - Install npm dependencies"
