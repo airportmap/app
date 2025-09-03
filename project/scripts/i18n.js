@@ -1,5 +1,5 @@
 const { load } = require( 'js-yaml' );
-const { existsSync, mkdirSync, readFileSync } = require( 'fs' );
+const { copyFileSync, existsSync, mkdirSync, readFileSync } = require( 'fs' );
 const { join } = require( 'path' );
 const { execSync } = require( 'child_process' );
 
@@ -12,7 +12,7 @@ async function i18n () {
     const i18nConfig  = load( readFileSync( '../i18n.config.yml', 'utf8' ) );
 
     const { temp } = buildConfig.paths;
-    const { repository, branch, target } = i18nConfig.i18n;
+    const { repository, branch, target, pattern, languages, namespaces } = i18nConfig.i18n;
 
     const tmpDir = join( temp, 'i18n' );
 
@@ -33,6 +33,42 @@ async function i18n () {
             execSync( `rm -rf ${ target }` );
 
         mkdirSync( target, { recursive: true } );
+
+        // Copy only needed namespaces and languages
+        for ( const lng of languages ) {
+
+            const lngDir = join( target, lng );
+            mkdirSync( lngDir, { recursive: true } );
+
+            for ( const ns of namespaces ) {
+
+                const fileName = pattern
+                    .replaceAll( '{{lng}}', lng )
+                    .replaceAll( '{{ns}}', ns );
+
+                const sourceFile = join( tmpDir, fileName );
+
+                if ( existsSync( sourceFile ) ) {
+
+                    const targetFile = join( lngDir, fileName );
+                    copyFileSync( sourceFile, targetFile );
+
+                    console.log( `Copied ${lng}::${ns} as < ${ fileName } >` );
+
+                } else {
+
+                    console.warn( `Missing translation file < ${ fileName } >` );
+
+                }
+
+            }
+
+        }
+
+        // Cleanup
+        execSync( `rm -rf ${ tmpDir }` );
+
+        console.log( `Internationalization files integrated successfully` );
 
     } catch ( err ) {
 

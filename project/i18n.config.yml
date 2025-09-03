@@ -2,6 +2,7 @@ i18n:
   repository: "https://github.com/airportmap/i18n.git"
   branch: "master"
   target: "locales"
+  pattern: "{{lng}}/{{ns}}.json"
 
   languages:
     - "en"
@@ -13,6 +14,3 @@ i18n:
   fallback:
     language: "en"
     namespace: "app.generic"
-
-  structure:
-    pattern: "{{language}}/{{namespace}}.json"
