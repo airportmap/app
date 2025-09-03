@@ -12,7 +12,7 @@ export async function createServer ( config: AppConfig ) : Promise< Application 
     app.set( 'views', resolve( config.paths.views ) );
 
     setupI18n( app, config );
-    setupRoutes( app, config );
+    setupRoutes( app );
 
     return app;
 
