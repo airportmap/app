@@ -23,17 +23,24 @@ export interface AppConfig {
     };
 }
 
-export const ENV: string = process.env.NODE_ENV || 'production';
-
 export async function loadConfig () : Promise<AppConfig> {
 
-    const cfgFile = `${ ENV }.yml`;
+    const cfgFile = `${ process.env.NODE_ENV || 'production' }.yml`;
     const cfgPath = join( __dirname, cfgFile );
 
     try {
 
         const cfgContent = readFileSync( cfgPath, 'utf8' );
         const config = load( cfgContent ) as AppConfig;
+
+        if ( process.env.HOST )
+            config.server.host = process.env.HOST;
+        if ( process.env.HTTPS )
+            config.server.https = Boolean ( process.env.HTTPS );
+        if ( process.env.PORT )
+            config.server.port = Number ( process.env.PORT );
+        if ( process.env.LANG )
+            config.i18n.defaultLanguage = process.env.LANG;
 
         return config;
 
