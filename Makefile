@@ -61,32 +61,32 @@ build: compile-server compile-client compile-scss compile-views assets
 # Compile server-side TypeScript
 compile-server:
 	@echo "Compiling server ..."
-	@node project/scripts/compile-server.js
+	@node project/scripts/compile.js server
 
 # Compile client-side TypeScript
 compile-client:
-	@echo "Compiling client assets ..."
-	@node project/scripts/compile-assets.js client
+	@echo "Compiling client scripts ..."
+	@node project/scripts/compile.js client
 
 # Compile SCSS
 compile-scss:
 	@echo "Compiling SCSS ..."
-	@node project/scripts/compile-assets.js scss
+	@node project/scripts/assets.js scss
 
 # Compile views
 compile-views:
 	@echo "Processing views ..."
-	@node project/scripts/compile-assets.js views
+	@node project/scripts/assets.js views
 
 # Copy static files (assets)
 assets:
 	@echo "Copying static files ..."
-	@node project/scripts/compile-assets.js assets
+	@node project/scripts/assets.js static
 
 # Create deployment package
 package: create-deployment
 	@echo "Creating deployment package ..."
-	@node project/scripts/create-deployment.js
+	@node project/scripts/deployment.js
 
 # Create deployment structure
 create-deployment:
