@@ -8,8 +8,8 @@ async function i18n () {
     console.log( `Integrating internationalization files ...` );
 
     // Load configurations
-    const buildConfig = load( readFileSync( '../build.config.yml', 'utf8' ) );
-    const i18nConfig  = load( readFileSync( '../i18n.config.yml', 'utf8' ) );
+    const buildConfig = load( readFileSync( 'project/build.config.yml', 'utf8' ) );
+    const i18nConfig = load( readFileSync( 'project/i18n.config.yml', 'utf8' ) );
 
     const { temp } = buildConfig.paths;
     const { repository, branch, target, pattern, languages, namespaces } = i18nConfig.i18n;
@@ -50,14 +50,14 @@ async function i18n () {
 
                 if ( existsSync( sourceFile ) ) {
 
-                    const targetFile = join( lngDir, fileName );
+                    const targetFile = join( target, fileName );
                     copyFileSync( sourceFile, targetFile );
 
-                    console.log( `Copied ${lng}::${ns} as < ${ fileName } >` );
+                    console.log( `Copied ${ lng }::${ ns }` );
 
                 } else {
 
-                    console.warn( `Missing translation file < ${ fileName } >` );
+                    console.warn( `Missing translation file for ${ lng }::${ ns }` );
 
                 }
 
