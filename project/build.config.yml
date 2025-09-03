@@ -6,7 +6,6 @@ paths:
   source: "./src"
   output: "./dist"
   temp: "./temp"
-  buildScripts: "./build-scripts"
 
 build:
   typescript:
