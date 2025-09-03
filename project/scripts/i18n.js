@@ -1,7 +1,7 @@
-const { load } = require( 'js-yaml' );
-const { copyFileSync, existsSync, mkdirSync, readFileSync } = require( 'fs' );
-const { join } = require( 'path' );
 const { execSync } = require( 'child_process' );
+const { copyFileSync, existsSync, mkdirSync, readFileSync } = require( 'fs' );
+const { load } = require( 'js-yaml' );
+const { join } = require( 'path' );
 
 async function i18n () {
 
