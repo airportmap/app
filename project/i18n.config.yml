@@ -1,7 +1,7 @@
 i18n:
   repository: "https://github.com/airportmap/i18n.git"
-  branch: "main"
-  target: "dist/locales"
+  branch: "master"
+  target: "locales"
 
   languages:
     - "en"

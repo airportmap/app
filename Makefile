@@ -5,7 +5,7 @@
 # @license MIT
 
 # Load build configuration
-include build.config.yml
+include project/build.config.yml
 
 # Environment
 NODE_ENV ?= production
@@ -40,12 +40,12 @@ setup-external: setup-modules setup-i18n
 # Setup external modules
 setup-modules:
 	@echo "Setting up external modules ..."
-	@node build-scripts/integrate-modules.js
+	@node project/scripts/modules.js
 
 # Setup i18n
 setup-i18n:
 	@echo "Setting up internationalization ..."
-	@node build-scripts/integrate-i18n.js
+	@node project/scripts/i18n.js
 
 # Build everything
 build: compile-server compile-client compile-scss compile-views assets
@@ -54,32 +54,32 @@ build: compile-server compile-client compile-scss compile-views assets
 # Compile server-side TypeScript
 compile-server:
 	@echo "Compiling server ..."
-	@node build-scripts/compile-server.js
+	@node project/scripts/compile-server.js
 
 # Compile client-side TypeScript
 compile-client:
 	@echo "Compiling client assets ..."
-	@node build-scripts/compile-assets.js client
+	@node project/scripts/compile-assets.js client
 
 # Compile SCSS
 compile-scss:
 	@echo "Compiling SCSS ..."
-	@node build-scripts/compile-assets.js scss
+	@node project/scripts/compile-assets.js scss
 
 # Compile views
 compile-views:
 	@echo "Processing views ..."
-	@node build-scripts/compile-assets.js views
+	@node project/scripts/compile-assets.js views
 
 # Copy static files (assets)
 assets:
 	@echo "Copying static files ..."
-	@node build-scripts/compile-assets.js assets
+	@node project/scripts/compile-assets.js assets
 
 # Create deployment package
 package: create-deployment
 	@echo "Creating deployment package ..."
-	@node build-scripts/create-deployment.js
+	@node project/scripts/create-deployment.js
 
 # Create deployment structure
 create-deployment:
