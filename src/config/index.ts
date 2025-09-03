@@ -28,7 +28,7 @@ export const ENV: string = process.env.NODE_ENV || 'production';
 
 export async function loadConfig () : Promise< AppConfig > {
 
-    const cfgFile = `${ ENV }.yml`;
+    const cfgFile = `env/${ ENV }.yml`;
     const cfgPath = join( __dirname, cfgFile );
 
     try {
