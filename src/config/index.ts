@@ -14,9 +14,6 @@ export interface AppConfig {
         supportedLanguages: string[];
         namespaces: string[];
     };
-    paths: {
-        locales: string;
-    }
 }
 
 export const ENV: string = process.env.NODE_ENV || 'production';

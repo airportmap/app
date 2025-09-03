@@ -9,7 +9,6 @@ export async function setupI18n ( app: Application, config: AppConfig ) : Promis
 
     const { https, debug } = config.server;
     const { defaultLanguage, supportedLanguages, namespaces } = config.i18n;
-    const { locales } = config.paths;
 
     await i18next
         .use( FsBackend )
@@ -21,7 +20,7 @@ export async function setupI18n ( app: Application, config: AppConfig ) : Promis
             ns: namespaces,
             defaultNS: 'app.generic',
             backend: {
-                loadPath: join( locales, '{{lng}}/{{ns}}.json' )
+                loadPath: join( __dirname, '../locales/{{lng}}/{{ns}}.json' )
             },
             detection: {
                 order: [ 'cookie', 'header' ],

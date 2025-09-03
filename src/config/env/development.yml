@@ -11,6 +11,3 @@ i18n:
     - "de-DE"
   namespaces:
     - "app.generic"
-
-paths:
-  locales: "locales"
