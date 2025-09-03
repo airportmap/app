@@ -1,8 +1,8 @@
 {
   "name": "airportmap-app",
+  "version": "2.0.0",
   "description": "Main application of the Airportmap, frontend ui / web interface",
   "license": "MIT",
-  "version": "2.0.0",
   "author": {
     "name": "komed3 (Paul Köhler)",
     "email": "webmaster@komed3.de",
@@ -17,23 +17,13 @@
     "url": "https://github.com/airportmap/app/issues"
   },
   "type": "module",
+  "main": "dist/app.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "NODE_ENV=development ts-node src/app.ts",
+    "build": "make build",
+    "start": "NODE_ENV=production node dist/app.js",
+    "clean": "make clean"
   },
-  "dependencies": {
-    "express": "^5.1.0",
-    "i18next": "^25.4.2",
-    "i18next-chained-backend": "^4.6.2",
-    "i18next-fs-backend": "^2.6.0",
-    "i18next-http-middleware": "^3.8.0",
-    "js-yaml": "^4.1.0",
-    "pug": "^3.0.3"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/js-yaml": "^4.0.9",
-    "nodemon": "^3.1.10",
-    "tsx": "^4.20.5",
-    "typescript": "^5.9.2"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
