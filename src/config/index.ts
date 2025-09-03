@@ -5,8 +5,8 @@ import { join } from 'path';
 export interface AppConfig {
     server: {
         host: string;
-        https: boolean;
         port: number;
+        https: boolean;
         debug: boolean;
     };
     i18n: {
@@ -14,14 +14,9 @@ export interface AppConfig {
         supportedLanguages: string[];
         namespaces: string[];
     };
-    modules: {
-        enabled: string[];
-    };
     paths: {
-        views: string;
-        public: string;
         locales: string;
-    };
+    }
 }
 
 export const ENV: string = process.env.NODE_ENV || 'production';
