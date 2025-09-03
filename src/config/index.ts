@@ -23,9 +23,11 @@ export interface AppConfig {
     };
 }
 
+export const ENV: string = process.env.NODE_ENV || 'production';
+
 export async function loadConfig () : Promise< AppConfig > {
 
-    const cfgFile = `${ process.env.NODE_ENV || 'production' }.yml`;
+    const cfgFile = `${ ENV }.yml`;
     const cfgPath = join( __dirname, cfgFile );
 
     try {
