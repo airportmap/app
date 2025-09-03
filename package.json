@@ -18,9 +18,9 @@
   },
   "main": "dist/app.js",
   "scripts": {
-    "dev": "NODE_ENV=development ts-node src/app.ts",
+    "dev": "cross-env NODE_ENV=development ts-node src/app.ts",
     "build": "make build",
-    "start": "NODE_ENV=production node dist/app.js",
+    "start": "cross-env NODE_ENV=production node dist/app.js",
     "clean": "make clean"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.3.0",
+    "cross-env": "^10.0.0",
     "esbuild": "^0.25.9",
     "nodemon": "^3.1.10",
     "sass": "^1.92.0",
