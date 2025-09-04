@@ -29,4 +29,5 @@ build: compile-server
 # Compile server-side TypeScript
 compile-server:
 	@echo "Compiling server ..."
-	@tsc --build project/tsconfig.server.json --verbose
+	@tsc --build project/tsconfig.server.json
+	@tsc-alias -p project/tsconfig.server.json

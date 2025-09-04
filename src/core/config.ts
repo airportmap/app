@@ -5,7 +5,7 @@ import { load } from 'js-yaml';
 import { join } from 'path';
 
 export const ENV: string = process.env.NODE_ENV || 'production';
-export const PATH: string = join( __dirname, '../..' );
+export const PATH: string = join( __dirname, '../../..' );
 
 async function loadCfgFile ( filePath: string ) : Promise< object > {
 
