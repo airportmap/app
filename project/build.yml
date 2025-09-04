@@ -1,3 +1,8 @@
 project:
   name: "airportmap-app"
   version: "2.0.0"
+
+i18n:
+  repo: "https://github.com/airportmap/i18n.git"
+  branch: "master"
+  target: "i18n/locales"

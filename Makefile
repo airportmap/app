@@ -15,5 +15,5 @@ install:
 setup-external: setup-i18n
 
 setup-i18n:
-	@echo "Setting up i18n files ..."
-	@node setupI18n.js
+	@echo "Setting up i18n ..."
+	@node project/cli/setupI18n.js
