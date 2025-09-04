@@ -7,6 +7,7 @@ export interface ServerConfig {
     };
     paths: {
         locales: string;
+        views: string;
         assets: string;
         js: string;
         css: string;

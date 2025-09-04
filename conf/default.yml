@@ -4,6 +4,7 @@ server:
 
 paths:
   locales: "i18n/locales"
+  views: "app/views"
   assets: "public/assets"
   js: "public/js"
   css: "public/css"
