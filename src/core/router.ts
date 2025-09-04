@@ -10,8 +10,8 @@ export async function router ( app: Application, routes: RouteConfig[] ) : Promi
             const cntlr = await import( `../controller/${ controller }` );
             const fn = cntlr[ method ] || cntlr.default || cntlr;
 
-            if ( typeof app[ method ] === 'function' && typeof fn === 'function' )
-                ( app[ method ] as any )( path, fn );
+            if ( typeof app[ method as keyof Application ] === 'function' && typeof fn === 'function' )
+                ( app[ method as keyof Application ] as any )( path, fn );
 
         } catch ( err ) {
 
