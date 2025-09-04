@@ -8,12 +8,15 @@ async function bootstrap () : Promise< void > {
         const cfg = await loadConfig();
         const app = await createServer( cfg );
 
-        const port = cfg.server.port || 3000;
+        const { host, port, https, debug } = cfg.server;
 
         app.listen( port, () => {
 
             console.log( `Airportmap server running at port:`, port );
             console.log( `Environment:`, ENV );
+            console.log( `Host:`, host );
+            console.log( `Secure HTTPS:`, https );
+            console.log( `Debug enabled:`, debug );
 
         } );
 
