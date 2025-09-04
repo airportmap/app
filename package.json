@@ -17,7 +17,9 @@
   "bugs": {
     "url": "https://github.com/airportmap/app/issues"
   },
-  "main": "dist/src/App.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon dist/src/app.js"
+  },
   "dependencies": {
     "deepmerge": "^4.3.1",
     "express": "^5.1.0",
@@ -29,6 +31,8 @@
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/js-yaml": "^4.0.9",
+    "cross-env": "^10.0.0",
+    "nodemon": "^3.1.10",
     "tsc": "^2.0.4"
   }
 }
