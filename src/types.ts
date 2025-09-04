@@ -7,6 +7,7 @@ export interface ServerConfig {
     };
     paths: {
         locales: string;
+        controllers: string;
         views: string;
         assets: string;
         js: string;
@@ -26,4 +27,10 @@ export interface ModuleConfig {}
 export interface AppConfig extends ServerConfig {
     i18n: I18nConfig;
     modules: ModuleConfig[];
+}
+
+export interface RouteConfig {
+    method: string;
+    path: string;
+    controller: string;
 }
