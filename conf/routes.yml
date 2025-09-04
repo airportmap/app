@@ -1,4 +1,4 @@
 routes:
-  - method: "GET"
+  - method: "get"
     path: "{/}"
     controller: "main"
