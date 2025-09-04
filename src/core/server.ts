@@ -1,4 +1,4 @@
-import { type AppConfig } from '@core/config';
+import { type AppConfig } from '@types';
 import { setupI18n } from '@core/i18n';
 import express, { static as static_, type Application } from 'express';
 

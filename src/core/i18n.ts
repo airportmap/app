@@ -1,4 +1,4 @@
-import { type AppConfig } from '@core/config';
+import { type AppConfig } from '@types';
 import { type Application } from 'express';
 import i18next from 'i18next';
 import FsBackend from 'i18next-fs-backend';
