@@ -18,7 +18,7 @@
     "url": "https://github.com/airportmap/app/issues"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon dist/src/app.js"
+    "dev": "cross-env NODE_ENV=development node dist/src/app.js"
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
@@ -27,14 +27,13 @@
     "i18next-fs-backend": "^2.6.0",
     "i18next-http-middleware": "^3.8.0",
     "js-yaml": "^4.1.0",
-    "pug": "^3.0.3",
-    "tsc": "^2.0.4"
+    "pug": "^3.0.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/js-yaml": "^4.0.9",
     "cross-env": "^10.0.0",
-    "nodemon": "^3.1.10",
+    "tsc": "^2.0.4",
     "tsc-alias": "^1.8.16"
   }
 }
