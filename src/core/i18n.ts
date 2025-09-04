@@ -7,11 +7,13 @@ import { LanguageDetector, handle } from 'i18next-http-middleware';
 export async function setupI18n ( app: Application, cfg: AppConfig ) : Promise< void > {
 
     const { pattern, fallbackLng, supportedLngs, namespaces } = cfg.i18n;
+    const { https, debug } = cfg.server;
 
     await i18next
         .use( FsBackend )
         .use( LanguageDetector )
         .init( {
+            debug: debug,
             fallbackLng: fallbackLng,
             supportedLngs: supportedLngs,
             ns: namespaces,
@@ -23,7 +25,8 @@ export async function setupI18n ( app: Application, cfg: AppConfig ) : Promise< 
                 order: [ 'cookie', 'header' ],
                 lookupCookie: 'locale',
                 caches: [ 'cookie' ],
-                cookieSameSite: 'strict'
+                cookieSameSite: 'strict',
+                cookieSecure: https
             }
         } );
 
