@@ -12,16 +12,17 @@ export async function createServer ( cfg: AppConfig, routes: RouteConfig[] ) : P
 
     const app = express();
 
-    app.set( 'view engine', 'pug' );
-    app.set( 'views', join( PATH, views ) );
-
-    app.use( injectLocals );
-
     app.use( '/assets', static_( join( PATH, assets ) ) );
     app.use( '/js', static_( join( PATH, js ) ) );
     app.use( '/css', static_( join( PATH, css ) ) );
 
+    app.set( 'view engine', 'pug' );
+    app.set( 'views', join( PATH, views ) );
+
     await setupI18n( app, cfg );
+
+    app.use( injectLocals );
+
     await router( app, routes );
 
     return app;

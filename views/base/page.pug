@@ -6,3 +6,10 @@ html( lang= lang )
     title= t( 'app.generic:title' )
 
   body#top.__apm
+
+    include ../components/header
+
+    main#main.__apm_main( role= 'main' )
+      block content
+
+    include ../components/footer
