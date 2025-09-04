@@ -1,0 +1,9 @@
+i18n:
+  pattern: "i18n/locals/{{lng}}/{{ns}}.min.json"
+  fallbackLng: "en-US"
+  supportedLngs:
+    - "en-US"
+    - "en-DE"
+
+  namespaces:
+    - "app.generic"
