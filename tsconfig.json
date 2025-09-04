@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@types": [ "src/types.ts" ],
-      "@core/*": [ "src/core/*" ]
+      "@core/*": [ "src/core/*" ],
+      "@modules/*": [ "modules/*" ],
+      "@types": [ "src/types.ts" ]
     }
   }
 }
