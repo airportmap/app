@@ -1,5 +1,6 @@
 node_modules/
 temp/
 
+dist/
 i18n/locales/
 modules/**/
