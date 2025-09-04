@@ -1,1 +1,4 @@
 node_modules/
+
+i18n/locales/
+modules/**/
