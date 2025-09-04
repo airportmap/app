@@ -1,4 +1,4 @@
-import { type AppConfig } from '@types';
+import { type AppConfig, type RouteConfig } from '@types';
 import { all } from 'deepmerge';
 import { readFile } from 'fs/promises';
 import { load } from 'js-yaml';
@@ -11,7 +11,7 @@ async function loadCfgFile ( filePath: string ) : Promise< object > {
 
     try {
 
-        const content = await readFile( filePath, 'utf8' );
+        const content = await readFile( join( PATH, filePath ), 'utf8' );
         return load( content ) as object;
 
     } catch ( err ) {
@@ -27,10 +27,18 @@ async function loadCfgFile ( filePath: string ) : Promise< object > {
 export async function loadConfig () : Promise< AppConfig > {
 
     return all( [
-        await loadCfgFile( join( PATH, `conf/default.yml` ) ),
-        await loadCfgFile( join( PATH, `conf/env/${ ENV }.yml` ) ),
-        await loadCfgFile( join( PATH, `i18n/i18n.config.yml` ) ),
-        await loadCfgFile( join( PATH, `modules/modules.config.yml` ) )
+        await loadCfgFile( `conf/default.yml` ),
+        await loadCfgFile( `conf/env/${ ENV }.yml` ),
+        await loadCfgFile( `i18n/i18n.config.yml` ),
+        await loadCfgFile( `modules/modules.config.yml` )
     ] ) as AppConfig;
+
+}
+
+export async function loadRoutes () : Promise< RouteConfig[] > {
+
+    const routes = await loadCfgFile( `conf/routes.yml` );
+
+    return ( routes as any ).routes ?? {} as RouteConfig[];
 
 }

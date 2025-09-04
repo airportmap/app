@@ -6,9 +6,8 @@ export interface ServerConfig {
         debug: boolean;
     };
     paths: {
-        locales: string;
-        controllers: string;
         views: string;
+        locales: string;
         assets: string;
         js: string;
         css: string;

@@ -1,31 +1,19 @@
-import { type AppConfig, type RouteConfig } from '@types';
-import { PATH } from '@core/config';
+import { type RouteConfig } from '@types';
 import { type Application } from 'express';
-import { readFile } from 'fs/promises';
-import { load } from 'js-yaml';
-import { join } from 'path';
 
-export async function router ( app: Application, cfg: AppConfig ) : Promise< void > {
+export async function router ( app: Application, routes: RouteConfig[] ) : Promise< void > {
 
-    const { controllers } = cfg.paths;
-    const cntlrBase = join( PATH, controllers );
-
-    const routesContent = await readFile( join( PATH, 'conf/routes.yml' ), 'utf8' );
-    const routes = load( routesContent ) as { routes: RouteConfig[] };
-
-    for ( const { method = 'GET', path, controller } of routes.routes ) {
-
-        const cntlrPath = join( cntlrBase, controller );
+    for ( const { method, path, controller } of routes ) {
 
         try {
 
-            const methodName = method.toLowerCase() as keyof Application;
+            const cntlr = await import( `../controller/${ controller }` );
+            const handler = cntlr.handler || cntlr.default || cntlr;
 
-            const cntlr = await import( cntlrPath );
-            const handler = cntlr.default || cntlr;
+            const method_ = method.toLowerCase() as keyof Application;
 
-            if ( typeof app[ methodName ] === 'function' )
-                ( app[ methodName ] as any )( path, handler );
+            if ( typeof app[ method_ ] === 'function' )
+                ( app[ method_ ] as any )( path, handler );
 
         } catch ( err ) {
 

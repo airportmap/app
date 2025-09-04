@@ -1,4 +1,4 @@
-import { ENV, loadConfig } from '@core/config';
+import { ENV, loadConfig, loadRoutes } from '@core/config';
 import { createServer } from '@core/server';
 
 async function bootstrap () : Promise< void > {
@@ -6,9 +6,11 @@ async function bootstrap () : Promise< void > {
     try {
 
         const cfg = await loadConfig();
-        const app = await createServer( cfg );
+        const routes = await loadRoutes();
 
         const { host, port, https, debug } = cfg.server;
+
+        const app = await createServer( cfg, routes );
 
         app.listen( port, () => {
 

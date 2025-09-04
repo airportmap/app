@@ -3,9 +3,8 @@ server:
   debug: false
 
 paths:
+  views: "views"
   locales: "i18n/locales"
-  controllers: "dist/app/controllers"
-  views: "app/views"
   assets: "public/assets"
   js: "public/js"
   css: "public/css"
