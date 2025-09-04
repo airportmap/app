@@ -29,7 +29,7 @@ export async function router ( app: Application, cfg: AppConfig ) : Promise< voi
 
         } catch ( err ) {
 
-            console.warn( `Failed to load controller for route ${ method }::${ path }`, err.message );
+            console.warn( `Failed to load controller for route ${ method }::${ path }`, err );
 
         }
 

@@ -16,7 +16,7 @@ async function loadCfgFile ( filePath: string ) : Promise< object > {
 
     } catch ( err ) {
 
-        console.warn( `Cannot load config file ${ filePath }`, err.message );
+        console.warn( `Cannot load config file ${ filePath }`, err );
 
     }
 
