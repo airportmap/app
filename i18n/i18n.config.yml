@@ -1,5 +1,5 @@
 i18n:
-  pattern: "i18n/locals/{{lng}}/{{ns}}.min.json"
+  pattern: "{{lng}}/{{ns}}.min.json"
   fallbackLng: "en-US"
   supportedLngs:
     - "en-US"

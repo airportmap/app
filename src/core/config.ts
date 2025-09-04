@@ -1,8 +1,16 @@
 export interface ServerConfig {
-    host: string;
-    port: number;
-    https: boolean;
-    debug: boolean;
+    server: {
+        host: string;
+        port: number;
+        https: boolean;
+        debug: boolean;
+    };
+    paths: {
+        locales: string;
+        assets: string;
+        js: string;
+        css: string;
+    };
 }
 
 export interface I18nConfig {
@@ -14,8 +22,7 @@ export interface I18nConfig {
 
 export interface ModuleConfig {}
 
-export interface AppConfig {
-    server: ServerConfig;
+export interface AppConfig extends ServerConfig {
     i18n: I18nConfig;
     modules: ModuleConfig[];
 }

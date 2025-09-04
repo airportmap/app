@@ -1,0 +1,9 @@
+server:
+  port: 3000
+  debug: false
+
+paths:
+  locales: "i18n/locales"
+  assets: "public/assets"
+  js: "public/js"
+  css: "public/css"
