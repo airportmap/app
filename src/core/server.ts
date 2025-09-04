@@ -6,7 +6,7 @@ export async function createServer ( cfg: AppConfig ) : Promise< Application > {
 
     const app = express();
 
-    setupI18n( app, cfg );
+    await setupI18n( app, cfg );
 
     return app;
 
