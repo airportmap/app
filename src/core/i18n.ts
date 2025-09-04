@@ -1,4 +1,5 @@
 import { type AppConfig } from '@types';
+import { PATH } from '@core/config';
 import { type Application } from 'express';
 import i18next from 'i18next';
 import FsBackend from 'i18next-fs-backend';
@@ -21,7 +22,7 @@ export async function setupI18n ( app: Application, cfg: AppConfig ) : Promise< 
             ns: namespaces,
             defaultNS: namespaces[ 0 ],
             backend: {
-                loadPath: join( locales, pattern )
+                loadPath: join( PATH, locales, pattern )
             },
             detection: {
                 order: [ 'cookie', 'header' ],
