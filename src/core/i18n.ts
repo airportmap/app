@@ -8,8 +8,8 @@ import { join } from 'path';
 
 export async function setupI18n ( app: Application, cfg: AppConfig ) : Promise< void > {
 
-    const { pattern, fallbackLng, supportedLngs, namespaces } = cfg.i18n;
     const { https, debug } = cfg.server;
+    const { pattern, fallbackLng, supportedLngs, namespaces } = cfg.i18n;
     const { locales } = cfg.paths;
 
     await i18next
@@ -20,7 +20,6 @@ export async function setupI18n ( app: Application, cfg: AppConfig ) : Promise< 
             fallbackLng: fallbackLng,
             supportedLngs: supportedLngs,
             ns: namespaces,
-            defaultNS: namespaces[ 0 ],
             backend: {
                 loadPath: join( PATH, locales, pattern )
             },

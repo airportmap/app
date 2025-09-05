@@ -1,5 +1,5 @@
-import { type AppConfig, type RouteConfig } from '@types';
-import { all } from 'deepmerge';
+import { type AppConfig, type ServerConfig, type RouteConfig } from '@types';
+import merge from 'deepmerge';
 import { readFile } from 'fs/promises';
 import { load } from 'js-yaml';
 import { join } from 'path';
@@ -7,12 +7,12 @@ import { join } from 'path';
 export const ENV: string = process.env.NODE_ENV || 'production';
 export const PATH: string = join( __dirname, '../../..' );
 
-async function loadCfgFile ( filePath: string ) : Promise< object > {
+async function loadCfgFile ( filePath: string, json: boolean = false ) : Promise< object > {
 
     try {
 
         const content = await readFile( join( PATH, filePath ), 'utf8' );
-        return load( content ) as object;
+        return load( content, { json } ) as object;
 
     } catch ( err ) {
 
@@ -26,12 +26,17 @@ async function loadCfgFile ( filePath: string ) : Promise< object > {
 
 export async function loadConfig () : Promise< AppConfig > {
 
-    return all( [
-        await loadCfgFile( `conf/default.yml` ),
-        await loadCfgFile( `conf/env/${ ENV }.yml` ),
-        await loadCfgFile( `i18n/i18n.config.yml` ),
-        await loadCfgFile( `modules/modules.config.yml` )
-    ] ) as AppConfig;
+    return {
+        ...merge< ServerConfig >(
+            await loadCfgFile( `conf/default.yml` ),
+            await loadCfgFile( `conf/env/${ ENV }.yml` )
+        ),
+        ...await loadCfgFile( `modules/modules.config.yml` ),
+        i18n: {
+            ...( await loadCfgFile( `i18n/i18n.config.yml` ) as any ).i18n,
+            ...await loadCfgFile( `i18n/i18n.generated.json`, true )
+        }
+    } as AppConfig;
 
 }
 
