@@ -1,13 +1,14 @@
-css:
+assets:
+  css:
 
-js:
+  js:
 
-preload:
-  - href: "assets/font/REM.woff2"
-    as: "font"
-    type: "font/woff2"
-    crossorigin: "anonymous"
-  - href: "assets/font/REM-Italic.woff2"
-    as: "font"
-    type: "font/woff2"
-    crossorigin: "anonymous"
+  preload:
+    - href: "assets/font/REM.woff2"
+      as: "font"
+      type: "font/woff2"
+      crossorigin: "anonymous"
+    - href: "assets/font/REM-Italic.woff2"
+      as: "font"
+      type: "font/woff2"
+      crossorigin: "anonymous"

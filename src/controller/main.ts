@@ -1,4 +1,4 @@
-import { renderHelper } from '@core/render';
+import { renderHelper } from '@core/renderHelper';
 import { type Request, type Response } from 'express';
 
 export default async function get ( req: Request, res: Response ) : Promise< void > {
