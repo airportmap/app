@@ -2,8 +2,7 @@ i18n:
   pattern: "{{lng}}/{{ns}}.json"
   fallbackLng: "en-US"
   supportedLngs:
-    - "en-US"
-    - "de-DE"
+    - "*"
 
   namespaces:
-    - "app.generic"
+    - "app.*"

@@ -1,7 +1,8 @@
 const { execSync } = require( 'child_process' );
-const { copyFileSync, existsSync, mkdirSync, readFileSync } = require( 'fs' );
+const { copyFileSync, mkdirSync, readFileSync } = require( 'fs' );
+const { sync } = require( 'glob' );
 const { load } = require( 'js-yaml' );
-const { join } = require( 'path' );
+const { join, dirname } = require( 'path' );
 
 async function setupI18n () {
 
@@ -30,29 +31,30 @@ async function setupI18n () {
 
         console.log( `Copy necessary i18n files ...` );
 
-        for ( const lng of supportedLngs ) {
+        for ( const lngPattern of supportedLngs ) {
 
-            const lngDir = join( target, lng );
-            mkdirSync( lngDir, { recursive: true } );
+            for ( const nsPattern of namespaces ) {
 
-            for ( const ns of namespaces ) {
+                console.log( `Proceed files for ${ lngPattern }::${ nsPattern }` );
 
-                const fileName = pattern
-                    .replaceAll( '{{lng}}', lng )
-                    .replaceAll( '{{ns}}', ns );
+                const fileGlob = pattern
+                    .replace( '{{lng}}', lngPattern )
+                    .replace( '{{ns}}', nsPattern );
 
-                const srcFile = join( tmpDir, fileName );
-                const tgtFile = join( target, fileName );
+                const matches = sync( join( tmpDir, fileGlob ).replace( /\\/g, '/' ) );
 
-                if ( existsSync( srcFile ) ) {
+                if ( matches.length === 0 )
+                    console.warn( `No files found for ${ lngPattern }::${ nsPattern }` );
 
+                for ( const srcFile of matches ) {
+
+                    const relPath = srcFile.substring( tmpDir.length + 1 );
+                    const tgtFile = join( target, relPath );
+
+                    mkdirSync( dirname( tgtFile ), { recursive: true } );
                     copyFileSync( srcFile, tgtFile );
 
-                    console.log( `Copied ${ lng }::${ ns }` );
-
-                } else {
-
-                    console.warn( `Missing file for ${ lng }::${ ns }` );
+                    console.log( `Copied ${ relPath }` );
 
                 }
 
