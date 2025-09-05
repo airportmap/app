@@ -1,5 +1,5 @@
 const { execSync } = require( 'child_process' );
-const { copyFileSync, mkdirSync, readFileSync } = require( 'fs' );
+const { copyFileSync, mkdirSync, readFileSync, writeFileSync } = require( 'fs' );
 const { sync } = require( 'glob' );
 const { load } = require( 'js-yaml' );
 const { join, dirname } = require( 'path' );
@@ -31,6 +31,9 @@ async function setupI18n () {
 
         console.log( `Copy necessary i18n files ...` );
 
+        const foundLngs = new Set ();
+        const foundNamespaces = new Set ();
+
         for ( const lngPattern of supportedLngs ) {
 
             for ( const nsPattern of namespaces ) {
@@ -50,17 +53,32 @@ async function setupI18n () {
 
                     const relPath = srcFile.substring( tmpDir.length + 1 );
                     const tgtFile = join( target, relPath );
+                    const [ lng, nsFile ] = relPath.replace( /\\/g, '/' ).split( '/' );
+                    const ns = nsFile.replace( /\.json$/, '' );
 
                     mkdirSync( dirname( tgtFile ), { recursive: true } );
                     copyFileSync( srcFile, tgtFile );
 
-                    console.log( `Copied ${ relPath }` );
+                    foundLngs.add( lng );
+                    foundNamespaces.add( ns );
+
+                    console.log( `Copied ${ lng }::${ ns }` );
 
                 }
 
             }
 
         }
+
+        console.log( `Generate i18n lookup config file ...` );
+
+        writeFileSync(
+            'i18n/i18n.generated.json',
+            JSON.stringify( {
+                supportedLngs: Array.from( foundLngs ),
+                namespaces: Array.from( foundNamespaces )
+            }, null, 2 )
+        );
 
         console.log( `Set up i18n successfully` );
 
