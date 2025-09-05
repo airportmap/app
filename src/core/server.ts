@@ -4,7 +4,7 @@ import { setupI18n } from '@core/i18n';
 import { initAssetLoader } from '@core/assets';
 import { initRenderHelper } from '@core/render';
 import { router } from '@core/router';
-import express, { static as static_, type Application } from 'express';
+import express, { static as serveStatic, type Application } from 'express';
 import { join } from 'path';
 
 export async function createServer ( cfg: AppConfig, routes: RouteConfig[] ) : Promise< Application > {
@@ -13,9 +13,9 @@ export async function createServer ( cfg: AppConfig, routes: RouteConfig[] ) : P
 
     const app = express();
 
-    app.use( '/assets', static_( join( PATH, assets ) ) );
-    app.use( '/js', static_( join( PATH, js ) ) );
-    app.use( '/css', static_( join( PATH, css ) ) );
+    app.use( '/assets', serveStatic( join( PATH, assets ) ) );
+    app.use( '/js', serveStatic( join( PATH, js ) ) );
+    app.use( '/css', serveStatic( join( PATH, css ) ) );
 
     app.set( 'view engine', 'pug' );
     app.set( 'views', join( PATH, views ) );
