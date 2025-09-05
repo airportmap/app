@@ -26,7 +26,7 @@ html( lang= lang )
       each js in assets.js
         script(
           src= js.src,
-          type= js.module ? 'module' : js.type || 'text/javascript',
+          type= js.type || 'text/javascript',
           defer= js.defer ? true : undefined,
           async= js.async ? true : undefined
         )

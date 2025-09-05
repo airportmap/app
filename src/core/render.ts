@@ -12,11 +12,12 @@ class RenderHelper {
             const { template, assets, meta, data } = options;
 
             const globalContext = await this.getGlobalContext( req );
+            const pageAssets = await assetLoader.assets( assets );
 
             res.status( 200 ).render( template, {
                 ...globalContext,
                 ...data,
-                assets: assets,
+                assets: pageAssets,
                 meta: {
                     ...globalContext.meta,
                     ...meta
@@ -44,7 +45,6 @@ class RenderHelper {
             query: req.query,
             params: req.params,
             env: ENV,
-            assets: {} as any,
             meta: {
                 title: req.t( 'app.generic:title' ),
                 description: req.t( 'app.generic:description' ),
