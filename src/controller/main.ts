@@ -1,7 +1,14 @@
+import { renderHelper } from '@core/renderHelper';
 import { type Request, type Response } from 'express';
 
-export default function get ( req: Request, res: Response ) : void {
+export default async function get ( req: Request, res: Response ) : Promise< void > {
 
-    res.render( 'main', {} );
+    await renderHelper.render( req, res, {
+        template: 'main',
+        title: req.t( 'app.home:title' ),
+        description: req.t( 'app.home:description' ),
+        assets: {},
+        data: {}
+    } );
 
 }

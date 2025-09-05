@@ -33,3 +33,62 @@ export interface RouteConfig {
     path: string;
     controller: string;
 }
+
+export interface PageAssets {
+    css: Array< {
+        href: string;
+        media?: string;
+        rel?: string;
+    } >;
+    js: Array< {
+        src: string;
+        type?: string;
+        defer?: boolean;
+        async?: boolean;
+        module?: boolean;
+    } >;
+    preload?: Array< {
+        href: string;
+        as: string;
+        type?: string;
+    } >;
+}
+
+export interface GlobalContext {
+    t: ( key: string, options?: any ) => string;
+    lang: string;
+    host: string;
+    protocol: string;
+    originalUrl: string;
+    path: string;
+    query: any;
+    params: any;
+    appName: string;
+    version: string;
+    env: string;
+    assets: PageAssets;
+    meta: {
+        title?: string;
+        description?: string;
+        keywords?: string;
+        canonical?: string;
+        robots?: string;
+    };
+}
+
+export interface RenderOptions {
+    template: string;
+    title?: string;
+    description?: string;
+    keywords?: string;
+    assets?: {
+        css?: string[];
+        js?: string[];
+        inline?: {
+            css?: string[];
+            js?: string[];
+        };
+    };
+    meta?: Partial< GlobalContext[ 'meta' ] >;
+    data?: Record< string, any >;
+}
