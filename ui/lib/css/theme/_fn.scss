@@ -1,0 +1,44 @@
+@use 'sass:color';
+@use 'sass:map';
+
+@function theme-color( $color-name, $fallback: null ) {
+    @if map.has-key( $theme, $color-name ) {
+        @return map.get( $theme, $color-name );
+    } @else if $fallback {
+        @return $fallback;
+    } @else {
+        @warn "Color '#{$color-name}' not found in current theme";
+        @return null;
+    }
+}
+
+@function theme-color-light( $color-name, $amount: 10% ) {
+    $color: theme-color( $color-name );
+    @if $color {
+        @return color.lighten( $color, $amount );
+    }
+    @return null;
+}
+
+@function theme-color-dark( $color-name, $amount: 10% ) {
+    $color: theme-color( $color-name );
+    @if $color {
+        @return color.darken( $color, $amount );
+    }
+    @return null;
+}
+
+@function theme-color-alpha( $color-name, $alpha: 0.5 ) {
+    $color: theme-color( $color-name );
+    @if $color {
+        @return color.rgba( $color, $alpha );
+    }
+    @return null;
+}
+
+@mixin set-theme-color( $property, $color-name, $fallback: null ) {
+    #{$property}: var(
+        --color-#{$color-name},
+        #{theme-color( $color-name, $fallback )}
+    );
+}

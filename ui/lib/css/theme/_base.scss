@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+@mixin theme-base {
+
+  --color-white: #{map.get( $theme, 'white' )};
+  --color-light: #{map.get( $theme, 'light' )};
+  --color-medium: #{map.get( $theme, 'medium' )};
+  --color-black: #{map.get( $theme, 'black' )};
+
+  --color-main: #{map.get( $theme, 'main' )};
+  --color-second: #{map.get( $theme, 'second' )};
+  --color-accent: #{map.get( $theme, 'accent' )};
+  --color-special: #{map.get( $theme, 'special' )};
+
+  --color-bg: #{map.get( $theme, 'bg' )};
+
+}

@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+@use 'base';
+@use 'fn';
+@use 'theme.light';
+@use 'theme.dark';
+
+$default-theme: 'light' !default;
+$available-themes: (
+    'light': $light-theme,
+    'dark': $dark-theme
+) !default;
+
+$theme: map.get( $available-themes, $default-theme ) !default;
+
+@mixin register-theme( $name, $theme-map ) {
+    $available-themes: map.merge( $available-themes, ( $name: $theme-map ) ) !global;
+}
+
+@mixin use-theme( $theme-name ) {
+    @if map.has-key( $available-themes, $theme-name ) {
+        $theme: map.get( $available-themes, $theme-name ) !global;
+    } @else {
+        @warn "Theme '#{$theme-name}' not found. Available themes: #{map.keys( $available-themes )}";
+    }
+}
+
+@each $theme-name, $theme-map in $available-themes {
+    .__apm_theme__#{$theme-name} {
+        $theme: $theme-map !global;
+        @include theme-base;
+    }
+}
+
+:root {
+    $theme: $light-theme !global;
+    @include theme-base;
+}
+
+@media ( prefers-color-scheme: dark ) {
+    :root {
+        $theme: $dark-theme !global;
+        @include theme-base;
+    }
+}
