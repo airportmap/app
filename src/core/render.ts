@@ -1,5 +1,6 @@
 import { type GlobalContext, type RenderOptions } from '@types';
 import { ENV } from '@core/config';
+import { assetLoader } from '@core/assets';
 import { type Request, type Response } from 'express';
 
 class RenderHelper {
@@ -56,4 +57,12 @@ class RenderHelper {
 
 }
 
-export const renderHelper = new RenderHelper ();
+let renderHelper: RenderHelper;
+
+function initRenderHelper () : void {
+
+    renderHelper = new RenderHelper ();
+
+}
+
+export { initRenderHelper, renderHelper };
