@@ -75,6 +75,7 @@ export interface GlobalContext {
 
 export interface RenderOptions {
     template: string;
+    bodyClass?: string;
     assets?: {
         css?: string[];
         js?: string[];
