@@ -1,45 +1,60 @@
 @use 'sass:map';
 
-@use 'base';
 @use 'fn';
-@use 'theme.light';
-@use 'theme.dark';
+@use 'theme__light';
+@use 'theme__dark';
 
-$default-theme: 'light' !default;
-$available-themes: (
-    'light': $light-theme,
-    'dark': $dark-theme
+$default: 'light' !default;
+$themes: (
+    'light': theme__light.$theme,
+    'dark': theme__dark.$theme
 ) !default;
 
-$theme: map.get( $available-themes, $default-theme ) !default;
+$theme: map.get( $themes, $default ) !default;
 
-@mixin register-theme( $name, $theme-map ) {
-    $available-themes: map.merge( $available-themes, ( $name: $theme-map ) ) !global;
+@mixin register( $name, $map ) {
+    $themes: map.merge( $themes, ( $name: $map ) ) !global;
 }
 
-@mixin use-theme( $theme-name ) {
-    @if map.has-key( $available-themes, $theme-name ) {
-        $theme: map.get( $available-themes, $theme-name ) !global;
+@mixin use( $name ) {
+    @if map.has-key( $themes, $name ) {
+        $theme: map.get( $themes, $name ) !global;
     } @else {
-        @warn "Theme '#{$theme-name}' not found. Available themes: #{map.keys( $available-themes )}";
+        @warn "Theme '#{$name}' not found. Available themes: #{map.keys( $themes )}";
     }
 }
 
-@each $theme-name, $theme-map in $available-themes {
-    .__apm_theme__#{$theme-name} {
-        $theme: $theme-map !global;
-        @include theme-base;
+@mixin base( $theme ) {
+
+  --color-white: #{map.get( $theme, 'white' )};
+  --color-light: #{map.get( $theme, 'light' )};
+  --color-medium: #{map.get( $theme, 'medium' )};
+  --color-black: #{map.get( $theme, 'black' )};
+
+  --color-main: #{map.get( $theme, 'main' )};
+  --color-second: #{map.get( $theme, 'second' )};
+  --color-accent: #{map.get( $theme, 'accent' )};
+  --color-special: #{map.get( $theme, 'special' )};
+
+  --color-bg: #{map.get( $theme, 'bg' )};
+
+}
+
+@each $name, $map in $themes {
+    .__apm_theme__#{$name} {
+        $theme: $map !global;
+        @include base( $theme );
     }
 }
 
 :root {
-    $theme: $light-theme !global;
-    @include theme-base;
+    $theme: theme__light.$theme !global;
+    @include base( $theme );
 }
 
 @media ( prefers-color-scheme: dark ) {
     :root {
-        $theme: $dark-theme !global;
-        @include theme-base;
+        $theme: theme__dark.$theme !global;
+        @include base( $theme );
     }
 }
