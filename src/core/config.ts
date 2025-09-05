@@ -31,6 +31,7 @@ export async function loadConfig () : Promise< AppConfig > {
             await loadCfgFile( `conf/default.yml` ),
             await loadCfgFile( `conf/env/${ ENV }.yml` )
         ),
+        ...await loadCfgFile( `conf/assets.yml` ),
         ...await loadCfgFile( `modules/modules.config.yml` ),
         i18n: {
             ...( await loadCfgFile( `i18n/i18n.config.yml` ) as any ).i18n,

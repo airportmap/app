@@ -23,24 +23,13 @@ export interface I18nConfig {
 
 export interface ModuleConfig {}
 
-export interface AppConfig extends ServerConfig {
-    i18n: I18nConfig;
-    modules: ModuleConfig[];
-}
-
-export interface RouteConfig {
-    method: string;
-    path: string;
-    controller: string;
-}
-
-export interface PageAssets {
-    css: Array< {
+export interface AssetsConfig {
+    css: Record< string, {
         href: string;
         media?: string;
         rel?: string;
     } >;
-    js: Array< {
+    js: Record< string, {
         src: string;
         type?: string;
         defer?: boolean;
@@ -51,7 +40,20 @@ export interface PageAssets {
         href: string;
         as: string;
         type?: string;
+        crossorigin?: string;
     } >;
+}
+
+export interface AppConfig extends ServerConfig {
+    i18n: I18nConfig;
+    modules: ModuleConfig[];
+    assets: AssetsConfig;
+}
+
+export interface RouteConfig {
+    method: string;
+    path: string;
+    controller: string;
 }
 
 export interface GlobalContext {
@@ -64,7 +66,7 @@ export interface GlobalContext {
     query: any;
     params: any;
     env: string;
-    assets: PageAssets;
+    assets: AssetsConfig;
     meta: {
         title?: string;
         description?: string;
