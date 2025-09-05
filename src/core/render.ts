@@ -47,6 +47,7 @@ class RenderHelper {
             meta: {
                 title: req.t( 'app.generic:title' ),
                 description: req.t( 'app.generic:description' ),
+                canonical: `${ req.protocol }://${ req.get( 'host' ) }${ req.originalUrl }`,
                 robots: 'index, follow'
             }
         };
