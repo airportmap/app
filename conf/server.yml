@@ -1,0 +1,21 @@
+server:
+  port: 3000
+
+mods:
+  i18n:
+    enabled: true
+    configPath: "i18n/i18n.config.yml"
+    lookupPath: "i18n/i18n.generated.json"
+
+  session:
+    enabled: false
+
+  views:
+    enabled: true
+    viewEngine: "pug"
+    viewBase: "views"
+
+  router:
+    enabled: true
+    configPath: "conf/routes.yml"
+    cntrlBase: "src/controller"
