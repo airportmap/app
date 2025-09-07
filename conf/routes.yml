@@ -1,0 +1,4 @@
+routes:
+  - method: "get"
+    path: "{/}"
+    controller: "home"
