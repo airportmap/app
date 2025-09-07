@@ -10,8 +10,8 @@
     "url": "https://komed3.de"
   },
   "scripts": {
-    "i18n:sync": "i18n-sync",
-    "i18n:sync:ci": "i18n-sync --ci"
+    "i18n:sync": "npx i18n-sync",
+    "i18n:sync:ci": "npx i18n-sync --ci"
   },
   "dependencies": {
     "@airportmap/server": "github:airportmap/server"
