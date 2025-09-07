@@ -9,33 +9,10 @@
     "email": "webmaster@komed3.de",
     "url": "https://komed3.de"
   },
-  "homepage": "https://github.com/airportmap/app",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/airportmap/app.git"
-  },
-  "bugs": {
-    "url": "https://github.com/airportmap/app/issues"
-  },
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development node dist/src/app.js"
-  },
   "dependencies": {
-    "deepmerge": "^4.3.1",
-    "express": "^5.1.0",
-    "i18next": "^25.5.0",
-    "i18next-fs-backend": "^2.6.0",
-    "i18next-http-middleware": "^3.8.0",
-    "js-yaml": "^4.1.0",
-    "pug": "^3.0.3"
+    "@airportmap/server": "github:airportmap/server"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/js-yaml": "^4.0.9",
-    "cross-env": "^10.0.0",
-    "glob": "^11.0.3",
-    "sass": "^1.92.0",
-    "tsc": "^2.0.4",
-    "tsc-alias": "^1.8.16"
+    "@airportmap/types": "github:airportmap/types"
   }
 }

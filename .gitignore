@@ -1,10 +1,1 @@
 node_modules/
-project/*.ts
-temp/
-
-dist/
-i18n/locales/
-i18n/i18n.generated.json
-modules/**/
-public/css/
-public/js

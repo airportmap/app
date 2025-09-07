@@ -1,4 +1,0 @@
-server:
-  host: "airportmap.de"
-  https: true
-  debug: false

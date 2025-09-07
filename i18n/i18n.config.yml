@@ -1,8 +1,0 @@
-i18n:
-  pattern: "{{lng}}/{{ns}}.json"
-  fallbackLng: "en-US"
-  supportedLngs:
-    - "*"
-
-  namespaces:
-    - "app.*"

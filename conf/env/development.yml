@@ -1,4 +1,0 @@
-server:
-  host: "localhost"
-  https: false
-  debug: true
