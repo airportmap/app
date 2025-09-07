@@ -9,10 +9,15 @@
     "email": "webmaster@komed3.de",
     "url": "https://komed3.de"
   },
+  "scripts": {
+    "i18n:sync": "i18n-sync",
+    "i18n:sync:ci": "i18n-sync --ci"
+  },
   "dependencies": {
     "@airportmap/server": "github:airportmap/server"
   },
   "devDependencies": {
+    "@airportmap/i18n-sync": "github:airportmap/i18n-sync",
     "@airportmap/types": "github:airportmap/types"
   }
 }
