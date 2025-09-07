@@ -1,6 +1,11 @@
 server:
   port: 3000
 
+statics:
+  assets: "public/assets"
+  css: "public/css"
+  js: "public/js"
+
 mods:
   i18n:
     enabled: true
