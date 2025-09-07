@@ -10,14 +10,19 @@
     "url": "https://komed3.de"
   },
   "scripts": {
+    "dev": "cross-env NODE_ENV=dev node dist/app.js",
     "i18n:sync": "npx i18n-sync",
-    "i18n:sync:ci": "npx i18n-sync --ci"
+    "i18n:sync:ci": "npx i18n-sync --ci",
+    "start": "node dist/app.js"
   },
   "dependencies": {
     "@airportmap/server": "github:airportmap/server"
   },
   "devDependencies": {
     "@airportmap/i18n-sync": "github:airportmap/i18n-sync",
-    "@airportmap/types": "github:airportmap/types"
+    "@airportmap/types": "github:airportmap/types",
+    "@types/node": "^24.3.1",
+    "cross-env": "^10.0.0",
+    "typescript": "^5.9.2"
   }
 }

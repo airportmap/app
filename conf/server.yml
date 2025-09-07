@@ -23,4 +23,4 @@ mods:
   router:
     enabled: true
     configPath: "conf/routes.yml"
-    cntrlBase: "src/controller"
+    cntrlBase: "dist/controller"
