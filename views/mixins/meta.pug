@@ -1,0 +1,23 @@
+mixin metadata ( meta )
+  if meta.title
+    title= meta.title
+  if meta.description
+    meta( name= "description", content= meta.description )
+  if meta.robots
+    meta( name= "robots", content= meta.robots )
+  if meta.canonical
+    link( rel= "canonical", href= meta.canonical )
+
+mixin appeal ()
+  meta( name= "theme-color", content= "#29d682" )
+  link( rel= "icon", href= "assets/images/favicon.ico", sizes= "48x48", type= "image/x-icon" )
+  link( rel= "icon", href= "assets/images/logo.svg", sizes= "any", type= "image/svg+xml" )
+
+mixin og ( data )
+  - var og = data && data.og ? data.og : {}
+  meta( property= "og:type", content= "website" )
+  meta( property= "og:site_name", content= "Airportmap" )
+  meta( property= "og:title", content= og.title || meta.title || undefined )
+  meta( property= "og:description", content= og.description || meta.description || undefined )
+  meta( property= "og:url", content= og.url || meta.canonical || undefined )
+  meta( property= "og:image", content= og.image || undefined )

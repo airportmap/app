@@ -1,4 +1,5 @@
 include ../mixins/assets
+include ../mixins/meta
 
 doctype html
 html( class= htmlClasses, lang= app.lang )
@@ -6,22 +7,13 @@ html( class= htmlClasses, lang= app.lang )
   head
     meta( charset= "utf-8" )
     meta( name= "viewport", content= "width=device-width, initial-scale=1.0" )
-    meta( name= "theme-color", content= "#29d682" )
-    link( rel= "icon", href= "assets/images/favicon.ico", sizes= "48x48", type= "image/x-icon" )
-    link( rel= "icon", href= "assets/images/logo.svg", sizes= "any", type= "image/svg+xml" )
-
-    if meta.title
-      title= meta.title
-    if meta.description
-      meta( name= "description", content= meta.description )
-    if meta.robots
-      meta( name= "robots", content= meta.robots )
-    if meta.canonical
-      link( rel= "canonical", href= meta.canonical )
-
+    
+    +appeal()
+    +metadata( meta )
+    +og( data )
+    +preload( assets )
     +css( assets )
     +js( assets )
-    +preload( assets )
 
 
   body#top( class= bodyClasses ? bodyClasses : "__apm" )
