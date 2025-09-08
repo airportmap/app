@@ -1,5 +1,9 @@
 assets:
   css:
+    shared/global:
+      href: "css/shared.global.css"
+      global: true
+
   js:
 
 preload:
