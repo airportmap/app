@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use 'theme__light';
+@use 'theme__dark';
+
+$default: 'light' !default;
+$themes: (
+    'light': theme__light.$theme,
+    'dark': theme__dark.$theme
+) !default;
+
+@mixin register( $name, $map ) {
+    $themes: map.merge( $themes, ( $name: $map ) ) !global;
+}
+
+@mixin use( $name ) {
+    @if map.has-key( $themes, $name ) {
+        $theme: map.get( $themes, $name ) !global;
+    } @else {
+        @warn "Theme '#{$name}' not found. Available themes: #{map.keys( $themes )}";
+    }
+}
+
+@mixin base( $theme ) {
+
+    --color-white: #{map.get( $theme, 'white' )};
+    --color-light: #{map.get( $theme, 'light' )};
+    --color-medium: #{map.get( $theme, 'medium' )};
+    --color-black: #{map.get( $theme, 'black' )};
+
+    --color-main: #{map.get( $theme, 'main' )};
+    --color-second: #{map.get( $theme, 'second' )};
+    --color-accent: #{map.get( $theme, 'accent' )};
+    --color-special: #{map.get( $theme, 'special' )};
+
+    --color-text: #{map.get( $theme, 'text' )};
+    --color-bg: #{map.get( $theme, 'bg' )};
+
+}
+
+@each $name, $map in $themes {
+    ._theme_#{$name} {
+        $theme: $map !global;
+        @include base( $theme );
+    }
+}
+
+:root {
+    $theme: theme__light.$theme !global;
+    @include base( $theme );
+}
+
+@media ( prefers-color-scheme: dark ) {
+    :root {
+        $theme: theme__dark.$theme !global;
+        @include base( $theme );
+    }
+}
