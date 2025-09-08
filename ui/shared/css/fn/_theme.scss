@@ -1,0 +1,37 @@
+@use 'sass:color';
+@use 'sass:map';
+
+@function get( $theme, $name, $fb: null ) {
+    @if map.has-key( $theme, $name ) {
+        @return map.get( $theme, $name );
+    } @else if $fb {
+        @return $fb;
+    } @else {
+        @warn "Color '#{$name}' not found in theme '#{$theme}'";
+        @return null;
+    }
+}
+
+@function light( $theme, $name, $amount: 10% ) {
+    $color: get( $theme, $name );
+    @if $color {
+        @return color.lighten( $color, $amount );
+    }
+    @return null;
+}
+
+@function dark( $theme, $name, $amount: 10% ) {
+    $color: get( $theme, $name );
+    @if $color {
+        @return color.darken( $color, $amount );
+    }
+    @return null;
+}
+
+@function alpha( $theme, $name, $alpha: 0.5 ) {
+    $color: get( $theme, $name );
+    @if $color {
+        @return color.rgba( $color, $alpha );
+    }
+    @return null;
+}
