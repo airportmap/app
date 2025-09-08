@@ -1,7 +1,7 @@
-import { server } from '@app';
-import { type Request, type Response } from 'express';
+import type { Server } from '@airportmap/server';
+import type { Request, Response } from 'express';
 
-export default async function get ( req: Request, res: Response ) : Promise< void > {
+export default async function get ( req: Request, res: Response, server: Server ) : Promise< void > {
 
     await server.renderer.render( req, res, {
         template: 'home',

@@ -1,5 +1,7 @@
-import { Server } from '@airportmap/server';
+import { startServer } from '@airportmap/server';
 
-export const server = new Server ( process.cwd() );
+( async () => {
 
-server.init().then( ( s ) => s.run );
+    const server = await startServer( __dirname );
+
+} )();
