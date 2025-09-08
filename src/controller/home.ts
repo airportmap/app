@@ -7,8 +7,8 @@ export default async function get ( req: Request, res: Response ) : Promise< voi
         template: 'home',
         assets: {},
         meta: {
-            title: ( req as any ).t( 'title' ),
-            description: ( req as any ).t( 'description' )
+            title: ( req as any ).t( 'app.home:title' ),
+            description: ( req as any ).t( 'app.home:description' )
         },
         data: {}
     } );
