@@ -1,10 +1,5 @@
 import { Server } from '@airportmap/server';
 
-( async () : Promise< void > => {
+export const server = new Server ( process.cwd() );
 
-    const server = new Server ( process.cwd() );
-    await server.init();
-
-    server.run();
-
-} )();
+server.init().then( ( s ) => s.run );

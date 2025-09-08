@@ -16,11 +16,13 @@
     "start": "node dist/app.js"
   },
   "dependencies": {
-    "@airportmap/server": "github:airportmap/server"
+    "@airportmap/server": "github:airportmap/server",
+    "pug": "^3.0.3"
   },
   "devDependencies": {
     "@airportmap/i18n-sync": "github:airportmap/i18n-sync",
     "@airportmap/types": "github:airportmap/types",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.3.1",
     "cross-env": "^10.0.0",
     "typescript": "^5.9.2"
