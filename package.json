@@ -10,7 +10,7 @@
     "url": "https://komed3.de"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev node dist/app.js",
+    "dev": "cross-env NODE_ENV=dev ts-node src/app.ts",
     "i18n:sync": "npx i18n-sync",
     "i18n:sync:ci": "npx i18n-sync --ci",
     "start": "node dist/app.js"
@@ -25,6 +25,7 @@
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.1",
     "cross-env": "^10.0.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   }
 }
