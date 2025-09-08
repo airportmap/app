@@ -1,9 +1,12 @@
+include ../mixins/assets
+
 doctype html
-html( lang= app.lang )
+html( class= htmlClasses, lang= app.lang )
 
   head
     meta( charset= "utf-8" )
     meta( name= "viewport", content= "width=device-width, initial-scale=1.0" )
+    meta( name= "theme-color", content= "#29d682" )
     link( rel= "icon", href= "assets/images/favicon.ico", sizes= "48x48", type= "image/x-icon" )
     link( rel= "icon", href= "assets/images/logo.svg", sizes= "any", type= "image/svg+xml" )
 
@@ -16,35 +19,12 @@ html( lang= app.lang )
     if meta.canonical
       link( rel= "canonical", href= meta.canonical )
 
-    if assets.preload
-      each preload in assets.preload
-        link(
-          rel= "preload",
-          href= preload.href,
-          as= preload.as,
-          type= preload.type,
-          crossorigin= preload.crossOrigin
-        )
-
-    if assets.css
-      each css in assets.css
-        link(
-          rel= css.rel || "stylesheet",
-          href= css.href,
-          media= css.media
-        )
-
-    if assets.js
-      each js in assets.js
-        script(
-          src= js.src,
-          type= js.type = "module" ? "module" : "text/javascript",
-          defer= js.defer ? true : undefined,
-          async= js.async ? true : undefined
-        )
+    +css( assets )
+    +js( assets )
+    +preload( assets )
 
 
-  body#top( class= bodyClass ? bodyClass : "__apm" )
+  body#top( class= bodyClasses ? bodyClasses : "__apm" )
 
     include ../parts/header
 

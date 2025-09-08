@@ -5,7 +5,7 @@ export default async function get ( req: Request, res: Response, server: Server 
 
     await server.renderer.render( req, res, {
         template: 'home',
-        bodyClass: '__apm __apm_home',
+        bodyClasses: '__apm __apm_home',
         assets: {},
         meta: {
             title: ( req as any ).t( 'app.home:title' ),
