@@ -2,3 +2,7 @@ server:
   host: "localhost"
   https: false
   debug: true
+
+mods:
+  router:
+    cntrlBase: "src/controller"
