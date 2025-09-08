@@ -2,11 +2,13 @@
 @use 'theme__light';
 @use 'theme__dark';
 
-$default: 'light' !default;
 $themes: (
     'light': theme__light.$theme,
     'dark': theme__dark.$theme
 ) !default;
+
+$default: 'light' !default;
+$theme: map.get( $themes, $default ) !default;
 
 @mixin register( $name, $map ) {
     $themes: map.merge( $themes, ( $name: $map ) ) !global;
