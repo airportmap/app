@@ -27,7 +27,7 @@ html( lang= app.lang )
     if assets.css
       each css in assets.css
         link(
-          rel= css.rel || 'stylesheet',
+          rel= css.rel || "stylesheet",
           href= css.href,
           media= css.media
         )
@@ -36,10 +36,17 @@ html( lang= app.lang )
       each js in assets.js
         script(
           src= js.src,
-          type= js.type = 'module' ? 'module' : 'text/javascript',
+          type= js.type = "module" ? "module" : "text/javascript",
           defer= js.defer ? true : undefined,
           async= js.async ? true : undefined
         )
 
 
-  body#top( class= bodyClass ? bodyClass : '__apm' )
+  body#top( class= bodyClass ? bodyClass : "__apm" )
+
+    include ../parts/header
+
+    main#main.__apm_main( role= "main" )
+      block content
+
+    include ../parts/footer
