@@ -11,8 +11,8 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=dev node -r ts-node/register src/app.ts",
-    "i18n:sync": "npx i18n-sync",
-    "i18n:sync:ci": "npx i18n-sync --ci",
+    "i18n:sync": "npx i18n-sync --config=i18n/i18n.config.yml",
+    "i18n:sync:ci": "npx i18n-sync --config=i18n/i18n.config.yml --ci",
     "start": "node dist/app.js"
   },
   "dependencies": {
@@ -20,7 +20,7 @@
     "pug": "^3.0.3"
   },
   "devDependencies": {
-    "@airportmap/i18n-sync": "github:airportmap/i18n-sync",
+    "@airportmap/build-tools": "github:airportmap/build-tools",
     "@airportmap/types": "github:airportmap/types",
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.1",
