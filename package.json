@@ -1,7 +1,6 @@
 {
   "name": "airportmap-app",
   "private": true,
-  "version": "2.0.0",
   "description": "Main application of the Airportmap, frontend ui / web interface",
   "license": "MIT",
   "author": {
