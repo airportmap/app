@@ -9,6 +9,9 @@
     "url": "https://komed3.de"
   },
   "scripts": {
+    "assets:build": "npx build-assets --config=project/build-assets.yml --compressed",
+    "assets:build:ci": "npx build-assets --config=project/build-assets.yml --compressed --ci",
+    "assets:clear": "rm -rf public/css && rm -rf public/js",
     "dev": "cross-env NODE_ENV=dev node -r ts-node/register src/app.ts",
     "i18n:sync": "npx i18n-sync --config=i18n/i18n.config.yml",
     "i18n:sync:ci": "npx i18n-sync --config=i18n/i18n.config.yml --ci",

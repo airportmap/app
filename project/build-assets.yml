@@ -1,0 +1,11 @@
+sourceDir: "ui"
+outputDir: "public"
+
+patterns:
+  scss: "**/css/*.scss"
+  typescript: "**/src/*.ts"
+  exclude: "**/_*"
+
+naming:
+  css: "{{module}}.{{file}}.css"
+  js: "{{module}}.{{file}}.js"
