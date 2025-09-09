@@ -1,10 +1,10 @@
 @use 'sass:map';
-@use 'theme__light';
-@use 'theme__dark';
+@use 'theme__light' as light;
+@use 'theme__dark' as dark;
 
 $themes: (
-    'light': theme__light.$theme,
-    'dark': theme__dark.$theme
+    'light': light.$theme,
+    'dark': dark.$theme
 ) !default;
 
 $default: 'light' !default;
@@ -47,13 +47,13 @@ $theme: map.get( $themes, $default ) !default;
 }
 
 :root {
-    $theme: theme__light.$theme !global;
+    $theme: light.$theme !global;
     @include base( $theme );
 }
 
 @media ( prefers-color-scheme: dark ) {
     :root {
-        $theme: theme__dark.$theme !global;
+        $theme: dark.$theme !global;
         @include base( $theme );
     }
 }
