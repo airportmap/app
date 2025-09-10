@@ -3,7 +3,7 @@
 @use '../abstract/vars';
 
 .___button {
-    @include mixin.center;
+    @include mixin.flex-center( $inline: true );
     @include mixin.glass-effect( 'bright', 0.8 );
     @include mixin.shadow;
 

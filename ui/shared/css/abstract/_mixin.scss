@@ -15,6 +15,18 @@
     pointer-events: none;
 }
 
+@mixin layout-max( $at ) {
+    @media ( max-width: vars.getval( 'layout-breakpoint--#{$at}' ) ) {
+        @content;
+    }
+}
+
+@mixin layout-min( $at ) {
+    @media ( min-width: vars.getval( 'layout-breakpoint--#{$at}' ) ) {
+        @content;
+    }
+}
+
 @mixin fixed( $top: unset, $left: unset, $right: unset, $bottom: unset ) {
     position: fixed;
     top: #{$top};
@@ -49,10 +61,27 @@
     height: #{$height};
 }
 
-@mixin center {
-    display: inline-flex;
+@mixin flex-center( $nowrap: true, $inline: false ) {
+    display: if( $inline, inline-flex, flex );
+    flex-flow: row if( $nowrap, nowrap, wrap );
     justify-content: center;
     align-items: center;
+}
+
+@mixin flex-row( $gap: 0, $horiz: flex-start, $vert: center, $nowrap: true ) {
+    display: flex;
+    flex-flow: row if( $nowrap, nowrap, wrap );
+    justify-content: #{$horiz};
+    align-items: #{$vert};
+    gap: #{$gap};
+}
+
+@mixin flex-col( $gap: 0, $horiz: center, $vert: flex-start, $nowrap: true ) {
+    display: flex;
+    flex-flow: column if( $nowrap, nowrap, wrap );
+    justify-content: #{$horiz};
+    align-items: #{$vert};
+    gap: #{$gap};
 }
 
 @mixin glass-effect( $color, $alpha: 0.4, $blur: 16px ) {

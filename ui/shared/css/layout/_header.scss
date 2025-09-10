@@ -8,19 +8,15 @@
     @include mixin.fixed( 0, 0, 0 );
 
     height: vars.get( 'header-height' );
-    padding: 0 48px;
+    padding: 0 vars.get( 'padding-normal' );
     border-bottom: 1px solid theme.get( 'light' );
     z-index: 999;
 }
 
 .__apm_header__inner {
+    @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
     @include mixin.max-width( 'content-wide' );
     @include mixin.full-sized();
-
-    display: grid;
-    grid-template-columns: 240px 1fr 240px;
-    align-items: center;
-    gap: 32px;
 }
 
 .__apm_header__logo {
@@ -38,8 +34,8 @@
 }
 
 .__apm_header__actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 12px;
+    @include mixin.flex-row( 12px, flex-end );
+    @include mixin.layout-min( 'normal' ) {
+        #__site_search { display: none; }
+    }
 }

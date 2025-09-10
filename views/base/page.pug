@@ -24,7 +24,7 @@ html( class= htmlClasses, lang= app.lang )
       div.__apm_header__inner
         div.__apm_header__left
           a.__apm_header__logo( href= "/", title= fn.i18n( 'app.generic:name' ) )
-            object( data= "assets/images/logo.svg", type= "image/svg+xml" )
+            object( data= "assets/images/logo.svg", type= "image/svg+xml", title= fn.i18n( 'app.generic:name' ) )
               img( src= "assets/images/logo_256x256.png", alt= fn.i18n( 'app.generic:name' ) )
 
         div.__apm_header__center
@@ -33,12 +33,15 @@ html( class= htmlClasses, lang= app.lang )
 
         div.__apm_header__right
           div.__apm_header__actions
+            div#__site_search.__apm_header__actions_item
+              a.__apm_header__actions_button.___button( role= "button", tabindex= "0", title= fn.i18n( 'app.generic:search' ) )
+                +icon( 'search' )
             div#__site_menu.__apm_header__actions_item
-              a.__apm_header__actions_button.___button( title= fn.i18n( 'app.generic:menu' ) )
+              a.__apm_header__actions_button.___button( role= "button", tabindex= "0", title= fn.i18n( 'app.generic:menu' ) )
                 +icon( 'menu' )
               div.__apm_header__actions_app
             div#__site_dasher.__apm_header__actions_item
-              a.__apm_header__actions_button.___button( title= fn.i18n( 'app.generic:dasher' ) )
+              a.__apm_header__actions_button.___button( role= "button", tabindex= "0", title= fn.i18n( 'app.generic:dasher' ) )
                 +icon( 'dasher' )
               div.__apm_header__actions_app
 
