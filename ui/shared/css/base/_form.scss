@@ -30,3 +30,10 @@ button, .___button {
     }
 
 }
+
+@each $key in ( '::placeholder', '::-webkit-input-placeholder', '::-moz-placeholder' ) {
+    #{$key} {
+        color: theme.get( 'medium' );
+        opacity: 1;
+    }
+}
