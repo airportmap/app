@@ -14,7 +14,7 @@
 }
 
 .__apm_header__inner {
-    @include mixin.max-width( 'site-content--wide' );
+    @include mixin.max-width( 'content-wide' );
     @include mixin.full-sized();
 
     display: grid;
@@ -24,10 +24,9 @@
 }
 
 .__apm_header__logo {
+    @include mixin.ratio-height( vars.get( 'button-height' ) );
+
     display: block;
-    aspect-ratio: 1 / 1;
-    width: auto;
-    height: calc( vars.get( 'header-height' ) * 0.64 );
 
     object, image {
         @include mixin.prevent-events;

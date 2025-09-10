@@ -1,10 +1,11 @@
 @use 'sass:map';
 
 $default: (
-    site-content--wide: 1640px,
-    site-content--normal: 1260px,
-    site-content--small: 980px,
+    content-wide: 1640px,
+    content-normal: 1260px,
+    content-small: 980px,
     header-height: 76px,
+    button-height: 48px,
     font-sans: '"REM", sans-serif',
     border-radius: 8px
 );
