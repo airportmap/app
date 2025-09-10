@@ -1,3 +1,4 @@
+@use '../abstract/mixin';
 @use '../abstract/theme';
 @use '../abstract/vars';
 @use 'header';
@@ -23,4 +24,16 @@ html, body {
 *, *::before, *::after {
     box-sizing: border-box;
     outline: 0 none;
+}
+
+.__apm_backdrop {
+    @include mixin.fixed( 0, 0, 0, 0 );
+    @include mixin.glass-effect( 'light', 0.2, 2px );
+
+    z-index: 998;
+
+    &:not( .___active ) {
+        display: none;
+    }
+
 }
