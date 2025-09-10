@@ -1,0 +1,27 @@
+@use 'sass:map';
+
+$default: (
+    site-header--height: 76px
+);
+
+$vars: ();
+
+@each $key, $_ in $default {
+    $vars: map.set( $vars, $key, var( --#{$key} ) );
+}
+
+@function get( $name, $fb: null ) {
+    $value: map.get( $vars, $name );
+    @if $value { @return $value; }
+    @else if $fb { @return $fb; }
+    @else {
+        @warn "Variable '#{$name}' is not defined";
+        @return null;
+    }
+}
+
+:root {
+    @each $key, $value in $default {
+        --#{$key}: #{$value};
+    }
+}

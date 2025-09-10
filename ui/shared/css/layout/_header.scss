@@ -1,0 +1,14 @@
+@use '../abstract/mixins';
+@use '../abstract/themes';
+@use '../abstract/vars';
+
+.__apm_header {
+    @include mixins.prevent-select;
+    @include mixins.glass-effect( 'light' );
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: vars.get( 'site-header--height' );
+}
