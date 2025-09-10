@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '../theme/theme__light' as light;
+@use '../theme/theme__dark' as dark;
+
+$themes: (
+    light: light.$theme,
+    dark: dark.$theme
+);
+
+$colors: ();
+
+@each $key, $_ in map.get( $themes, 'light' ) {
+    $colors: map.set( $colors, $key, var( --theme-#{$key} ) );
+}
+
+:root {
+    @each $key, $value in light.$theme {
+        --theme-#{$key}: #{$value};
+    }
+}
+
+@media ( prefers-color-scheme: dark ) {
+    :root {
+        @each $key, $value in dark.$theme {
+            --theme-#{$key}: #{$value};
+        }
+    }
+}
+
+@each $theme, $map in $themes {
+    ._theme_#{$theme}, .___#{$theme} {
+        @each $key, $value in $map {
+            --theme-#{$key}: #{$value};
+        }
+    }
+}
