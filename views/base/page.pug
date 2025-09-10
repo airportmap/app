@@ -1,5 +1,5 @@
-include ../mixins/assets
-include ../mixins/meta
+include ../mixin/assets
+include ../mixin/meta
 
 doctype html
 html( class= htmlClasses, lang= app.lang )
@@ -18,9 +18,9 @@ html( class= htmlClasses, lang= app.lang )
 
   body#top( class= bodyClasses ? bodyClasses : "__apm" )
 
-    include ../parts/header
+    include ../component/header
 
     main#main.__apm_main( role= "main" )
       block content
 
-    include ../parts/footer
+    include ../component/footer
