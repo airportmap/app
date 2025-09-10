@@ -1,14 +1,39 @@
-@use '../abstract/mixins';
-@use '../abstract/themes';
-@use '../abstract/vars';
+@use '../abstract/mixin';
+@use '../abstract/theme';
+@use '../abstract/var';
 
 .__apm_header {
-    @include mixins.prevent-select;
-    @include mixins.glass-effect( 'light' );
+    @include mixin.prevent-select;
+    @include mixin.glass-effect( 'light' );
+    @include mixin.fixed( 0, 0, 0 );
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: vars.get( 'site-header--height' );
+    height: var.get( 'site-header--height' );
+    padding: 0 48px;
+    border-bottom: 1px solid theme.get( 'light' );
+    z-index: 999;
+}
+
+.__apm_header__inner {
+    @include mixin.max-width( 'site-content--wide' );
+
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    align-items: center;
+    gap: 32px;
+    height: 100%;
+}
+
+.__apm_header__logo {
+    display: block;
+    aspect-ratio: 1/1;
+    width: auto;
+    height: calc( var.get( 'site-header--height' ) * 0.64 );
+
+    object, image {
+        @include mixin.prevent-events;
+
+        width: 100%;
+        height: 100%;
+    }
+
 }

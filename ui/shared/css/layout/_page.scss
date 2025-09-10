@@ -1,8 +1,8 @@
-@use '../abstract/themes';
+@use '../abstract/theme';
 @use 'header';
 
 body {
     margin: 0;
-    color: themes.get( 'text' );
-    background: themes.get( 'bg' );
+    color: theme.get( 'text' );
+    background: theme.get( 'bg' );
 }
