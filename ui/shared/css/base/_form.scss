@@ -26,7 +26,7 @@ button, .___button {
     cursor: pointer;
 
     .___icon {
-        @include mixin.ratio-height( calc( vars.get( 'button-height' ) - 20px ) )
+        @include mixin.ratio-height( calc( vars.get( 'button-height' ) - 24px ) )
     }
 
 }
