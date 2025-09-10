@@ -1,0 +1,20 @@
+@use '../abstract/mixin';
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+.___button {
+    @include mixin.center;
+    @include mixin.glass-effect( 'bright', 0.8 );
+    @include mixin.shadow;
+
+    height: 48px;
+    padding: 0 10px;
+    border: 1px solid theme.get( 'light', 0.8 );
+    border-radius: vars.get( 'border-radius' );
+    cursor: pointer;
+
+    .___icon {
+        @include mixin.ratio-height( 28px )
+    }
+
+}

@@ -1,11 +1,11 @@
 @use '../abstract/theme';
-@use '../abstract/var';
+@use '../abstract/vars';
 @use 'header';
 
 html, body {
     margin: 0;
     line-height: 1;
-    font-family: var.get( 'font-sans' );
+    font-family: vars.get( 'font-sans' );
     font-size: 16px;
     color: theme.get( 'text' );
     background: theme.get( 'bg' );

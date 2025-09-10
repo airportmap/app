@@ -1,13 +1,13 @@
 @use '../abstract/mixin';
 @use '../abstract/theme';
-@use '../abstract/var';
+@use '../abstract/vars';
 
 .__apm_header {
     @include mixin.prevent-select;
     @include mixin.glass-effect( 'light' );
     @include mixin.fixed( 0, 0, 0 );
 
-    height: var.get( 'header-height' );
+    height: vars.get( 'header-height' );
     padding: 0 48px;
     border-bottom: 1px solid theme.get( 'light' );
     z-index: 999;
@@ -15,19 +15,19 @@
 
 .__apm_header__inner {
     @include mixin.max-width( 'site-content--wide' );
+    @include mixin.full-sized();
 
     display: grid;
     grid-template-columns: 240px 1fr 240px;
     align-items: center;
     gap: 32px;
-    height: 100%;
 }
 
 .__apm_header__logo {
     display: block;
     aspect-ratio: 1 / 1;
     width: auto;
-    height: calc( var.get( 'header-height' ) * 0.64 );
+    height: calc( vars.get( 'header-height' ) * 0.64 );
 
     object, image {
         @include mixin.prevent-events;
@@ -36,4 +36,11 @@
         height: 100%;
     }
 
+}
+
+.__apm_header__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
 }

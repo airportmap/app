@@ -1,5 +1,5 @@
 @use 'theme';
-@use 'var';
+@use 'vars';
 
 @mixin hide-scrollbars {
     -ms-overflow-style: none;
@@ -29,11 +29,38 @@
 }
 
 @mixin max-width( $size, $margin: 0 auto ) {
-    @include max-width-px( var.get( $size ), $margin );
+    @include max-width-px( vars.get( $size ), $margin );
+}
+
+@mixin full-sized {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin ratio-width( $width: 100%, $ratio: '1/1' ) {
+    aspect-ratio: #{$ratio};
+    width: #{$width};
+    height: auto;
+}
+
+@mixin ratio-height( $height: 100%, $ratio: '1/1' ) {
+    aspect-ratio: #{$ratio};
+    width: auto;
+    height: #{$height};
+}
+
+@mixin center {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin glass-effect( $color, $alpha: 0.4, $blur: 16px ) {
     background: theme.get( $color, $alpha );
     backdrop-filter: blur( #{$blur} );
     -webkit-backdrop-filter: blur( #{$blur} );
+}
+
+@mixin shadow( $size: 0 0 16px, $alpha: 0.02, $color: 'dark' ) {
+    box-shadow: #{$size} theme.get( $color, $alpha );
 }
