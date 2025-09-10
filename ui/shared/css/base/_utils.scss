@@ -1,0 +1,17 @@
+@use '../abstract/mixin';
+
+.__apm_noscrollbar, .___noscrollbar {
+    @include mixin.hide-scrollbars;
+}
+
+.__apm_noselect, .___noselect {
+    @include mixin.prevent-select;
+}
+
+.__apm_noevents, .___noevents {
+    @include mixin.prevent-events;
+}
+
+.__apm_icon, .___icon {
+    fill: currentColor;
+}

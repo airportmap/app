@@ -1,6 +1,11 @@
 @use 'theme';
 @use 'var';
 
+@mixin hide-scrollbars {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 @mixin prevent-select {
     user-select: none;
     -webkit-user-select: none;

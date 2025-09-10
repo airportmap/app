@@ -7,7 +7,7 @@
     @include mixin.glass-effect( 'light' );
     @include mixin.fixed( 0, 0, 0 );
 
-    height: var.get( 'site-header--height' );
+    height: var.get( 'header-height' );
     padding: 0 48px;
     border-bottom: 1px solid theme.get( 'light' );
     z-index: 999;
@@ -25,9 +25,9 @@
 
 .__apm_header__logo {
     display: block;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     width: auto;
-    height: calc( var.get( 'site-header--height' ) * 0.64 );
+    height: calc( var.get( 'header-height' ) * 0.64 );
 
     object, image {
         @include mixin.prevent-events;

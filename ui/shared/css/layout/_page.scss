@@ -1,8 +1,26 @@
 @use '../abstract/theme';
+@use '../abstract/var';
 @use 'header';
 
-body {
+html, body {
     margin: 0;
+    line-height: 1;
+    font-family: var.get( 'font-sans' );
+    font-size: 16px;
     color: theme.get( 'text' );
     background: theme.get( 'bg' );
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern';
+    font-variant-ligatures: common-ligatures;
+    font-kerning: normal;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: 0 none;
 }
