@@ -1,0 +1,23 @@
+@use '../abstract/theme';
+@use '../abstract/mixin';
+@use '../abstract/vars';
+
+.__apm_searchbar {
+    @include mixin.flex-center;
+    @include mixin.glass-effect( 'bright', 0.8 );
+
+    max-width: 80%;
+    min-width: 60%;
+    border: 1px solid theme.get( 'light' );
+    border-radius: vars.get( 'border-radius' );
+
+    button, input {
+        background: none;
+        border: 0;
+    }
+
+    input {
+        @include mixin.flex-full-sized;
+    }
+
+}

@@ -1,0 +1,32 @@
+@use '../abstract/mixin';
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+input, select, textarea, button, .___button {
+    @include mixin.glass-effect( 'bright', 0.8 );
+    @include mixin.font-inherit;
+
+    height: vars.get( 'button-height' );
+    border: 1px solid theme.get( 'light' );
+    border-radius: vars.get( 'border-radius' );
+}
+
+input, select {
+    padding: 0 vars.get( 'padding-small' );
+}
+
+textarea {
+    height: unset;
+    padding: vars.get( 'padding-normal' );
+}
+
+button, .___button {
+    @include mixin.flex-center( $inline: true );
+    padding: 0 10px;
+    cursor: pointer;
+
+    .___icon {
+        @include mixin.ratio-height( calc( vars.get( 'button-height' ) - 20px ) )
+    }
+
+}

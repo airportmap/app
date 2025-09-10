@@ -49,6 +49,12 @@
     height: 100%;
 }
 
+@mixin flex-full-sized {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
 @mixin ratio-width( $width: 100%, $ratio: '1/1' ) {
     aspect-ratio: #{$ratio};
     width: #{$width};
@@ -61,11 +67,12 @@
     height: #{$height};
 }
 
-@mixin flex-center( $nowrap: true, $inline: false ) {
+@mixin flex-center( $gap: 0, $nowrap: true, $inline: false ) {
     display: if( $inline, inline-flex, flex );
     flex-flow: row if( $nowrap, nowrap, wrap );
     justify-content: center;
     align-items: center;
+    gap: #{$gap};
 }
 
 @mixin flex-row( $gap: 0, $horiz: flex-start, $vert: center, $nowrap: true ) {
@@ -84,12 +91,22 @@
     gap: #{$gap};
 }
 
-@mixin glass-effect( $color, $alpha: 0.4, $blur: 16px ) {
+@mixin font-inherit {
+    line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+}
+
+@mixin glass-effect( $color, $alpha: 0.5, $blur: 32px ) {
     background: theme.get( $color, $alpha );
     backdrop-filter: blur( #{$blur} );
     -webkit-backdrop-filter: blur( #{$blur} );
 }
 
-@mixin shadow( $size: 0 0 16px, $alpha: 0.02, $color: 'dark' ) {
-    box-shadow: #{$size} theme.get( $color, $alpha );
+@mixin styled-bg( $color ) {
+    color: theme.get( 'contrast' ) !important;
+    background: theme.get( $color ) !important;
 }

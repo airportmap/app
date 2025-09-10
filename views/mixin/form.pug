@@ -9,5 +9,5 @@ mixin searchbar ( data )
       +icon( 'search' )
     input.__apm_searchbar__input(
       type= "text", name= "q", value= data && data.q ? data.q.query : '',
-      placeholder= fn.i18n( 'app.generic:search' )
+      placeholder= fn.i18n( 'app.generic:search' ), required= true
     )
