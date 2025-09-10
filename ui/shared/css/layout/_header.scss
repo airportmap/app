@@ -19,18 +19,25 @@
     @include mixin.full-sized();
 }
 
-.__apm_header__logo {
-    @include mixin.ratio-height( vars.get( 'button-height' ) );
-
-    display: block;
+.__apm_header__site_title {
+    @include mixin.flex-row( 12px );
 
     object, image {
         @include mixin.prevent-events;
-
-        width: 100%;
-        height: 100%;
     }
 
+    image {
+        @include mixin.full-sized;
+    }
+
+}
+
+.__apm_header__site_logo {
+    @include mixin.ratio-height( vars.get( 'button-height' ) );
+}
+
+.__apm_header__site_wordmark {
+    width: 200px;
 }
 
 .__apm_header__center {
