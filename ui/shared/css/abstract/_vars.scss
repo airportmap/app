@@ -4,12 +4,18 @@ $default: (
     content-wide: 1640px,
     content-normal: 1260px,
     content-small: 980px,
+
+    padding-wide: 96px,
     padding-normal: 48px,
     padding-small: 16px,
+
     header-height: 96px,
     button-height: 52px,
+
     font-sans: '"REM", sans-serif',
+
     border-radius: 12px,
+
     layout-breakpoint--wide: 1200px,
     layout-breakpoint--normal: 1000px,
     layout-breakpoint--small: 800px,
@@ -19,7 +25,7 @@ $default: (
 $vars: ();
 
 @each $key, $_ in $default {
-    $vars: map.set( $vars, $key, var( --#{$key} ) );
+    $vars: map.set( $vars, $key, var( --var-#{$key} ) );
 }
 
 @function get( $name, $fb: null, $val: false ) {
@@ -38,6 +44,6 @@ $vars: ();
 
 :root {
     @each $key, $value in $default {
-        --#{$key}: #{$value};
+        --var-#{$key}: #{$value};
     }
 }

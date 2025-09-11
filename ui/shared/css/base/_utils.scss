@@ -16,18 +16,8 @@
     fill: currentColor;
 }
 
-.___main {
-    @include mixin.styled-bg( 'main' );
-}
-
-.___second {
-    @include mixin.styled-bg( 'second' );
-}
-
-.___tertiary {
-    @include mixin.styled-bg( 'tertiary' );
-}
-
-.___special {
-    @include mixin.styled-bg( 'special' );
+@each $style in ( 'main', 'second', 'tertiary', 'special', 'good', 'warn', 'bad' ) {
+    .___#{$style} {
+        @include mixin.styled-bg( $style );
+    }
 }

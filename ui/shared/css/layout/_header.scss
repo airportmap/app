@@ -6,7 +6,7 @@
 .__apm_header {
     @include mixin.prevent-select;
     @include mixin.glass-effect( 'bright' );
-    @include mixin.fixed( 0, 0, 0 );
+    @include mixin.sticky;
 
     height: vars.get( 'header-height' );
     padding: 0 vars.get( 'padding-normal' );

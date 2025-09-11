@@ -35,6 +35,11 @@
     bottom: #{$bottom};
 }
 
+@mixin sticky( $top: 0 ) {
+    position: sticky;
+    top: #{$top};
+}
+
 @mixin max-width-px( $width, $margin: 0 auto ) {
     margin: #{$margin};
     max-width: #{$width};
@@ -67,14 +72,6 @@
     height: #{$height};
 }
 
-@mixin flex-center( $gap: 0, $nowrap: true, $inline: false ) {
-    display: if( $inline, inline-flex, flex );
-    flex-flow: row if( $nowrap, nowrap, wrap );
-    justify-content: center;
-    align-items: center;
-    gap: #{$gap};
-}
-
 @mixin flex-row( $gap: 0, $horiz: flex-start, $vert: center, $nowrap: true ) {
     display: flex;
     flex-flow: row if( $nowrap, nowrap, wrap );
@@ -88,6 +85,14 @@
     flex-flow: column if( $nowrap, nowrap, wrap );
     justify-content: #{$horiz};
     align-items: #{$vert};
+    gap: #{$gap};
+}
+
+@mixin flex-center( $gap: 0, $nowrap: true, $inline: false ) {
+    display: if( $inline, inline-flex, flex );
+    flex-flow: row if( $nowrap, nowrap, wrap );
+    justify-content: center;
+    align-items: center;
     gap: #{$gap};
 }
 
@@ -106,7 +111,13 @@
     -webkit-backdrop-filter: blur( #{$blur} );
 }
 
-@mixin styled-bg( $color ) {
-    color: theme.get( 'contrast' ) !important;
+@mixin styled-bg( $color, $contrast: 'contrast' ) {
+    color: theme.get( $contrast ) !important;
     background: theme.get( $color ) !important;
+}
+
+@mixin focused( $color: 'special' ) {
+    &:focus-within {
+        outline: 2px solid theme.get( $color );
+    }
 }

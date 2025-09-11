@@ -5,6 +5,7 @@
 .__apm_searchbar {
     @include mixin.flex-center;
     @include mixin.glass-effect( 'bright', 0.8 );
+    @include mixin.focused;
 
     max-width: 80%;
     min-width: 60%;
