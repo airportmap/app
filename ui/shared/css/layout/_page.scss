@@ -26,6 +26,11 @@ html, body {
     outline: 0 none;
 }
 
+a, a:link, a:visited, a:hover {
+    @include mixin.font-inherit;
+    @include mixin.focused-self;
+}
+
 .__apm_backdrop {
     @include mixin.fixed( 0, 0, 0, 0 );
     @include mixin.glass-effect( 'light', 0.2, 2px );

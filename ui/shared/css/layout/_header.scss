@@ -37,6 +37,10 @@
 }
 
 .__apm_header__site_wordmark {
+    @include mixin.layout-max( 'wide' ) {
+        display: none;
+    }
+
     width: 200px;
 }
 

@@ -15,6 +15,15 @@
     pointer-events: none;
 }
 
+@mixin transparent {
+    background: none;
+    border: 0;
+}
+
+@mixin hide-outline {
+    outline: 0 none;
+}
+
 @mixin layout-max( $at ) {
     @media ( max-width: vars.getval( 'layout-breakpoint--#{$at}' ) ) {
         @content;
@@ -116,7 +125,13 @@
     background: theme.get( $color ) !important;
 }
 
-@mixin focused( $color: 'special' ) {
+@mixin focused-self( $color: 'special' ) {
+    &:focus, &:active {
+        outline: 2px solid theme.get( $color );
+    }
+}
+
+@mixin focused-parent( $color: 'special' ) {
     &:focus-within {
         outline: 2px solid theme.get( $color );
     }

@@ -5,7 +5,7 @@
 .__apm_searchbar {
     @include mixin.flex-center;
     @include mixin.glass-effect( 'bright', 0.8 );
-    @include mixin.focused;
+    @include mixin.focused-parent;
 
     max-width: 80%;
     min-width: 60%;
@@ -13,8 +13,8 @@
     border-radius: vars.get( 'border-radius' );
 
     button, input {
-        background: none;
-        border: 0;
+        @include mixin.transparent;
+        @include mixin.hide-outline;
     }
 
     input {

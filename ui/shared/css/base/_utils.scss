@@ -12,6 +12,14 @@
     @include mixin.prevent-events;
 }
 
+.___transparent {
+    @include mixin.transparent;
+}
+
+.___nooutline {
+    @include mixin.hide-outline;
+}
+
 .___icon {
     fill: currentColor;
 }

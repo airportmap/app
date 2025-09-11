@@ -5,6 +5,7 @@
 input, select, textarea, button, .___button {
     @include mixin.glass-effect( 'bright', 0.8 );
     @include mixin.font-inherit;
+    @include mixin.focused-self;
 
     height: vars.get( 'button-height' );
     border: 1px solid theme.get( 'light' );
