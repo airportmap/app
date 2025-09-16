@@ -119,6 +119,19 @@
     background: theme.get( $color ) !important;
 }
 
+@mixin border( $color, $all: 0, $style: 'solid', $top: 0, $left: 0, $right: 0, $bottom: 0 ) {
+    border-style: #{$style};
+    border-color: theme.get( $color );
+    @if $all != 0 {
+        border-width: #{$all};
+    } @else {
+        border-top-width: #{$top};
+        border-left-width: #{$left};
+        border-right-width: #{$right};
+        border-bottom-width: #{$bottom};
+    }
+}
+
 @mixin focused-self( $color: 'special' ) {
     &:focus, &:active {
         outline: 2px solid theme.get( $color );

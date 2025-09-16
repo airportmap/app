@@ -5,11 +5,11 @@
 .__apm_searchbar {
     @include mixin.flex-center;
     @include mixin.focused-parent;
+    @include mixin.border( 'light', 1px );
 
     max-width: 80%;
     min-width: 60%;
     background: theme.get( 'light', 0.1 );
-    border: 1px solid theme.get( 'light' );
     border-radius: vars.get( 'border-radius' );
 
     button, input {

@@ -6,11 +6,11 @@
 .__apm_header {
     @include mixin.prevent-select;
     @include mixin.sticky;
+    @include mixin.border( 'light', $bottom: 1px );
 
     height: vars.get( 'header-height' );
     padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'bright' );
-    border-bottom: 1px solid theme.get( 'light' );
     z-index: 999;
 }
 
