@@ -8,7 +8,7 @@
 
     max-width: 80%;
     min-width: 60%;
-    background: theme.get( 'bright' );
+    background: theme.get( 'light', 0.1 );
     border: 1px solid theme.get( 'light' );
     border-radius: vars.get( 'border-radius' );
 
