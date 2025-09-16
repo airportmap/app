@@ -14,8 +14,8 @@
         padding-right: vars.get( 'padding-normal' );
     }
 
-    button {
-        height: 32px;
+    select, button {
+        height: 38px;
 
         .___icon {
             @include mixin.ratio-height( 24px );

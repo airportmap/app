@@ -21,11 +21,14 @@ textarea {
     padding: vars.get( 'padding-normal' );
 }
 
+select, button, .___button {
+    cursor: pointer;
+}
+
 button, .___button {
     @include mixin.flex-center( $inline: true );
 
     padding: 0 12px;
-    cursor: pointer;
 
     .___icon {
         @include mixin.ratio-height( calc( vars.get( 'button-height' ) - 24px ) );
