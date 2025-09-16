@@ -1,12 +1,15 @@
 @use '../abstract/mixin';
 @use '../abstract/theme';
 @use '../abstract/vars';
+@use '../component/dashboard';
+@use '../component/menu';
 @use '../component/searchbar';
 
 .__apm_header {
     @include mixin.prevent-select;
     @include mixin.sticky;
     @include mixin.border( 'light', $bottom: 1px );
+    @include mixin.shadow-box;
 
     height: vars.get( 'header-height' );
     padding: 0 vars.get( 'padding-normal' );
@@ -63,4 +66,24 @@
     @include mixin.layout-min( 'normal' ) {
         #__site_search { display: none; }
     }
+}
+
+.__apm_header__actions_item {
+    position: relative;
+}
+
+.__apm_header__actions_app {
+    @include mixin.border( 'light', 1px );
+    @include mixin.overflow-hidden;
+    @include mixin.shadow-box;
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: block;
+    margin-top: 8px;
+    min-width: 260px;
+    background: theme.get( 'bright' );
+    border-radius: vars.get( 'border-radius' );
+    z-index: 1000;
 }
