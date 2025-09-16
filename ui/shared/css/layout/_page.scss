@@ -29,6 +29,8 @@ html, body {
 a, a:link, a:visited, a:hover {
     @include mixin.font-inherit;
     @include mixin.focused-self;
+
+    text-decoration: none;
 }
 
 .__apm_backdrop {

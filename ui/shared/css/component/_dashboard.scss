@@ -1,0 +1,36 @@
+@use '../abstract/mixin';
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+.__apm_dashboard {
+
+    &__row {
+        @include mixin.flex-row( 4px );
+        padding: 10px 20px;
+    }
+
+    &__label {
+        @include mixin.flex-full-sized;
+        padding-right: vars.get( 'padding-normal' );
+    }
+
+    button {
+        height: 32px;
+
+        .___icon {
+            @include mixin.ratio-height( 24px );
+        }
+
+        &:not( :first-of-type ) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:not( :last-of-type ) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+    }
+
+}
