@@ -24,8 +24,8 @@ mixin preload( assets )
         rel= "preload",
         href= preload.href,
         as= preload.as,
-        type= preload.type ? preload.type : undefined,
-        crossorigin= preload.crossOrigin ? preload.crossOrigin : undefined
+        type= preload.type || undefined,
+        crossorigin= preload.crossOrigin || undefined
       )
 
 mixin icon( name )

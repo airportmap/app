@@ -14,7 +14,7 @@ mixin appeal()
   link( rel= "icon", href= "assets/images/logo.svg", sizes= "any", type= "image/svg+xml" )
 
 mixin og( data )
-  - var og = data && data.og ? data.og : {}
+  - var og = data && data.og || {}
   meta( property= "og:type", content= "website" )
   meta( property= "og:site_name", content= "Airportmap" )
   meta( property= "og:title", content= og.title || meta.title || undefined )

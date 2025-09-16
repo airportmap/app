@@ -8,6 +8,6 @@ mixin searchbar( data )
     button.__apm_searchbar__submit( type= "submit", title= fn.i18n( 'app.generic:search' ) )
       +icon( 'search' )
     input.__apm_searchbar__input(
-      type= "text", name= "q", value= data && data.q ? data.q.query : '',
+      type= "text", name= "q", value= data && data.q && data.q.query || '',
       placeholder= fn.i18n( 'app.generic:search' ), required= true
     )
