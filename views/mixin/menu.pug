@@ -16,3 +16,20 @@ mixin menu( items, opts )
             if item.icon
               +icon( item.icon )
             span= item.label
+
+mixin dashboard()
+  div.__apm_dashboard
+    div.__apm_dashboard__row
+      span.__apm_dashboard__label= fn.i18n( 'app.generic:theme' )
+      button.__apm_dashboard__theme(
+        aria-label= "Light Theme", data-theme= "light",
+        class= ( app.theme == 'light' ? '___active' : '' ),
+        title= fn.i18n( 'app.generic:theme.light' )
+      )
+        +icon( 'light' )
+      button.__apm_dashboard__theme(
+        aria-label= "Dark Theme", data-theme= "dark",
+        class= ( app.theme == 'dark' ? '___active' : '' ),
+        title= fn.i18n( 'app.generic:theme.dark' )
+      )
+        +icon( 'dark' )

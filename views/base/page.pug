@@ -4,7 +4,7 @@ include ../mixin/menu
 include ../mixin/meta
 
 doctype html
-html( class= htmlClasses, lang= app.lang )
+html( class= htmlClasses, lang= app.locale, theme= app.theme )
 
   head
     meta( charset= "utf-8" )
@@ -43,7 +43,7 @@ html( class= htmlClasses, lang= app.lang )
             div#__site_menu.__apm_header__actions_item
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:menu' ) )
                 +icon( 'menu' )
-              div.__apm_header__actions_app
+              //div.__apm_header__actions_app
                 +menu( [
                   { href: '/', label: fn.i18n( 'app.home:name' ) },
                   { href: '/airports', label: fn.i18n( 'app.airports:name' ) },
@@ -56,7 +56,8 @@ html( class= htmlClasses, lang= app.lang )
             div#__site_dasher.__apm_header__actions_item
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:dasher' ) )
                 +icon( 'dasher' )
-              //div.__apm_header__actions_app
+              div.__apm_header__actions_app
+                +dashboard()
 
     main#main.__apm_main( role= "main", aria-label= "Content" )
       block content
