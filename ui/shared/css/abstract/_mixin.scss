@@ -147,7 +147,7 @@
 }
 
 @mixin outline( $color: 'special' ) {
-    outline: 2px solid theme.get( $color ) !important;
+    outline: 2px solid theme.get( $color );
 }
 
 @mixin focused-self( $color: 'special' ) {
