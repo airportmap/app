@@ -18,7 +18,7 @@ html( class= htmlClasses, lang= app.lang )
     +js( assets )
 
 
-  body#top( class= bodyClasses ? bodyClasses : "__apm" )
+  body#top( class= bodyClasses || "__apm" )
 
     div#backdrop.__apm_backdrop
 
@@ -44,6 +44,15 @@ html( class= htmlClasses, lang= app.lang )
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:menu' ) )
                 +icon( 'menu' )
               div.__apm_header__actions_app
+                +menu( [
+                  { href: '/', label: fn.i18n( 'app.menu:home' ) },
+                  { href: '/airports', label: fn.i18n( 'app.menu:airports' ) },
+                  { href: '/traffic', label: fn.i18n( 'app.menu:traffic' ) },
+                  { href: '/weather', label: fn.i18n( 'app.menu:weather' ) },
+                  { href: '/sigmets', label: fn.i18n( 'app.menu:sigmets' ) },
+                  { href: '/about', label: fn.i18n( 'app.menu:about' ) },
+                  { href: '/stats', label: fn.i18n( 'app.menu:stats' ) }
+                ], { current: app.path } )
             div#__site_dasher.__apm_header__actions_item
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:dasher' ) )
                 +icon( 'dasher' )
