@@ -1,12 +1,15 @@
 @use '../abstract/mixin';
 @use '../abstract/theme';
 
+.__apm_menu__list {
+    @include mixin.unstyled-list;
+    @include mixin.full-sized;
+}
+
 .__apm_menu__nav {
 
     .__apm_menu__list {
         @include mixin.flex-col;
-        @include mixin.unstyled-list;
-        @include mixin.full-sized;
     }
 
     .__apm_menu__item {
@@ -32,6 +35,16 @@
             background: theme.get( 'special', 0.02 );
         }
 
+    }
+
+}
+
+.__apm_menu__icon {
+
+    .__apm_menu__list {
+        @include mixin.flex-row( 6px, space-between );
+
+        padding: 10px 20px;
     }
 
 }

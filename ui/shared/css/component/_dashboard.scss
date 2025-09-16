@@ -11,7 +11,11 @@
 
     &__label {
         @include mixin.flex-full-sized;
-        padding-right: vars.get( 'padding-normal' );
+        padding-right: vars.get( 'padding-small' );
+    }
+
+    &__links {
+        margin-top: vars.get( 'padding-normal' );
     }
 
     select, button {
