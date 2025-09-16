@@ -2,8 +2,9 @@ include ./assets
 
 mixin menu( items, opts )
   -
+    var type = opts && opts.type || 'nav';
     var current = opts && opts.current || site && site.path || '/';
-    var classes = [ '__apm_menu' ];
+    var classes = [ '__apm_menu', '__apm_menu__' + type ];
     if ( opts && opts.classes ) classes.push( opts.classes );
 
   nav( class= classes.join( ' ' ), role= "menu", aria-label= opts && opts.aria || "Menu" )
@@ -11,11 +12,17 @@ mixin menu( items, opts )
       each item in items
         -
           var isActive = ( item.href && current && ( current === item.href || current.startsWith( item.href + '/' ) ) );
-        li.__apm_menu__item( class= isActive ? "___active" : "", role= "menuitem" )
-          a.__apm_menu__link( href= item.href, title= item.label )
-            if item.icon
-              +icon( item.icon )
-            span= item.label
+        li.__apm_menu__item( class= isActive ? "___active" : "", role= "menuitem", aria-label= item.label )
+          case type
+            when 'nav'
+            default
+              a.__apm_menu__link( href= item.href, rel= "noopener" )
+                if item.icon
+                  +icon( item.icon )
+                span= item.label
+            when 'icon'
+              a.__apm_menu__icon.___button( href= item.href, title= item.label, rel= "noopener" )
+                +icon( item.icon )
 
 mixin dashboard()
   div.__apm_dashboard
@@ -39,3 +46,12 @@ mixin dashboard()
       select.__apm_dashboard__locale( aria-label= "Language Selector", name= "locale" )
         each l in app.supportedLngs
           option( value= l.code, selected= l.code === app.locale )= l.label
+
+    div.__apm_dashboard__links
+      +menu( [
+        { href: 'https://edit.airportmap.de', label: fn.i18n( 'app.generic:editor' ), icon: 'edit' },
+        { href: 'https://api.airportmap.de', label: fn.i18n( 'app.generic:api' ), icon: 'api' },
+        { href: 'https://embed.airportmap.de', label: fn.i18n( 'app.generic:embed' ), icon: 'embed' },
+        { href: 'https://x.com/openairportmap', label: fn.i18n( 'app.generic:twitter' ), icon: 'twitter' },
+        { href: 'https://github.com/airportmap', label: fn.i18n( 'app.generic:github' ), icon: 'github' }
+      ], { type: 'icon' } )
