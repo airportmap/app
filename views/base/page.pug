@@ -45,18 +45,18 @@ html( class= htmlClasses, lang= app.lang )
                 +icon( 'menu' )
               div.__apm_header__actions_app
                 +menu( [
-                  { href: '/', label: fn.i18n( 'app.menu:home' ) },
-                  { href: '/airports', label: fn.i18n( 'app.menu:airports' ) },
-                  { href: '/traffic', label: fn.i18n( 'app.menu:traffic' ) },
-                  { href: '/weather', label: fn.i18n( 'app.menu:weather' ) },
-                  { href: '/sigmets', label: fn.i18n( 'app.menu:sigmets' ) },
-                  { href: '/about', label: fn.i18n( 'app.menu:about' ) },
-                  { href: '/stats', label: fn.i18n( 'app.menu:stats' ) }
+                  { href: '/', label: fn.i18n( 'app.home:name' ) },
+                  { href: '/airports', label: fn.i18n( 'app.home:name' ) },
+                  { href: '/traffic', label: fn.i18n( 'app.traffic:name' ) },
+                  { href: '/weather', label: fn.i18n( 'app.weather:name' ) },
+                  { href: '/sigmets', label: fn.i18n( 'app.sigmets:name' ) },
+                  { href: '/about', label: fn.i18n( 'app.about:name' ) },
+                  { href: '/stats', label: fn.i18n( 'app.stats:name' ) }
                 ], { current: app.path } )
             div#__site_dasher.__apm_header__actions_item
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:dasher' ) )
                 +icon( 'dasher' )
-              div.__apm_header__actions_app
+              //div.__apm_header__actions_app
 
     main#main.__apm_main( role= "main", aria-label= "Content" )
       block content
