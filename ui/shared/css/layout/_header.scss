@@ -83,6 +83,7 @@
     display: block;
     margin-top: 8px;
     min-width: 260px;
+    padding: 8px 0;
     background: theme.get( 'bright' );
     border-radius: vars.get( 'border-radius' );
     z-index: 1000;

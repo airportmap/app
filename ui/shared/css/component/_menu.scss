@@ -1,0 +1,39 @@
+@use '../abstract/mixin';
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+.__apm_menu {
+
+    &__list {
+        @include mixin.flex-col;
+        @include mixin.unstyled-list;
+        @include mixin.full-sized;
+    }
+
+    &__item {
+        width: 100%;
+
+        &.___active .__apm_menu__link {
+            font-weight: bold;
+            color: theme.get( 'special' );
+            background: theme.get( 'special', 0.05 );
+        }
+
+    }
+
+    &__link {
+        @include mixin.flex-row( 8px, flex-start, center );
+
+        width: 100%;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 0;
+        transition: background 0.15s;
+
+        &:hover, &:focus {
+            background: theme.get( 'special', 0.02 );
+        }
+
+    }
+
+}
