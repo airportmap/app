@@ -1,4 +1,4 @@
-mixin css ( assets )
+mixin css( assets )
   if assets.css
     each css in assets.css
       link(
@@ -7,7 +7,7 @@ mixin css ( assets )
         media= css.media
       )
 
-mixin js ( assets )
+mixin js( assets )
   if assets.js
     each js in assets.js
       script(
@@ -17,7 +17,7 @@ mixin js ( assets )
         async= js.async ? true : undefined
       )
 
-mixin preload ( assets )
+mixin preload( assets )
   if assets.preload
     each preload in assets.preload
       link(
@@ -28,6 +28,6 @@ mixin preload ( assets )
         crossorigin= preload.crossOrigin ? preload.crossOrigin : undefined
       )
 
-mixin icon ( name )
+mixin icon( name )
   svg.___icon( viewBox= "0 0 24 24", xmlns= "http://www.w3.org/2000/svg" )
     use( xlink:href= "/assets/images/icons.svg#" + name )
