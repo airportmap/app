@@ -33,8 +33,8 @@ a, a:link, a:visited, a:hover {
 
 .__apm_backdrop {
     @include mixin.fixed( 0, 0, 0, 0 );
-    @include mixin.glass-effect( 'light', 0.2, 2px );
 
+    background: theme.get( 'bright', 0.4 );
     z-index: 998;
 
     &:not( .___active ) {

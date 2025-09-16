@@ -114,12 +114,6 @@
     color: inherit;
 }
 
-@mixin glass-effect( $color, $alpha: 0.5, $blur: 32px ) {
-    background: theme.get( $color, $alpha );
-    backdrop-filter: blur( #{$blur} );
-    -webkit-backdrop-filter: blur( #{$blur} );
-}
-
 @mixin styled-bg( $color, $contrast: 'contrast' ) {
     color: theme.get( $contrast ) !important;
     background: theme.get( $color ) !important;
