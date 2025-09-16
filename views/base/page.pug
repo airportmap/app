@@ -43,7 +43,7 @@ html( class= htmlClasses, lang= app.locale, theme= app.theme )
             div#__site_menu.__apm_header__actions_item
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:menu' ) )
                 +icon( 'menu' )
-              //div.__apm_header__actions_app
+              div.__apm_header__actions_app
                 +menu( [
                   { href: '/', label: fn.i18n( 'app.home:name' ) },
                   { href: '/airports', label: fn.i18n( 'app.airports:name' ) },
