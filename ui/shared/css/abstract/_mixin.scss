@@ -133,7 +133,7 @@
 }
 
 @mixin focused-self( $color: 'special' ) {
-    &:focus, &:active {
+    &:focus, &:active, &.___active {
         outline: 2px solid theme.get( $color );
     }
 }
