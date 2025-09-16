@@ -41,7 +41,10 @@ html( class= htmlClasses, lang= app.locale, theme= app.theme )
               a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:search' ) )
                 +icon( 'search' )
             div#__site_menu.__apm_header__actions_item
-              a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:menu' ) )
+              a.__apm_header__actions_button.___button(
+                role= "button", tabindex= 0, title= fn.i18n( 'app.generic:menu' ),
+                data-toggle= "#__site_menu"
+              )
                 +icon( 'menu' )
               div.__apm_header__actions_app
                 +menu( [
@@ -54,7 +57,10 @@ html( class= htmlClasses, lang= app.locale, theme= app.theme )
                   { href: '/stats', label: fn.i18n( 'app.stats:name' ) }
                 ] )
             div#__site_dasher.__apm_header__actions_item
-              a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:dasher' ) )
+              a.__apm_header__actions_button.___button(
+                role= "button", tabindex= 0, title= fn.i18n( 'app.generic:dasher' ),
+                data-toggle= "#__site_dasher"
+              )
                 +icon( 'dasher' )
               div.__apm_header__actions_app
                 +dashboard()

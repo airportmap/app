@@ -5,6 +5,10 @@ assets:
       global: true
 
   js:
+    shared/global:
+      src: "js/shared.global.js"
+      global: true
+      defer: true
 
 preload:
   - href: "assets/fonts/REM.woff2"

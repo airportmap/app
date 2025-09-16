@@ -146,14 +146,18 @@
     box-shadow: 0 24px 16px -16px rgba( 0 0 0 / 0.02 );
 }
 
+@mixin outline( $color: 'special' ) {
+    outline: 2px solid theme.get( $color ) !important;
+}
+
 @mixin focused-self( $color: 'special' ) {
     &:focus, &:active, &.___active {
-        outline: 2px solid theme.get( $color );
+        @include outline;
     }
 }
 
 @mixin focused-parent( $color: 'special' ) {
     &:focus-within {
-        outline: 2px solid theme.get( $color );
+        @include outline;
     }
 }

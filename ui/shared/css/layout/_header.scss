@@ -71,8 +71,16 @@
 .__apm_header__actions_item {
     position: relative;
 
-    &:focus-within .__apm_header__actions_app {
-        display: block;
+    &.___toggle_active {
+
+        .__apm_header__actions_button {
+            @include mixin.outline;
+        }
+
+        .__apm_header__actions_app {
+            display: block;
+        }
+
     }
 
 }
