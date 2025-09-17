@@ -8,7 +8,6 @@ mixin css( assets )
       )
 
 mixin js( assets )
-  - console.log( assets.js);
   if assets.js
     each js in assets.js
       script(
