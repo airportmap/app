@@ -6,7 +6,7 @@
 
     &__row {
         @include mixin.flex-row( 4px );
-        padding: 10px 20px;
+        padding: 10px 20px 4px;
     }
 
     &__label {
