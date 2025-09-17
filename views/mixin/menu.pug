@@ -29,13 +29,15 @@ mixin dashboard()
     div.__apm_dashboard__row
       span.__apm_dashboard__label= fn.i18n( 'app.generic:theme' )
       button.__apm_dashboard__theme(
-        aria-label= "Light Theme", data-theme= "light",
+        aria-label= "Light Theme",
+        data-cookie= "theme", data-content= "light", data-reload= 1,
         class= ( app.theme === 'light' ? '___active' : '' ),
         title= fn.i18n( 'app.generic:theme.light' )
       )
         +icon( 'light' )
       button.__apm_dashboard__theme(
-        aria-label= "Dark Theme", data-theme= "dark",
+        aria-label= "Dark Theme",
+        data-cookie= "theme", data-content= "dark", data-reload= 1
         class= ( app.theme === 'dark' ? '___active' : '' ),
         title= fn.i18n( 'app.generic:theme.dark' )
       )
@@ -43,7 +45,10 @@ mixin dashboard()
 
     div.__apm_dashboard__row
       span.__apm_dashboard__label= fn.i18n( 'app.generic:locale' )
-      select.__apm_dashboard__locale( aria-label= "Language Selector", name= "locale" )
+      select.__apm_dashboard__locale(
+        aria-label= "Language Selector",
+        data-cookie= "locale", data-reload= 1
+      )
         each l in app.supportedLngs
           option( value= l.code, selected= l.code === app.locale )= l.label
 
