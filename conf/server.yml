@@ -6,6 +6,11 @@ statics:
   css: "public/css"
   js: "public/js"
 
+cookies:
+  locale: "en-US"
+  theme: "light"
+  units: "metric"
+
 mods:
   i18n:
     enabled: true
