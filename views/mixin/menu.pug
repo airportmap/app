@@ -28,20 +28,13 @@ mixin dashboard()
   div.__apm_dashboard
     div.__apm_dashboard__row
       span.__apm_dashboard__label= fn.i18n( 'app.generic:theme' )
-      button.__apm_dashboard__theme(
-        aria-label= "Light Theme",
-        data-cookie= "theme", data-content= "light", data-reload= 1,
-        class= ( app.theme === 'light' ? '___active' : '' ),
-        title= fn.i18n( 'app.generic:theme.light' )
-      )
-        +icon( 'light' )
-      button.__apm_dashboard__theme(
-        aria-label= "Dark Theme",
-        data-cookie= "theme", data-content= "dark", data-reload= 1
-        class= ( app.theme === 'dark' ? '___active' : '' ),
-        title= fn.i18n( 'app.generic:theme.dark' )
-      )
-        +icon( 'dark' )
+      for l, t in { light: 'Light Theme', dark: 'Dark Theme' }
+        button.__apm_dashboard__theme(
+          aria-label= l, data-cookie= "theme", data-content= t, data-reload= 1,
+          class= ( cookies.theme === t ? '___active' : '' ),
+          title= fn.i18n( 'app.generic:theme.' + t )
+        )
+          +icon( t )
 
     div.__apm_dashboard__row
       span.__apm_dashboard__label= fn.i18n( 'app.generic:locale' )
@@ -50,7 +43,7 @@ mixin dashboard()
         data-cookie= "locale", data-reload= 1
       )
         each l in app.supportedLngs
-          option( value= l.code, selected= l.code === app.locale )= l.label
+          option( value= l.code, selected= l.code === cookies.locale )= l.label
 
     div.__apm_dashboard__row
       span.__apm_dashboard__label= fn.i18n( 'app.generic:units' )
@@ -58,8 +51,8 @@ mixin dashboard()
         aria-label= "Units System Selector",
         data-cookie= "units", data-reload= 1
       )
-        option( value= 'metric' )= fn.i18n( 'app.generic:units.metric' )
-        option( value= 'imperial' )= fn.i18n( 'app.generic:units.imperial' )
+        each u in [ 'metric', 'imperial' ]
+          option( value= u, selected= u === cookies.units )= fn.i18n( 'app.generic:units.' + u )
 
     div.__apm_dashboard__links
       +menu( [
