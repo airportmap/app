@@ -38,8 +38,13 @@ html( class= htmlClasses, lang= app.locale, theme= app.theme )
         div.__apm_header__right
           div.__apm_header__actions
             div#__site_search.__apm_header__actions_item
-              a.__apm_header__actions_button.___button( role= "button", tabindex= 0, title= fn.i18n( 'app.generic:search' ) )
+              a.__apm_header__actions_button.___button(
+                role= "button", tabindex= 0, title= fn.i18n( 'app.generic:search' ),
+                data-toggle= "#__site_search"
+              )
                 +icon( 'search' )
+              div.__apm_header__actions_app
+                +searchbar( data )
             div#__site_menu.__apm_header__actions_item
               a.__apm_header__actions_button.___button(
                 role= "button", tabindex= 0, title= fn.i18n( 'app.generic:menu' ),
