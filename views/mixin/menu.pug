@@ -52,6 +52,15 @@ mixin dashboard()
         each l in app.supportedLngs
           option( value= l.code, selected= l.code === app.locale )= l.label
 
+    div.__apm_dashboard__row
+      span.__apm_dashboard__label= fn.i18n( 'app.generic:units' )
+      select.__apm_dashboard__locale(
+        aria-label= "Units System Selector",
+        data-cookie= "units", data-reload= 1
+      )
+        option( value= 'metric' )= fn.i18n( 'app.generic:units.metric' )
+        option( value= 'imperial' )= fn.i18n( 'app.generic:units.imperial' )
+
     div.__apm_dashboard__links
       +menu( [
         { href: 'https://edit.airportmap.de', label: fn.i18n( 'app.generic:editor' ), icon: 'code' },
