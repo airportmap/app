@@ -18,7 +18,7 @@
 }
 
 .__apm_header__inner {
-    @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
+    @include mixin.flex-row( vars.get( 'padding-wide' ), space-between );
     @include mixin.max-width( 'content-wide' );
     @include mixin.full-sized();
 }
@@ -57,6 +57,11 @@
     .__apm_header__searchbar {
         @include mixin.flex-center;
         @include mixin.full-sized;
+    }
+
+    .__apm_searchbar {
+        max-width: 80%;
+        min-width: 60%;
     }
 
 }
@@ -100,4 +105,17 @@
     background: theme.get( 'bright' );
     border-radius: vars.get( 'border-radius' );
     z-index: 1000;
+
+    .__apm_searchbar {
+        margin: 0 8px;
+        width: calc( 100% - 16px );
+    }
+
+    @include mixin.layout-max( 'mobile' ) {
+        @include mixin.fixed( calc( vars.get( 'header-height' ) + 4px ), 12px, 12px );
+
+        width: calc( 100% - 26px );
+        min-width: 0;
+    }
+
 }
