@@ -15,10 +15,15 @@
     padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'bright' );
     z-index: 999;
+
+    @include mixin.layout-max( 'mobile' ) {
+        padding: 0 vars.get( 'padding-small' );
+    }
+
 }
 
 .__apm_header__inner {
-    @include mixin.flex-row( vars.get( 'padding-wide' ), space-between );
+    @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
     @include mixin.max-width( 'content-wide' );
     @include mixin.full-sized();
 }

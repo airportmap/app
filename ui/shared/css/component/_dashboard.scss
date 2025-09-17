@@ -11,7 +11,7 @@
 
     &__label {
         @include mixin.flex-full-sized;
-        padding-right: vars.get( 'padding-small' );
+        padding-right: vars.get( 'padding-tiny' );
     }
 
     &__links {
