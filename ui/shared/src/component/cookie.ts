@@ -19,35 +19,23 @@ class Cookie {
 
     }
 
-    public static set (
-        name: string, value: string, expires?: number, path: string = '/',
-        domain?: string, secure: boolean = __isHTTPS,
-        sameSite: 'Lax' | 'Strict' | 'None' = 'Strict'
-    ) : void {
+    public static set ( name: string, value: string, expires: number = 1.2e9, path: string = '/' ) : void {
 
         let cookie = `${ encodeURIComponent( name ) }=${ encodeURIComponent( value ) }`;
 
-        if ( expires !== undefined ) {
+        if ( ! isNaN( expires ) )
+            cookie += `; expires=${ new Date( Date.now() + expires ).toUTCString() }`;
 
-            const date = new Date();
-            date.setTime( date.getTime() + expires * 1000 );
+        if ( __isHTTPS )
+            cookie += `; secure`;
 
-            cookie += `; expires=${ date.toUTCString() }`;
-
-        }
-
-        cookie += `; path=${ path }`;
-        if ( domain ) cookie += `; domain=${ domain }`;
-        if ( secure ) cookie += `; secure`;
-        if ( sameSite ) cookie += `; samesite=${ sameSite }`;
-
-        document.cookie = cookie;
+        document.cookie = cookie + `; path=${ path }; samesite=Strict`;
 
     }
 
-    public static delete ( name: string, path: string = '/', domain?: string ) : void {
+    public static delete ( name: string, path: string = '/' ) : void {
 
-        this.set( name, '', -1, path, domain );
+        this.set( name, '', -1, path );
 
     }
 
