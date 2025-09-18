@@ -8,7 +8,7 @@
     @include mixin.prevent-select;
     @include mixin.position( sticky, 0 );
     @include mixin.border( 'gray-30', $bottom: 1px );
-    @include mixin.shadow-box;
+    @include mixin.shadow-line;
     width: 100%;
     padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'gray-10' );
@@ -48,7 +48,7 @@
         @include mixin.layout-max( 'mobile' ) {
             @include mixin.position( 'fixed', 0, 0, 0 );
             @include mixin.flex-col;
-            @include mixin.shadow-box;
+            @include mixin.shadow-line;
             @include mixin.transition( 'transform' );
             height: vars.get( 'header-height' );
             padding: 0 vars.get( 'padding-small' );
@@ -98,6 +98,7 @@
             @include mixin.position( 'absolute', calc( 100% + 20px ), 50% );
             @include mixin.flex-col( 4px );
             @include mixin.border( 'gray-30', 1px );
+            @include mixin.shadow-box;
             @include mixin.transition( 'opacity' );
             min-width: 120px;
             padding: vars.get( 'padding-tiny' );
