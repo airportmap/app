@@ -6,3 +6,17 @@ div#sidepanel.__apm_sidepanel( role= "menu", aria-label= "Sidepanel" )
     title= fn.i18n( 'app.generic:close' )
   ): +icon( 'close' )
   div.__apm_sidepanel__content
+    section.__apm_sidepanel__section
+      h3.__apm_sidepanel__section_title
+        +icon( 'search' )
+        span= fn.i18n( 'app.generic:sidepanel.navigation' )
+
+    section.__apm_sidepanel__section
+      h3.__apm_sidepanel__section_title
+        +icon( 'preferences' )
+        span= fn.i18n( 'app.generic:sidepanel.preferences' )
+
+    section.__apm_sidepanel__section
+      h3.__apm_sidepanel__section_title
+        +icon( 'link' )
+        span= fn.i18n( 'app.generic:sidepanel.links' )

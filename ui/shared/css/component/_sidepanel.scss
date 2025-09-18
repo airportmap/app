@@ -29,6 +29,30 @@
         }
     }
 
+    &__content {
+        padding: vars.get( 'padding-normal' );
+    }
+
+    &__section {
+
+        &:not( :last-of-type ) {
+            margin-bottom: vars.get( 'padding-normal' );
+        }
+
+        &_title {
+            @include mixin.flex-row( vars.get( 'padding-small' ) );
+            margin: 0 0 vars.get( 'padding-small' );
+            font-size: 15px;
+            font-weight: 600;
+
+            .___icon {
+                fill: theme.get( 'primary' );
+            }
+
+        }
+
+    }
+
     @include mixin.layout-max( 'mobile' ) {
         width: 100dvw;
     }
