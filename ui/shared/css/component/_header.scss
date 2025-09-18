@@ -56,7 +56,7 @@
             z-index: 1001;
             transform: translateY( -100% );
 
-            &.___active {
+            &.___toggle_active {
                 transform: translateY( 0 );
             }
 
@@ -116,7 +116,7 @@
                 transform: rotate( 45deg );
             }
 
-            &.___active {
+            &.___toggle_active {
                 visibility: visible;
                 opacity: 1;
             }
