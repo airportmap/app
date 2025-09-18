@@ -51,7 +51,7 @@
             @include mixin.flex-col;
             @include mixin.shadow-line;
             @include mixin.transition( 'transform' );
-            @include effect.slide-in( -100% );
+            @include effect.slide-in( -100%, $dir: 'Y' );
             height: vars.get( 'header-height' );
             padding: 0 vars.get( 'padding-small' );
             background: theme.get( 'gray-10' );

@@ -9,7 +9,7 @@
 
 }
 
-@mixin slide-in( $from, $to: 0, $dir: 'Y' ) {
+@mixin slide-in( $from, $to: 0, $dir: '' ) {
     visibility: hidden;
     transform: translate#{$dir}( #{$from} );
 
