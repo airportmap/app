@@ -15,13 +15,13 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
     div.__apm_header__right
       div.__apm_header__actions
         div.__apm_header__actions_item
-          button.__apm_header__actions_button(
+          button.__apm_header__actions_button.__apm_action_button(
             data-action= "toggle", data-selector= "#search", aria-label= "Open Search",
             data-backdrop= 1, title= fn.i18n( 'app.generic:header.action.search' )
           ): +icon( 'search' )
 
         div.__apm_header__actions_item
-          button.__apm_header__actions_button(
+          button.__apm_header__actions_button.__apm_action_button(
             data-action= "toggle", data-selector= "#translate", aria-label= "Select Language",
             title= fn.i18n( 'app.generic:header.action.translate' )
           ): +icon( 'translate' )
@@ -34,7 +34,7 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
               )= l.label
 
         div.__apm_header__actions_item
-          button.__apm_header__actions_button(
+          button.__apm_header__actions_button.__apm_action_button(
             data-action= "cookie", data-name= "theme", data-reload= 1,
             data-value= ( cookies.theme === 'dark' ? 'light' : 'dark' ),
             aria-label= "Toggle Theme",
@@ -44,7 +44,7 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
             span.___dark_only: +icon( 'dark' )
 
         div.__apm_header__actions_item
-          button.__apm_header__actions_button(
+          button.__apm_header__actions_button.__apm_action_button(
             data-action= "toggle", data-selector= "#sidepanel", aria-label= "Open Sidepanel",
             data-backdrop= 1, title= fn.i18n( 'app.generic:header.action.sidepanel' )
           ): +icon( 'menu' )

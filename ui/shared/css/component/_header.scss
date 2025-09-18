@@ -66,29 +66,6 @@
             position: relative;
         }
 
-        &_button {
-            @include mixin.flex-center;
-            @include mixin.ratio-width( 44px );
-            @include mixin.font-inherit;
-            @include mixin.transparent;
-            @include mixin.transition;
-            border-radius: vars.get( 'border-radius' );
-            cursor: pointer;
-
-            * {
-                display: block;
-            }
-
-            &:hover {
-                background: theme.get( 'gray-30' );
-            }
-
-            &:focus {
-                @include mixin.outline( 'primary', 2px );
-            }
-
-        }
-
         &_dropdown {
             @include mixin.position( absolute, calc( 100% + 20px ), 50% );
             @include mixin.flex-col( 4px );

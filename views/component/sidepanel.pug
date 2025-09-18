@@ -1,0 +1,8 @@
+div#sidepanel.__apm_sidepanel( role= "menu", aria-label= "Sidepanel" )
+  div.__apm_sidepanel__header
+    h2.__apm_sidepanel__header_title= fn.i18n( 'app.generic:sidepanel.title' )
+    button.__apm_sidepanel__header_close.__apm_action_button(
+    data-action= "toggle", data-selector= "#sidepanel", aria-label= "Close Sidepanel",
+    title= fn.i18n( 'app.generic:close' )
+  ): +icon( 'close' )
+  div.__apm_sidepanel__content
