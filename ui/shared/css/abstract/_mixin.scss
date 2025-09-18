@@ -29,13 +29,13 @@
 
 @mixin hide-at( $at ) {
     @include layout-max( $at ) {
-        display: none;
+        display: none !important;
     }
 }
 
 @mixin show-at( $at ) {
     @include layout-min( $at ) {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -65,10 +65,12 @@
     height: #{$height};
 }
 
-@mixin sticky( $top: unset, $left: unset ) {
-    position: sticky;
+@mixin position( $pos: absolute, $top: unset, $left: unset, $right: unset, $bottom: unset ) {
+    position: #{$pos};
     top: #{$top};
     left: #{$left};
+    right: #{$right};
+    bottom: #{$bottom};
 }
 
 @mixin flex-row( $gap: 0, $horiz: flex-start, $vert: center, $nowrap: true ) {
@@ -126,7 +128,7 @@
     outline-offset: #{$offset};
 }
 
-@mixin transition( $properies: all, $duration: 200ms, $easing: 'ease-out', $delay: 20ms ) {
+@mixin transition( $properies: all, $duration: 160ms, $easing: 'ease-out', $delay: 40ms ) {
     transition-property: #{$properies};
     transition-duration: #{$duration};
     transition-timing-function: #{$easing};

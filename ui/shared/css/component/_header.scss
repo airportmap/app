@@ -2,17 +2,20 @@
 @use '../abstract/theme';
 @use '../abstract/vars';
 
+@use './searchbar';
+
 .__apm_header {
     @include mixin.prevent-select;
-    @include mixin.sticky( $top: 0 );
+    @include mixin.position( sticky, 0 );
     @include mixin.border( 'gray-30', $bottom: 1px );
+    @include mixin.shadow-box;
     width: 100%;
     padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'gray-10' );
     z-index: 999;
 
     &__container {
-        @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
+        @include mixin.flex-row( vars.get( 'padding-wide' ), space-between );
         @include mixin.max-width( 'content-wide' );
         height: vars.get( 'header-height' );
     }
@@ -37,6 +40,10 @@
             height: 20px;
         }
 
+    }
+
+    &__center {
+        flex: 1;
     }
 
     &__actions {

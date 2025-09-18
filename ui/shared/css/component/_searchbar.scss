@@ -1,0 +1,41 @@
+@use '../abstract/mixin';
+@use '../abstract/theme';
+
+.__apm_searchbar {
+    position: relative;
+    height: 48px;
+
+    &__input {
+        @include mixin.full-sized;
+        @include mixin.font-inherit;
+        @include mixin.border( 'gray-30', 2px );
+        @include mixin.transition;
+        padding: 0 48px;
+        background: theme.get( 'bg' );
+        border-radius: 24px;
+
+        &:focus {
+            background: theme.get( 'gray-10' );
+            border-color: theme.get( 'primary' );
+            box-shadow: 0 0 0 4px theme.get( 'primary', 0.1 );
+        }
+
+    }
+
+    &__icon {
+        @include mixin.prevent-events;
+        @include mixin.position( absolute, 12px, 16px );
+        color: theme.get( 'gray-50' );
+    }
+
+    &__close {
+        @include mixin.show-at( 'mobile' );
+        @include mixin.position( absolute, 0, $right: 4px );
+        @include mixin.flex-center;
+        @include mixin.ratio-width( 48px );
+        @include mixin.font-inherit;
+        @include mixin.transparent;
+        cursor: pointer;
+    }
+
+}

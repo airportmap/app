@@ -1,0 +1,14 @@
+form.__apm_searchbar(
+  action= "/search", method= "get", autocomplete= "off",
+  spellcheck= "false", role= "search", aria-label= "Search"
+)
+  div.__apm_searchbar__icon
+    +icon( 'search' )
+  input.__apm_searchbar__input(
+    type= "text", name= "q", value= data && data.q && data.q.query || '',
+    required= true, placeholder= fn.i18n( 'app.generic:search.placeholder' )
+  )
+  button.__apm_searchbar__close(
+    data-action= "searchbar.close", aria-label= "Close Searchbar",
+    title= fn.i18n( 'app.generic:search.close' )
+  ): +icon( 'close' )

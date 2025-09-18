@@ -1,0 +1,8 @@
+@use '../abstract/theme';
+
+@each $key in ( '::placeholder', '::-webkit-input-placeholder', '::-moz-placeholder' ) {
+    #{$key} {
+        color: theme.get( 'gray-50' );
+        opacity: 1;
+    }
+}
