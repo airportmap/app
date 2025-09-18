@@ -1,3 +1,4 @@
+@use '../abstract/effect';
 @use '../abstract/mixin';
 @use '../abstract/theme';
 @use '../abstract/vars';
@@ -100,6 +101,7 @@
             @include mixin.border( 'gray-30', 1px );
             @include mixin.shadow-box;
             @include mixin.transition( 'opacity' );
+            @include effect.fade-in;
             min-width: 120px;
             padding: vars.get( 'padding-tiny' );
             background: theme.get( 'gray-10' );
@@ -115,11 +117,6 @@
                 @include mixin.border( 'gray-30', $top: 1px, $left: 1px );
                 background: theme.get( 'gray-10' );
                 transform: rotate( 45deg );
-            }
-
-            &.___toggle_active {
-                visibility: visible;
-                opacity: 1;
             }
 
             button {
