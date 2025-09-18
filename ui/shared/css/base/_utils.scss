@@ -1,5 +1,8 @@
+@use '../abstract/mixin';
+
 .___icon {
-    width: 24px;
-    height: 24px;
+    @include mixin.prevent-events;
+    @include mixin.ratio-width( 24px );
+
     fill: currentColor;
 }

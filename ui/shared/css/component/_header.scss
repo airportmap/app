@@ -22,7 +22,7 @@
     &__site {
 
         &_title {
-            @include mixin.flex-row( vars.get( 'padding-small' ) );
+            @include mixin.flex-row( 12px );
 
             object, image {
                 @include mixin.prevent-events;
@@ -36,6 +36,34 @@
 
         &_wordmark {
             height: 20px;
+        }
+
+    }
+
+    &__actions {
+        @include mixin.flex-row( 8px );
+
+        &_item {
+            position: relative;
+        }
+
+        &_button {
+            @include mixin.flex-center;
+            @include mixin.ratio-width( 44px );
+            @include mixin.transparent;
+            @include mixin.transition( 'color, background' );
+
+            border-radius: vars.get( 'border-radius' );
+            cursor: pointer;
+
+            &:hover, &.___active {
+                background: theme.get( 'gray-30' );
+            }
+
+            &:focus, &.___active {
+                @include mixin.outline( 'primary', 2px );
+            }
+
         }
 
     }
