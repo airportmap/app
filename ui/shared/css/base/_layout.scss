@@ -1,3 +1,5 @@
+@use '../abstract/effect';
+@use '../abstract/mixin';
 @use '../abstract/theme';
 @use '../abstract/vars';
 
@@ -25,4 +27,12 @@ html, body {
     font-size: 1rem;
     color: theme.get( 'text' );
     background: theme.get( 'bg' );
+}
+
+.__apm_backdrop {
+    @include mixin.position( fixed, 0, 0, 0, 0 );
+    @include mixin.transition;
+    @include effect.fade-in;
+    background: rgba( 0 0 0 / 0.4 );
+    z-index: 1000;
 }
