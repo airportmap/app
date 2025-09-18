@@ -1,0 +1,29 @@
+@use 'sass:map';
+
+$default: ();
+
+$vars: ();
+
+@each $key, $_ in $default {
+    $vars: map.set( $vars, $key, var( --var-#{$key} ) );
+}
+
+@function get( $name, $fb: null, $val: false ) {
+    $value: map.get( if( $val, $default, $vars ), $name );
+    @if $value { @return $value; }
+    @else if $fb { @return $fb; }
+    @else {
+        @warn "Variable '#{$name}' is not defined";
+        @return null;
+    }
+}
+
+@function getval( $name, $fb: null ) {
+    @return get( $name, $fb, true );
+}
+
+:root {
+    @each $key, $value in $default {
+        --var-#{$key}: #{$value};
+    }
+}

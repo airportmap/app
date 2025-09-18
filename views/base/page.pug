@@ -3,8 +3,10 @@ include ../mixin/meta
 
 doctype html
 html(
-  class= htmlClasses, lang= cookies.locale
-  theme= cookies.theme, units= cookies.units
+  class= htmlClasses,
+  lang= cookies.locale
+  data-theme= cookies.theme,
+  data-units= cookies.units
 )
 
   head
