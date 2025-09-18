@@ -14,6 +14,8 @@
     font-feature-settings: 'kern';
     font-variant-ligatures: common-ligatures;
     font-kerning: normal;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 *, *::before, *::after {

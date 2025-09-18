@@ -4,6 +4,7 @@
 @use '../abstract/vars';
 
 .__apm_sidepanel {
+    @include mixin.prevent-select;
     @include mixin.position( fixed, 0, unset, 0, 0 );
     @include mixin.border( 'gray-30', $left: 1px );
     @include mixin.transition( 'transform' );
