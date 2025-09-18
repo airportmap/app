@@ -4,7 +4,6 @@
 .___icon {
     @include mixin.prevent-events;
     @include mixin.ratio-width( 24px );
-
     display: inline-block;
     fill: currentColor;
 }

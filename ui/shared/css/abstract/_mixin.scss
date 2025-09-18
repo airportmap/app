@@ -27,6 +27,18 @@
     }
 }
 
+@mixin hide-at( $at ) {
+    @include layout-max( $at ) {
+        display: none;
+    }
+}
+
+@mixin show-at( $at ) {
+    @include layout-min( $at ) {
+        display: none;
+    }
+}
+
 @mixin max-width-px( $width, $margin: 0 auto ) {
     margin: #{$margin};
     max-width: #{$width};

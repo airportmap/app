@@ -1,6 +1,11 @@
 @use 'sass:map';
 
 $default: (
+    layout-breakpoint--wide: 1200px,
+    layout-breakpoint--normal: 1000px,
+    layout-breakpoint--small: 800px,
+    layout-breakpoint--mobile: 600px,
+
     content-wide: 1640px,
     content-normal: 1260px,
     content-small: 980px,

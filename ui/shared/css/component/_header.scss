@@ -6,7 +6,6 @@
     @include mixin.prevent-select;
     @include mixin.sticky( $top: 0 );
     @include mixin.border( 'gray-30', $bottom: 1px );
-
     width: 100%;
     padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'gray-10' );
@@ -15,7 +14,6 @@
     &__container {
         @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
         @include mixin.max-width( 'content-wide' );
-
         height: vars.get( 'header-height' );
     }
 
@@ -35,6 +33,7 @@
         }
 
         &_wordmark {
+            @include mixin.hide-at( 'normal' );
             height: 20px;
         }
 
@@ -52,8 +51,7 @@
             @include mixin.ratio-width( 44px );
             @include mixin.font-inherit;
             @include mixin.transparent;
-            @include mixin.transition( 'color, background' );
-
+            @include mixin.transition;
             border-radius: vars.get( 'border-radius' );
             cursor: pointer;
 
