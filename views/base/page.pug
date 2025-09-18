@@ -1,3 +1,4 @@
+include ../mixin/assets
 include ../mixin/meta
 
 doctype html
@@ -13,6 +14,10 @@ html(
     +appeal()
     +metadata( meta )
     +og( data )
+
+    +preload( assets )
+    +css( assets )
+    +js( assets )
 
 
   body#top( class= bodyClasses || "__apm" )
