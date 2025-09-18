@@ -1,8 +1,18 @@
 @use 'sass:map';
 
 $default: (
-    font-sans: '"REM", sans-serif',
-    header-height: 72px
+    content-wide: 1640px,
+    content-normal: 1260px,
+    content-small: 980px,
+
+    padding-wide: 64px,
+    padding-large: 48px,
+    padding-normal: 24px,
+    padding-small: 16px,
+    padding-tiny: 8px,
+
+    header-height: 72px,
+    font-sans: '"REM", sans-serif'
 );
 
 $vars: ();

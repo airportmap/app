@@ -1,11 +1,43 @@
+@use '../abstract/mixin';
 @use '../abstract/theme';
 @use '../abstract/vars';
 
 .__apm_header {
-    position: sticky;
-    top: 0;
+    @include mixin.prevent-select;
+    @include mixin.sticky( $top: 0 );
+    @include mixin.border( 'gray-30', $bottom: 1px );
+
     width: 100%;
-    height: vars.get( 'header-height' );
+    padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'gray-10' );
-    border-bottom: 1px solid theme.get( 'gray-30' );
+    z-index: 999;
+
+    &__container {
+        @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
+        @include mixin.max-width( 'content-wide' );
+
+        height: vars.get( 'header-height' );
+    }
+
+    &__site {
+
+        &_title {
+            @include mixin.flex-row( vars.get( 'padding-small' ) );
+
+            object, image {
+                @include mixin.prevent-events;
+            }
+
+        }
+
+        &_logo {
+            height: 36px;
+        }
+
+        &_wordmark {
+            height: 20px;
+        }
+
+    }
+
 }
