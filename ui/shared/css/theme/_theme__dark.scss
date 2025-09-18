@@ -1,10 +1,16 @@
 $theme: (
-    text:    #ffffff,
-    bg:      #151a1c,
+    text:      #ffffff,
+    bg:        #151a1c,
+    contrast:  #000000,
 
-    gray-10: #0f1011,
-    gray-30: #51535e,
-    gray-50: #90929e,
-    gray-70: #d6d7db,
-    gray-90: #ffffff
+    primary:   #20ab68,
+    secondary: #209899,
+    tertiary:  #72c19b,
+    special:   #12578f,
+
+    gray-10:   #0f1011,
+    gray-30:   #51535e,
+    gray-50:   #90929e,
+    gray-70:   #d6d7db,
+    gray-90:   #ffffff
 );
