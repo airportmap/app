@@ -128,6 +128,20 @@
     outline-offset: #{$offset};
 }
 
+@mixin before {
+    &::before {
+        content: '';
+        @content;
+    }
+}
+
+@mixin after {
+    &::after {
+        content: '';
+        @content;
+    }
+}
+
 @mixin transition( $properies: all, $duration: 160ms, $easing: 'ease-out', $delay: 40ms ) {
     transition-property: #{$properies};
     transition-duration: #{$duration};
