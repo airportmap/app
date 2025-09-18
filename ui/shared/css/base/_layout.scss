@@ -1,0 +1,25 @@
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+* {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern';
+    font-variant-ligatures: common-ligatures;
+    font-kerning: normal;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    outline: 0 none;
+}
+
+html, body {
+    margin: 0;
+    line-height: 1.2;
+    font-family: vars.get( 'font-sans' );
+    font-size: 1rem;
+    color: theme.get( 'text' );
+    background: theme.get( 'bg' );
+}

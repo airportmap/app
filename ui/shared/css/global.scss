@@ -2,3 +2,7 @@
 @use './abstract/vars';
 
 @use './theme/font';
+
+@use './base/layout';
+
+@use './component/header';

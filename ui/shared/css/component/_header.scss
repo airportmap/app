@@ -1,0 +1,11 @@
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+.__apm_header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: vars.get( 'header-height' );
+    background: theme.get( 'gray-10' );
+    border-bottom: 1px solid theme.get( 'gray-30' );
+}
