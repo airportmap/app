@@ -5,7 +5,7 @@ mixin appeal()
 
 mixin metadata( meta )
   if meta.title
-    title= meta.title
+    title= meta.title ? fn.i18n( 'app.generic:title', { title: meta.title } ) : fn.i18n( 'app.generic:name' )
   if meta.description
     meta( name= "description", content= meta.description )
   if meta.robots
@@ -16,7 +16,7 @@ mixin metadata( meta )
 mixin og( data )
   - var og = data && data.og || {}
   meta( property= "og:type", content= "website" )
-  meta( property= "og:site_name", content= "Airportmap" )
+  meta( property= "og:site_name", content= fn.i18n( 'app.generic:name' ) )
   meta( property= "og:title", content= og.title || meta.title || undefined )
   meta( property= "og:description", content= og.description || meta.description || undefined )
   meta( property= "og:url", content= og.url || meta.canonical || undefined )

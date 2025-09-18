@@ -8,8 +8,8 @@ export default async function get ( req: Request, res: Response, server: Server 
         bodyClasses: '__apm __apm_home',
         assets: {},
         meta: {
-            title: ( req as any ).t( 'app.home:title' ),
-            description: ( req as any ).t( 'app.home:description' )
+            title: ( req as any ).t( 'app.home:_title' ),
+            description: ( req as any ).t( 'app.home:_description' )
         },
         data: {}
     } );
