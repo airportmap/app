@@ -9,10 +9,10 @@
     @include mixin.prevent-select;
     @include mixin.position( sticky, 0 );
     @include mixin.border( 'gray-30', $bottom: 1px );
-    @include mixin.shadow-line;
     width: 100%;
     padding: 0 vars.get( 'padding-normal' );
     background: theme.get( 'gray-10' );
+    box-shadow: 0 24px 16px -16px rgba( 0 0 0 / 0.02 );
     z-index: 1000;
 
     &__container {
@@ -49,7 +49,6 @@
         @include mixin.layout-max( 'mobile' ) {
             @include mixin.position( fixed, 0, 0, 0 );
             @include mixin.flex-col;
-            @include mixin.shadow-line;
             @include mixin.transition( 'transform' );
             @include effect.slide-in( -100%, $dir: 'Y' );
             height: vars.get( 'header-height' );
@@ -94,16 +93,14 @@
             @include mixin.position( absolute, calc( 100% + 20px ), 50% );
             @include mixin.flex-col( 4px );
             @include mixin.border( 'gray-30', 1px );
-            @include mixin.shadow-box;
             @include mixin.transition( 'opacity' );
             @include effect.fade-in;
             min-width: 120px;
             padding: vars.get( 'padding-tiny' );
             background: theme.get( 'gray-10' );
             border-radius: vars.get( 'border-radius' );
+            box-shadow: 0 8px 32px rgba( 0 0 0 / 0.08 );
             z-index: 1001;
-            visibility: hidden;
-            opacity: 0;
             transform: translateX( -50% );
 
             @include mixin.after {

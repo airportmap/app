@@ -133,14 +133,6 @@
     }
 }
 
-@mixin shadow-box {
-    box-shadow: 0 8px 32px rgba( 0 0 0 / 0.08 );
-}
-
-@mixin shadow-line {
-    box-shadow: 0 24px 16px -16px rgba( 0 0 0 / 0.02 );
-}
-
 @mixin outline( $color: 'special', $offset: 0 ) {
     outline: 2px solid theme.get( $color );
     outline-offset: #{$offset};
