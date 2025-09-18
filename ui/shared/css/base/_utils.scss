@@ -1,8 +1,15 @@
 @use '../abstract/mixin';
+@use '../abstract/theme';
 
 .___icon {
     @include mixin.prevent-events;
     @include mixin.ratio-width( 24px );
 
+    display: inline-block;
     fill: currentColor;
+}
+
+#{theme.$is_light} .___dark_only,
+#{theme.$is_dark} .___light_only {
+    display: none;
 }

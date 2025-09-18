@@ -28,8 +28,8 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
             data-action= "___switch_theme", aria-label= "Toggle Theme",
             title= fn.i18n( 'app.generic:header.action.theme' )
           )
-            span.light: +icon( 'light' )
-            span.dark: +icon( 'dark' )
+            span.___light_only: +icon( 'light' )
+            span.___dark_only: +icon( 'dark' )
         div.__apm_header__actions_item
           button.__apm_header__actions_button(
             data-action= "___sidepanel", aria-label= "Open Sidepanel",

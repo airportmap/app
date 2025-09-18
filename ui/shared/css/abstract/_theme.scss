@@ -10,6 +10,9 @@ $themes: (
 
 $colors: ();
 
+$is_light: '[data-theme="light"]';
+$is_dark: '[data-theme="dark"]';
+
 @each $key, $_ in map.get( $themes, 'light' ) {
     $colors: map.set( $colors, $key, var( --theme-#{$key} ) );
 }
