@@ -1,6 +1,8 @@
 @use 'sass:map';
 
-$default: ();
+$default: (
+    font-sans: '"REM", sans-serif'
+);
 
 $vars: ();
 

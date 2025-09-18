@@ -1,0 +1,20 @@
+@use '../abstract/fn';
+
+@mixin font-face( $family, $local, $formats: (), $weight: normal, $style: normal ) {
+    @font-face {
+        font-family: #{$family};
+        font-weight: #{$weight};
+        font-style: #{$style};
+        font-display: swap;
+        font-variant: normal;
+        font-kerning: auto;
+        font-variant-ligatures: normal;
+        font-variant-numeric: tabular-nums;
+        @if fn.in_list( 'woff2', $formats ) {
+            src: url( '../assets/fonts/#{$local}.woff2' ) format( 'woff2' );
+        }
+    }
+}
+
+@include font-face( 'REM', 'REM', ( 'woff2' ) );
+@include font-face( 'REM', 'REM-Italic', ( 'woff2' ), $style: italic );
