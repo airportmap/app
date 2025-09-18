@@ -1,6 +1,8 @@
 @use '../abstract/theme';
 @use '../abstract/vars';
 
+@use './utils';
+
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
