@@ -32,7 +32,7 @@
         }
 
         &_logo {
-            height: 36px;
+            height: 40px;
         }
 
         &_wordmark {
@@ -44,6 +44,24 @@
 
     &__center {
         flex: 1;
+
+        @include mixin.layout-max( 'mobile' ) {
+            @include mixin.position( 'fixed', 0, 0, 0 );
+            @include mixin.flex-col;
+            @include mixin.shadow-box;
+            @include mixin.transition( 'transform' );
+            height: vars.get( 'header-height' );
+            padding: 0 vars.get( 'padding-small' );
+            background: theme.get( 'gray-10' );
+            z-index: 1000;
+            transform: translateY( -100% );
+
+            &.___active {
+                transform: translateY( 0 );
+            }
+
+        }
+
     }
 
     &__actions {
@@ -66,7 +84,7 @@
                 display: block;
             }
 
-            &:hover, &.___active {
+            &:hover {
                 background: theme.get( 'gray-30' );
             }
 
@@ -74,6 +92,19 @@
                 @include mixin.outline( 'primary', 2px );
             }
 
+        }
+
+        [data-action="header.search"] {
+            @include mixin.show-at( 'mobile' );
+        }
+
+    }
+
+    @include mixin.layout-max( 'small' ) {
+        padding: 0 vars.get( 'padding-small' );
+
+        &__container {
+            gap: vars.get( 'padding-normal' );
         }
 
     }
