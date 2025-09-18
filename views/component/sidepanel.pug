@@ -20,3 +20,10 @@ div#sidepanel.__apm_sidepanel( role= "menu", aria-label= "Sidepanel" )
       h3.__apm_sidepanel__section_title
         +icon( 'link' )
         span= fn.i18n( 'app.generic:sidepanel.links' )
+      div.__apm_sidepanel__section_grid
+        a.external( href= "https://github.com/airportmap" )= fn.i18n( 'app.generic:external.github' )
+        a.external( href= "https://api.airportmap.de" )= fn.i18n( 'app.generic:external.apidocs' )
+        a.external( href= "https://embed.airportmap.de" )= fn.i18n( 'app.generic:external.embed' )
+        a.external( href= "https://x.com/openairportmap" )= fn.i18n( 'app.generic:external.twitter' )
+        a.external( href= "https://editor.airportmap.de" )= fn.i18n( 'app.generic:external.editor' )
+        a.external( href= "https://db.airportmap.de" )= fn.i18n( 'app.generic:external.database' )

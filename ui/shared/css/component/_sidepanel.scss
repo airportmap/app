@@ -51,6 +51,30 @@
 
         }
 
+        &_grid {
+            display: grid;
+            grid-template-columns: repeat( 2, 1fr );
+            gap: vars.get( 'padding-tiny' );
+
+            a {
+                @include mixin.flex-center;
+                @include mixin.border( 'gray-30', 1px );
+                @include mixin.transition;
+                height: 52px;
+                padding: 0 vars.get( 'padding-tiny' );
+                font-size: 15px;
+                font-weight: 500;
+                border-radius: vars.get( 'border-radius' );
+
+                &:hover {
+                    background: theme.get( 'bg' );
+                    border-color: theme.get( 'primary' );
+                }
+
+            }
+
+        }
+
     }
 
     @include mixin.layout-max( 'mobile' ) {

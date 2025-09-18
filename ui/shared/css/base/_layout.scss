@@ -32,6 +32,11 @@ html, body {
     background: theme.get( 'bg' );
 }
 
+a, a:link, a:visited, a:hover {
+    @include mixin.font-inherit;
+    text-decoration: none;
+}
+
 .__apm_backdrop {
     @include mixin.position( fixed, 0, 0, 0, 0 );
     @include mixin.transition;
