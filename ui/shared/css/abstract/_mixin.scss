@@ -10,6 +10,11 @@
     pointer-events: none;
 }
 
+@mixin transparent {
+    background: none;
+    border: 0;
+}
+
 @mixin layout-max( $at ) {
     @media ( max-width: vars.getval( 'layout-breakpoint--#{$at}' ) ) {
         @content;
@@ -98,4 +103,20 @@
         border-right-width: #{$right};
         border-bottom-width: #{$bottom};
     }
+}
+
+@mixin shadow-box {
+    box-shadow: 0 24px 16px -16px rgba( 0 0 0 / 0.02 );
+}
+
+@mixin outline( $color: 'special', $offset: 0 ) {
+    outline: 2px solid theme.get( $color );
+    outline-offset: #{$offset};
+}
+
+@mixin transition( $properies: all, $duration: 200ms, $easing: 'ease-out', $delay: 20ms ) {
+    transition-property: #{$properies};
+    transition-duration: #{$duration};
+    transition-timing-function: #{$easing};
+    transition-delay: #{$delay};
 }
