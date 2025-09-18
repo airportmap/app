@@ -9,6 +9,6 @@ form.__apm_searchbar(
     required= true, placeholder= fn.i18n( 'app.generic:search.placeholder' )
   )
   button.__apm_searchbar__close(
-    data-action= "searchbar.close", aria-label= "Close Searchbar",
+    data-action= "toggle", data-selector= "#search", aria-label= "Close Searchbar",
     title= fn.i18n( 'app.generic:search.close' )
   ): +icon( 'close' )

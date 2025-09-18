@@ -88,7 +88,7 @@
                 background: theme.get( 'gray-30' );
             }
 
-            &:focus, &.___active {
+            &:focus {
                 @include mixin.outline( 'primary', 2px );
             }
 
@@ -148,7 +148,7 @@
 
         }
 
-        [data-action="header.search"] {
+        [data-selector="#search"] {
             @include mixin.show-at( 'mobile' );
         }
 
