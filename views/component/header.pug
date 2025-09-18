@@ -36,6 +36,7 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
         div.__apm_header__actions_item
           button.__apm_header__actions_button(
             data-action= "cookie", data-name= "theme", data-reload= 1,
+            data-value= ( cookies.theme === 'dark' ? 'light' : 'dark' ),
             aria-label= "Toggle Theme",
             title= fn.i18n( 'app.generic:header.action.theme' )
           )
