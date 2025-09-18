@@ -1,0 +1,15 @@
+include ../mixin/meta
+
+doctype html
+html(
+  class= htmlClasses, lang= cookies.locale
+  theme= cookies.theme, units= cookies.units
+)
+
+  head
+    meta( charset= "utf-8" )
+    meta( name= "viewport", content= "width=device-width, initial-scale=1.0" )
+
+    +appeal()
+    +metadata( meta )
+    +og( data )
