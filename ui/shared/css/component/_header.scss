@@ -51,16 +51,11 @@
             @include mixin.flex-col;
             @include mixin.shadow-line;
             @include mixin.transition( 'transform' );
+            @include effect.slide-in( -100% );
             height: vars.get( 'header-height' );
             padding: 0 vars.get( 'padding-small' );
             background: theme.get( 'gray-10' );
             z-index: 1001;
-            transform: translateY( -100% );
-
-            &.___toggle_active {
-                transform: translateY( 0 );
-            }
-
         }
 
     }

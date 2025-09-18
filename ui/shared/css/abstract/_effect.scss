@@ -8,3 +8,14 @@
     }
 
 }
+
+@mixin slide-in( $from, $to: 0, $dir: 'Y' ) {
+    visibility: hidden;
+    transform: translate#{$dir}( #{$from} );
+
+    &.___active, &.___toggle_active {
+        visibility: visible;
+        transform: translate#{$dir}( #{$to} );
+    }
+
+}
