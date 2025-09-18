@@ -2,7 +2,7 @@
     visibility: hidden;
     opacity: 0;
 
-    &.___toggle_active {
+    &.___active, &.___toggle_active {
         visibility: visible;
         opacity: 1;
     }

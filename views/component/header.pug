@@ -17,7 +17,7 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
         div.__apm_header__actions_item
           button.__apm_header__actions_button(
             data-action= "toggle", data-selector= "#search", aria-label= "Open Search",
-            title= fn.i18n( 'app.generic:header.action.search' )
+            data-backdrop= 1, title= fn.i18n( 'app.generic:header.action.search' )
           ): +icon( 'search' )
 
         div.__apm_header__actions_item
@@ -46,5 +46,5 @@ header#header.__apm_header( role= "banner", aria-label= "Header" )
         div.__apm_header__actions_item
           button.__apm_header__actions_button(
             data-action= "toggle", data-selector= "#sidepanel", aria-label= "Open Sidepanel",
-            title= fn.i18n( 'app.generic:header.action.sidepanel' )
+            data-backdrop= 1, title= fn.i18n( 'app.generic:header.action.sidepanel' )
           ): +icon( 'menu' )

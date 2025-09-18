@@ -1,3 +1,5 @@
+const __backdrop = document.getElementById( 'backdrop' );
+
 document.addEventListener( 'click', function ( e: PointerEvent ) : void {
 
     const target = e.target as HTMLElement;
@@ -23,8 +25,18 @@ document.addEventListener( 'click', function ( e: PointerEvent ) : void {
                 el.classList.toggle( '___toggle_active' );
             } );
 
+            if ( !! toggle.getAttribute( 'data-backdrop' ) ) {
+                __backdrop.classList.add( '___active' );
+            }
+
         }
 
     }
 
+    if ( document.querySelectorAll( '.___toggle_active' ).length === 0 ) {
+        __backdrop.classList.remove( '___active' );
+    }
+
 } );
+
+export { __backdrop };
