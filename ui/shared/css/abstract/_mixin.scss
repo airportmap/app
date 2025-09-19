@@ -144,14 +144,14 @@
     outline-offset: #{$offset};
 }
 
-@mixin focused-self( $color: 'special' ) {
+@mixin focused-self( $color: 'special', $offset: 0 ) {
     &:focus, &:active {
-        @include outline( $color );
+        @include outline( $color, $offset );
     }
 }
 
-@mixin focused-parent( $color: 'special' ) {
+@mixin focused-parent( $color: 'special', $offset: 0 ) {
     &:focus-within {
-        @include outline( $color );
+        @include outline( $color, $offset );
     }
 }
