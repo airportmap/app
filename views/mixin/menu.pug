@@ -1,0 +1,23 @@
+include ./assets
+
+mixin menu( items, opts )
+  -
+    var current = opts && opts.current || site && site.path || '/';
+    var classes = [ '__apm_menu' ];
+    if ( opts && opts.classes ) classes.push( opts.classes );
+
+  nav( class= classes.join( ' ' ), role= "menu", aria-label= opts && opts.aria || "Menu" )
+    ul.__apm_menu__list
+      each item in items
+        -
+          var isActive = ( item.href && current && (
+            current === item.href || current.startsWith( item.href + '/' )
+          ) );
+        li.__apm_menu__item(
+          class= isActive ? "___active" : "",
+          role= "menuitem", aria-label= item.label
+        )
+          a.__apm_menu__link( href= item.href )
+            if item.icon
+              +icon( item.icon )
+            span= item.label
