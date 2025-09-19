@@ -29,6 +29,17 @@ div#sidepanel.__apm_sidepanel( aria-label= "Sidepanel" )
       h3.__apm_sidepanel__section_title
         +icon( 'preferences' )
         span= fn.i18n( 'app.generic:sidepanel.preferences' )
+      div.__apm_sidepanel__settings
+        div.__apm_sidepanel__settings_group
+          h4.__apm_sidepanel__settings_title= fn.i18n( 'app.generic:settings.units.title' )
+          p.__apm_sidepanel__settings_desc= fn.i18n( 'app.generic:settings.units.desc' )
+          div.__apm_sidepanel__settings_options
+            each u in [ 'metric', 'imperial' ]
+              button(
+                class= ( u === cookies.units ? '___active' : '' ),
+                data-action= "cookie", data-name= "units", data-value= u, data-reload= 1,
+                aria-label= label = fn.i18n( 'app.generic:settings.units.' + u )
+              )= label
 
     section.__apm_sidepanel__section
       h3.__apm_sidepanel__section_title
