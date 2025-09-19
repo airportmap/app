@@ -23,7 +23,7 @@
             @include effect.transition( 'color' );
 
             &:hover {
-                color: theme.get( 'primary' );
+                color: theme.get( 'special' );
             }
 
         }
@@ -120,6 +120,7 @@
 }
 
 .__apm_notice {
+    @include mixin.prevent-select;
     padding: vars.get( 'padding-small' );
     color: theme.get( 'contrast' );
     background: theme.get( 'secondary' );
