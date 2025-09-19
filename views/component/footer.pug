@@ -1,13 +1,29 @@
 include ../mixin/assets
+include ../mixin/menu
 
 footer#footer.__apm_footer( role= "contentinfo", aria-label= "Footer" )
   div.__apm_footer__container
     div.__apm_footer__main
       div.__apm_footer__brand
+        a.__apm_footer__brand_title( href= "/", title= alt = fn.i18n( 'app.generic:slogan' ), aria-label= "Site title" )
+          object.__apm_footer__brand_logo( data= "assets/images/logo.svg", type= "image/svg+xml", aria-label= "Logo" )
+            img( src= "assets/images/logo_256x256.png", alt= alt )
+          object.__apm_footer__brand_wordmark( data= "assets/images/wordmark.svg", type= "image/svg+xml", aria-label= "Wordmark" )
+            img( src= "assets/images/wordmark_256x27.png", alt= alt )
+        p.__apm_footer__brand_desc= fn.i18n( 'app.generic:desc' )
+
       div.__apm_footer__column
+
       div.__apm_footer__column
+
       div.__apm_footer__column
+
     div.__apm_footer__bottom
       div.__apm_footer__credits
         p= fn.i18n( 'app.generic:credits', { year: new Date().getFullYear() } )
-      div.__apm_footer__legal
+      +menu( [
+        { href: '/privacy', label: fn.i18n( 'app.generic:legal.privacy' ) },
+        { href: '/terms', label: fn.i18n( 'app.generic:legal.terms' ) },
+        { href: '/cookies', label: fn.i18n( 'app.generic:legal.cookies' ) },
+        { href: '/license', label: fn.i18n( 'app.generic:legal.license' ) }
+      ], { classes: '__apm_footer__legal' } )

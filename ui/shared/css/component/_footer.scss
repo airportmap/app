@@ -4,11 +4,30 @@
 @use '../abstract/vars';
 
 .__apm_footer {
+    @include mixin.prevent-select;
     @include mixin.border( 'gray-30', $top: 1px );
     margin-top: vars.get( 'padding-wide' );
     padding: vars.get( 'padding-large' ) vars.get( 'padding-normal' );
+        color: theme.get( 'gray-70' );
     background: theme.get( 'gray-10' );
     box-shadow: 0 -24px 16px -16px rgba( 0 0 0 / 0.02 );
+
+    .__apm_menu {
+
+        &__list {
+            @include mixin.unstyled-list;
+        }
+
+        &__item a {
+            @include effect.transition( 'color' );
+
+            &:hover {
+                color: theme.get( 'primary' );
+            }
+
+        }
+
+    }
 
     &__container {
         @include mixin.max-width( 'content-normal' );
@@ -17,21 +36,51 @@
     &__main {
         display: grid;
         grid-template-columns: repeat( 4, 1fr );
-        gap: vars.get( 'padding-normal' );
+        gap: vars.get( 'padding-large' );
+    }
+
+    &__brand {
+
+        &_title {
+            @include mixin.flex-row( 12px );
+
+            object, image {
+                @include mixin.prevent-events;
+            }
+
+        }
+
+        &_logo {
+            height: 36px;
+        }
+
+        &_wordmark {
+            height: 16px;
+        }
+
+        &_desc {
+            margin: vars.get( 'padding-normal' ) 0;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
     }
 
     &__bottom {
         @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
         @include mixin.border( 'gray-30', $top: 1px );
-        margin-top: vars.get( 'padding-normal' );
-        padding-top: vars.get( 'padding-normal' );
+        margin-top: vars.get( 'padding-large' );
+        padding-top: vars.get( 'padding-large' );
+        font-size: 13px;
+        font-weight: 500;
     }
 
     &__credits p {
         margin: 0;
-        font-size: 13px;
-        font-weight: 500;
-        color: theme.get( 'gray-70' );
+    }
+
+    &__legal ul {
+        @include mixin.flex-row( vars.get( 'padding-normal' ) );
     }
 
 }
