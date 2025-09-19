@@ -35,9 +35,14 @@ div#sidepanel.__apm_sidepanel( aria-label= "Sidepanel" )
         +icon( 'link' )
         span= fn.i18n( 'app.generic:sidepanel.links' )
       div.__apm_sidepanel__section_grid( role= "menu", aria-label= "Resources & Links" )
-        a.external( href= "https://github.com/airportmap" )= fn.i18n( 'app.generic:external.github' )
-        a.external( href= "https://api.airportmap.de" )= fn.i18n( 'app.generic:external.apidocs' )
-        a.external( href= "https://embed.airportmap.de" )= fn.i18n( 'app.generic:external.embed' )
-        a.external( href= "https://x.com/openairportmap" )= fn.i18n( 'app.generic:external.twitter' )
-        a.external( href= "https://editor.airportmap.de" )= fn.i18n( 'app.generic:external.editor' )
-        a.external( href= "https://db.airportmap.de" )= fn.i18n( 'app.generic:external.database' )
+        -
+          var external = [
+            { href: 'https://github.com/airportmap', label: fn.i18n( 'app.generic:external.github' ) },
+            { href: 'https://api.airportmap.de', label: fn.i18n( 'app.generic:external.apidocs' ) },
+            { href: 'https://embed.airportmap.de', label: fn.i18n( 'app.generic:external.embed' ) },
+            { href: 'https://x.com/openairportmap', label: fn.i18n( 'app.generic:external.twitter' ) },
+            { href: 'https://editor.airportmap.de', label: fn.i18n( 'app.generic:external.editor' ) },
+            { href: 'https://db.airportmap.de', label: fn.i18n( 'app.generic:external.database' ) }
+          ]
+        each l in external
+          a.external( href= l.href, role="menuitem", aria-label= l.label )= l.label
