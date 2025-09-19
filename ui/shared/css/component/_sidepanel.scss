@@ -51,6 +51,34 @@
 
         }
 
+        &_links .__apm_menu {
+
+            &__list {
+                @include mixin.unstyled-list;
+                @include mixin.flex-col( 4px, flex-start, stretch );
+            }
+
+            &__link {
+                @include mixin.flex-row( vars.get( 'padding-tiny' ) );
+                @include mixin.transition;
+                padding: vars.get( 'padding-small' );
+                font-size: 15px;
+                font-weight: 500;
+                border-radius: vars.get( 'border-radius' );
+
+                &:hover {
+                    background: theme.get( 'gray-30' );
+                }
+
+                &.___active {
+                    color: theme.get( 'contrast' );
+                    background: theme.get( 'primary' );
+                }
+
+            }
+
+        }
+
         &_grid {
             display: grid;
             grid-template-columns: repeat( 2, 1fr );
