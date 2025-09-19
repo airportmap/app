@@ -7,7 +7,7 @@ button {
     @include mixin.flex-center;
     @include mixin.font-inherit;
     @include mixin.transparent;
-    @include mixin.focused-self( 'primary', 2px );
+    @include mixin.focused-self;
     @include effect.transition;
     white-space: nowrap;
     font-size: 14px;
@@ -17,6 +17,7 @@ button {
 
 .__apm_action_button {
     @include mixin.ratio-width( 44px );
+    @include mixin.focused-self( 'primary', 2px );
     border-radius: vars.get( 'border-radius' );
 
     span, .___icon {
