@@ -58,7 +58,7 @@ document.addEventListener( 'click', function ( e: PointerEvent ) : void {
             Cookie.set( name, val );
 
             if ( !! cookie.getAttribute( 'data-reload' ) )
-                this.location.reload();
+                document.location.reload();
 
         }
 
@@ -83,7 +83,7 @@ document.addEventListener( 'change', function ( e: Event ) : void {
             Cookie.set( name, val );
 
             if ( !! cookie.getAttribute( 'data-reload' ) )
-                this.location.reload();
+                document.location.reload();
 
         }
 

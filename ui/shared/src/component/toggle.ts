@@ -1,4 +1,4 @@
-const __backdrop = document.getElementById( 'backdrop' );
+import { showBackdrop, hideBackdrop } from './base';
 
 document.addEventListener( 'click', function ( e: PointerEvent ) : void {
 
@@ -25,18 +25,14 @@ document.addEventListener( 'click', function ( e: PointerEvent ) : void {
                 el.classList.toggle( '___toggle_active' );
             } );
 
-            if ( !! toggle.getAttribute( 'data-backdrop' ) ) {
-                __backdrop.classList.add( '___active' );
-            }
+            if ( !! toggle.getAttribute( 'data-backdrop' ) )
+                showBackdrop();
 
         }
 
     }
 
-    if ( document.querySelectorAll( '.___toggle_active' ).length === 0 ) {
-        __backdrop.classList.remove( '___active' );
-    }
+    if ( document.querySelectorAll( '.___toggle_active' ).length === 0 )
+        hideBackdrop();
 
 } );
-
-export { __backdrop };

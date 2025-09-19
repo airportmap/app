@@ -1,6 +1,22 @@
 @use '../abstract/mixin';
 @use '../abstract/theme';
 
+.___noscroll {
+    overflow: hidden;
+}
+
+.___noselect {
+    @include mixin.prevent-select;
+}
+
+.___noevents {
+    @include mixin.prevent-events;
+}
+
+.___transparent {
+    @include mixin.transparent;
+}
+
 .___icon {
     @include mixin.prevent-events;
     @include mixin.ratio-width( 24px );
