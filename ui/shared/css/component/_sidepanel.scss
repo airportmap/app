@@ -106,6 +106,34 @@
 
     }
 
+    &__settings {
+        @include mixin.flex-col( vars.get( 'padding-normal' ), flex-start, stretch );
+
+        &_group {
+            @include mixin.border( 'gray-30', 1px );
+            padding: vars.get( 'padding-normal' );
+            background: theme.get( 'bg' );
+            border-radius: vars.get( 'border-radius' );
+        }
+
+        &_label {
+            margin: 0 0 vars.get( 'padding-tiny' );
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        &_desc {
+            margin: 0 0 vars.get( 'padding-normal' );
+            font-size: 13px;
+            color: theme.get( 'gray-50' );
+        }
+
+        &_options {
+            @include mixin.flex-row( vars.get( 'padding-tiny' ), $nowrap: false );
+        }
+
+    }
+
     @include mixin.layout-max( 'mobile' ) {
         width: 100dvw;
     }
