@@ -1,0 +1,13 @@
+include ../mixin/assets
+
+footer#footer.__apm_footer( role= "contentinfo", aria-label= "Footer" )
+  div.__apm_footer__container
+    div.__apm_footer__main
+      div.__apm_footer__brand
+      div.__apm_footer__column
+      div.__apm_footer__column
+      div.__apm_footer__column
+    div.__apm_footer__bottom
+      div.__apm_footer__credits
+        p= fn.i18n( 'app.generic:credits', { year: new Date().getFullYear() } )
+      div.__apm_footer__legal

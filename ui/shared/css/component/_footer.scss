@@ -1,0 +1,37 @@
+@use '../abstract/effect';
+@use '../abstract/mixin';
+@use '../abstract/theme';
+@use '../abstract/vars';
+
+.__apm_footer {
+    @include mixin.border( 'gray-30', $top: 1px );
+    margin-top: vars.get( 'padding-wide' );
+    padding: vars.get( 'padding-large' ) vars.get( 'padding-normal' );
+    background: theme.get( 'gray-10' );
+    box-shadow: 0 -24px 16px -16px rgba( 0 0 0 / 0.02 );
+
+    &__container {
+        @include mixin.max-width( 'content-normal' );
+    }
+
+    &__main {
+        display: grid;
+        grid-template-columns: repeat( 4, 1fr );
+        gap: vars.get( 'padding-normal' );
+    }
+
+    &__bottom {
+        @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
+        @include mixin.border( 'gray-30', $top: 1px );
+        margin-top: vars.get( 'padding-normal' );
+        padding-top: vars.get( 'padding-normal' );
+    }
+
+    &__credits p {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 500;
+        color: theme.get( 'gray-70' );
+    }
+
+}
