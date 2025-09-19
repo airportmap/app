@@ -49,7 +49,7 @@
         @include mixin.layout-max( 'mobile' ) {
             @include mixin.position( fixed, 0, 0, 0 );
             @include mixin.flex-col;
-            @include mixin.transition( 'transform' );
+            @include effect.transition( 'transform' );
             @include effect.slide-in( -100%, $dir: 'Y' );
             height: vars.get( 'header-height' );
             padding: 0 vars.get( 'padding-small' );
@@ -70,7 +70,7 @@
             @include mixin.position( absolute, calc( 100% + 20px ), 50% );
             @include mixin.flex-col( 4px );
             @include mixin.border( 'gray-30', 1px );
-            @include mixin.transition( 'opacity' );
+            @include effect.transition( 'opacity' );
             @include effect.fade-in;
             min-width: 120px;
             padding: vars.get( 'padding-tiny' );
@@ -91,7 +91,7 @@
             button {
                 @include mixin.font-inherit;
                 @include mixin.transparent;
-                @include mixin.transition;
+                @include effect.transition;
                 width: 100%;
                 height: 36px;
                 white-space: nowrap;

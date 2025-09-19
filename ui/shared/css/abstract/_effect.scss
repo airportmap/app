@@ -1,3 +1,10 @@
+@mixin transition( $properies: all, $duration: 160ms, $easing: 'ease-out', $delay: 40ms ) {
+    transition-property: #{$properies};
+    transition-duration: #{$duration};
+    transition-timing-function: #{$easing};
+    transition-delay: #{$delay};
+}
+
 @mixin fade-in {
     visibility: hidden;
     opacity: 0;
