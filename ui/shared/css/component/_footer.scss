@@ -38,6 +38,19 @@
         display: grid;
         grid-template-columns: 3fr repeat( 3, 2fr );
         gap: vars.get( 'padding-large' );
+
+        @include mixin.layout-max( 'wide' ) {
+            grid-template-columns: repeat( 3, 1fr );
+        }
+
+        @include mixin.layout-max( 'small' ) {
+            grid-template-columns: repeat( 2, 1fr );
+        }
+
+        @include mixin.layout-max( 'mobile' ) {
+            grid-template-columns: 1fr;
+        }
+
     }
 
     &__brand {
@@ -64,10 +77,14 @@
             line-height: 1.4;
         }
 
+        @include mixin.layout-max( 'wide' ) {
+            grid-column: 1 / -1;
+        }
+
     }
 
     &__socials ul, &__legal ul {
-        @include mixin.flex-row( vars.get( 'padding-normal' ) );
+        @include mixin.flex-row( vars.get( 'padding-tiny' ) vars.get( 'padding-normal' ), $nowrap: false );
     }
 
     &__column {
@@ -88,7 +105,7 @@
     }
 
     &__bottom {
-        @include mixin.flex-row( vars.get( 'padding-normal' ), space-between );
+        @include mixin.flex-row( vars.get( 'padding-small' ) vars.get( 'padding-normal' ), space-between, $nowrap: false );
         @include mixin.border( 'gray-30', $top: 1px );
         margin-top: vars.get( 'padding-large' );
         padding-top: vars.get( 'padding-large' );
