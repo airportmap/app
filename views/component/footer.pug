@@ -11,12 +11,40 @@ footer#footer.__apm_footer( role= "contentinfo", aria-label= "Footer" )
           object.__apm_footer__brand_wordmark( data= "assets/images/wordmark.svg", type= "image/svg+xml", aria-label= "Wordmark" )
             img( src= "assets/images/wordmark_256x27.png", alt= alt )
         p.__apm_footer__brand_desc= fn.i18n( 'app.generic:desc' )
+        +menu( [
+          { href: 'https://github.com/airportmap', label: fn.i18n( 'app.generic:external.github' ), icon: 'github' },
+          { href: 'https://x.com/openairportmap', label: fn.i18n( 'app.generic:external.twitter' ), icon: 'twitter' },
+          { href: 'https://paypal.me/komed3', label: fn.i18n( 'app.generic:external.support' ), icon: 'heart' }
+        ], { classes: '__apm_footer__socials', aria: 'Social' } )
 
       div.__apm_footer__column
+        h4.__apm_footer__column_title= fn.i18n( 'app.generic:footer.explore' )
+        +menu( [
+          { href: '/', label: fn.i18n( 'app.generic:nav.home' ) },
+          { href: '/airports', label: fn.i18n( 'app.generic:nav.airports' ) },
+          { href: '/weather', label: fn.i18n( 'app.generic:nav.weather' ) },
+          { href: '/sigmets', label: fn.i18n( 'app.generic:nav.sigmets' ) },
+          { href: '/traffic', label: fn.i18n( 'app.generic:nav.traffic' ) },
+          { href: '/about', label: fn.i18n( 'app.generic:nav.about' ) },
+          { href: '/stats', label: fn.i18n( 'app.generic:nav.stats' ) }
+        ], { classes: '__apm_footer__column_menu', aria: 'Explore' } )
 
       div.__apm_footer__column
+        h4.__apm_footer__column_title= fn.i18n( 'app.generic:footer.development' )
+        +menu( [
+          { href: 'https://api.airportmap.de', label: fn.i18n( 'app.generic:external.apidocs' ) },
+          { href: 'https://db.airportmap.de', label: fn.i18n( 'app.generic:external.database' ) },
+          { href: 'https://embed.airportmap.de', label: fn.i18n( 'app.generic:external.embed' ) }
+        ], { classes: '__apm_footer__column_menu', aria: 'Development' } )
 
       div.__apm_footer__column
+        h4.__apm_footer__column_title= fn.i18n( 'app.generic:footer.support' )
+        +menu( [
+          { href: 'mailto:webmaster@airportmap.de', label: fn.i18n( 'app.generic:external.contact' ) },
+          { href: 'https://github.com/airportmap', label: fn.i18n( 'app.generic:external.bug' ) },
+          { href: 'https://editor.airportmap.de', label: fn.i18n( 'app.generic:external.editor' ) },
+          { href: 'https://status.airportmap.de', label: fn.i18n( 'app.generic:external.status' ) }
+        ], { classes: '__apm_footer__column_menu', aria: 'Support' } )
 
     div.__apm_footer__bottom
       div.__apm_footer__credits
@@ -26,7 +54,7 @@ footer#footer.__apm_footer( role= "contentinfo", aria-label= "Footer" )
         { href: '/terms', label: fn.i18n( 'app.generic:legal.terms' ) },
         { href: '/cookies', label: fn.i18n( 'app.generic:legal.cookies' ) },
         { href: '/license', label: fn.i18n( 'app.generic:legal.license' ) }
-      ], { classes: '__apm_footer__legal' } )
+      ], { classes: '__apm_footer__legal', aria: 'Legal' } )
 
 div#notice.__apm_notice( aria-role= "Notice" )
   p= fn.i18n( 'app.generic:notice' )
