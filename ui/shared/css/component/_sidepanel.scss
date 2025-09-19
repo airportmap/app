@@ -17,10 +17,12 @@
     overflow-y: auto;
 
     &__header {
+        @include mixin.position( sticky, 0 );
         @include mixin.flex-row( vars.get( 'padding-small' ), space-between );
         @include mixin.border( 'gray-30', $bottom: 1px );
         padding: vars.get( 'padding-normal' );
         background: theme.get( 'bg' );
+        z-index: 1;
 
         &_title {
             margin: 0;
