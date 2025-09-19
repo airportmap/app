@@ -1,4 +1,6 @@
-div#sidepanel.__apm_sidepanel( role= "menu", aria-label= "Sidepanel" )
+include ../mixin/menu
+
+div#sidepanel.__apm_sidepanel( aria-label= "Sidepanel" )
   div.__apm_sidepanel__header
     h2.__apm_sidepanel__header_title= fn.i18n( 'app.generic:sidepanel.title' )
     button.__apm_sidepanel__header_close.__apm_action_button(
@@ -10,6 +12,18 @@ div#sidepanel.__apm_sidepanel( role= "menu", aria-label= "Sidepanel" )
       h3.__apm_sidepanel__section_title
         +icon( 'search' )
         span= fn.i18n( 'app.generic:sidepanel.navigation' )
+      +menu( [
+        { href: '/', label: fn.i18n( 'app.generic:nav.home' ) },
+        { href: '/airports', label: fn.i18n( 'app.generic:nav.airports' ) },
+        { href: '/traffic', label: fn.i18n( 'app.generic:nav.traffic' ) },
+        { href: '/weather', label: fn.i18n( 'app.generic:nav.weather' ) },
+        { href: '/sigmets', label: fn.i18n( 'app.generic:nav.sigmets' ) },
+        { href: '/about', label: fn.i18n( 'app.generic:nav.about' ) },
+        { href: '/stats', label: fn.i18n( 'app.generic:nav.stats' ) }
+      ], {
+        aria: 'Navigation',
+        classes: '__apm_sidepanel__section_links'
+      } )
 
     section.__apm_sidepanel__section
       h3.__apm_sidepanel__section_title
@@ -20,7 +34,7 @@ div#sidepanel.__apm_sidepanel( role= "menu", aria-label= "Sidepanel" )
       h3.__apm_sidepanel__section_title
         +icon( 'link' )
         span= fn.i18n( 'app.generic:sidepanel.links' )
-      div.__apm_sidepanel__section_grid
+      div.__apm_sidepanel__section_grid( role= "menu", aria-label= "Resources & Links" )
         a.external( href= "https://github.com/airportmap" )= fn.i18n( 'app.generic:external.github' )
         a.external( href= "https://api.airportmap.de" )= fn.i18n( 'app.generic:external.apidocs' )
         a.external( href= "https://embed.airportmap.de" )= fn.i18n( 'app.generic:external.embed' )
