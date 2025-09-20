@@ -3,11 +3,11 @@ import { showBackdrop, hideBackdrop } from './base';
 document.addEventListener( 'click', function ( e: PointerEvent ) : void {
 
     const target = e.target as HTMLElement;
-    const toggle = target.closest( '[data-action="toggle"]' );
+    const toggle = target.closest< HTMLElement >( '[data-action="toggle"]' );
 
     if ( ! target.closest( '.___toggle_active' ) ) {
 
-        document.querySelectorAll( '.___toggle_active' ).forEach( el => {
+        document.querySelectorAll< HTMLElement >( '.___toggle_active' ).forEach( el => {
             el.classList.remove( '___toggle_active' );
         } );
 
@@ -21,7 +21,7 @@ document.addEventListener( 'click', function ( e: PointerEvent ) : void {
 
         if ( selector ) {
 
-            document.querySelectorAll( selector ).forEach( el => {
+            document.querySelectorAll< HTMLElement >( selector ).forEach( el => {
                 el.classList.toggle( '___toggle_active' );
             } );
 

@@ -9,6 +9,9 @@ assets:
       src: "js/shared.global.js"
       global: true
       defer: true
+    shared/map:
+      src: "js/shared.map.js"
+      defer: true
 
 preload:
   - href: "assets/fonts/REM.woff2"

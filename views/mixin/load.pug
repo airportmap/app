@@ -1,0 +1,6 @@
+mixin _load( name, data )
+  script( type= "application/json", data-load= name )
+   | !{ JSON.stringify( data ) }
+
+mixin map( options )
+  +_load( 'map', options )

@@ -44,7 +44,7 @@ class Cookie {
 document.addEventListener( 'click', function ( e: PointerEvent ) : void {
 
     const target = e.target as HTMLElement;
-    const cookie = target.closest( '[data-action="cookie"]' );
+    const cookie = target.closest< HTMLElement >( '[data-action="cookie"]' );
 
     if ( cookie ) {
 
@@ -69,7 +69,7 @@ document.addEventListener( 'click', function ( e: PointerEvent ) : void {
 document.addEventListener( 'change', function ( e: Event ) : void {
 
     const target = e.target as HTMLElement;
-    const cookie: HTMLSelectElement = target.closest( '[data-action="cookie"]' );
+    const cookie = target.closest< HTMLSelectElement >( '[data-action="cookie"]' );
 
     if ( cookie ) {
 
