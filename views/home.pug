@@ -2,4 +2,7 @@ extends ./base/page
 include ./mixin/load
 
 block content
-  +map( {} )
+  +map( {
+    mode: 'theater',
+    allowFullscreen: true
+  } )
