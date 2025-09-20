@@ -19,6 +19,7 @@
     "start": "node dist/app.js"
   },
   "dependencies": {
+    "@airportmap/map": "github:airportmap/map",
     "@airportmap/server": "github:airportmap/server",
     "pug": "^3.0.3"
   },
