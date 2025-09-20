@@ -1,10 +1,10 @@
 import type { APMapOptions } from '@airportmap/types';
-import { Map } from '@airportmap/map';
+import { APMap } from '@airportmap/map';
 import { uuid } from './component/utils';
 
-const maps: Record< string, Map > = {};
+const maps: Record< string, APMap > = {};
 
-const getMapByID = ( id: string ) : Map | undefined => maps[ id ];
+const getMapByID = ( id: string ) : APMap | undefined => maps[ id ];
 
 function initMaps () : void {
 
@@ -21,7 +21,7 @@ function initMaps () : void {
 
             loader.replaceWith( el );
 
-            maps[ id ] = new Map ( el, data );
+            maps[ id ] = new APMap ( el, data );
 
         } catch ( e ) { console.error( `Map init failed:`, e ) }
 
