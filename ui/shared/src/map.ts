@@ -1,5 +1,5 @@
 import type { APMapOptions } from '@airportmap/types';
-import { APMap, OSMTileLayer } from '@airportmap/map';
+import { APMap } from '@airportmap/map';
 import { uuid } from './component/utils';
 
 const maps: Record< string, APMap > = {};
