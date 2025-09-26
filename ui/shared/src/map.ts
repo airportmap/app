@@ -1,5 +1,5 @@
 import type { APMapOptions } from '@airportmap/types';
-import { APMap } from '@airportmap/map';
+import { APMap, OSMTileLayer } from '@airportmap/map';
 import { uuid } from './component/utils';
 
 const maps: Record< string, APMap > = {};
@@ -21,7 +21,8 @@ function initMaps () : void {
 
             loader.replaceWith( el );
 
-            maps[ id ] = new APMap ( el, data );
+            const map = new APMap ( el, data );
+            maps[ id ] = map;
 
         } catch ( e ) { console.error( `Map init failed:`, e ) }
 
