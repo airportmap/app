@@ -9,7 +9,7 @@ statics:
 cookies:
   locale: "en-US"
   theme: "light"
-  units: "metric"
+  units: "default"
 
 mods:
   i18n:

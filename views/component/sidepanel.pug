@@ -34,7 +34,7 @@ div#sidepanel.__apm_sidepanel( aria-label= "Sidepanel" )
           h4.__apm_sidepanel__settings_label= fn.i18n( 'app.generic:settings.units.label' )
           p.__apm_sidepanel__settings_desc= fn.i18n( 'app.generic:settings.units.desc' )
           div.__apm_sidepanel__settings_options
-            each u in [ 'metric', 'imperial' ]
+            each u in [ 'default', 'metric', 'imperial' ]
               button.__apm_settings_button(
                 class= ( u === cookies.units ? '___active' : '' ),
                 data-action= "cookie", data-name= "units", data-value= u, data-reload= 1,
