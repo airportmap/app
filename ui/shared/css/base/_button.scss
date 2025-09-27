@@ -34,7 +34,7 @@ button {
 .__apm_settings_button {
     @include mixin.border( 'gray-30', 1px );
     flex: 1;
-    min-width: 120px;
+    min-width: 86px;
     height: 40px;
     padding: 0 vars.get( 'padding-small' );
     background: theme.get( 'gray-10' );
