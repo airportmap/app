@@ -1,0 +1,9 @@
+@use '../abstract/vars';
+
+.__apm .__apm_map {
+
+    &_theater {
+        height: calc( 100dvh - vars.get( 'header-height' ) );
+    }
+
+}

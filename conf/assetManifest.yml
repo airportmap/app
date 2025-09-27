@@ -4,7 +4,7 @@ assets:
       href: "css/shared.global.css"
       global: true
     vendor/map:
-      href: "css/map.shared.leaflet.vendor.css"
+      href: "css/map.shared.map.vendor.css"
 
   js:
     shared/global:

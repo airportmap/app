@@ -17,7 +17,6 @@ function initMaps () : void {
             const el = document.createElement( 'div' );
 
             el.id = id;
-            el.classList.add( '__apm_map' );
 
             loader.replaceWith( el );
 
