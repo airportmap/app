@@ -7,6 +7,7 @@ export default async function get ( req: Request, res: Response, server: Server 
         template: 'home',
         bodyClasses: '__apm __apm_home',
         assets: {
+            css: [ 'vendor/map' ],
             js: [ 'shared/map' ]
         },
         meta: {

@@ -3,6 +3,8 @@ assets:
     shared/global:
       href: "css/shared.global.css"
       global: true
+    vendor/map:
+      href: "css/map.shared.leaflet.vendor.css"
 
   js:
     shared/global:

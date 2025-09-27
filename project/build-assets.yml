@@ -11,3 +11,11 @@ naming:
   js: "{{module}}.{{file}}.js"
   vendorCss: "{{pkg}}.{{file}}.vendor.css"
   vendorJs: "{{pkg}}.{{file}}.vendor.js"
+
+vendor:
+  "@airportmap/map":
+    name: "map"
+    sourceDir: "ui"
+    scss: [ "**/css/*.scss" ]
+    typescript: []
+    exclude: [ "**/_*" ]
