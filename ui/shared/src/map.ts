@@ -1,6 +1,7 @@
 import type { APMapOptions } from '@airportmap/types';
 import { APMap } from '@airportmap/map';
 import { uuid } from './component/utils';
+import { __theme } from './component/device';
 
 const maps: Record< string, APMap > = {};
 
@@ -16,11 +17,12 @@ function initMaps () : void {
             const id = uuid();
             const el = document.createElement( 'div' );
 
+            data.theme = data.theme ?? __theme() as APMapOptions[ 'theme' ];
             el.id = id;
 
             loader.replaceWith( el );
 
-            const map = new APMap ( el, data );
+            const map = new APMap( el, data );
             maps[ id ] = map;
 
         } catch ( e ) { console.error( `Map init failed:`, e ) }
