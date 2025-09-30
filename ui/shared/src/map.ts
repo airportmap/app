@@ -1,7 +1,7 @@
 import type { APMapOptions } from '@airportmap/types';
 import { APMap } from '@airportmap/map';
 import { uuid } from './component/utils';
-import { __theme } from './component/device';
+import { __theme, __units } from './component/device';
 
 const maps: Record< string, APMap > = {};
 
@@ -18,6 +18,7 @@ function initMaps () : void {
             const el = document.createElement( 'div' );
 
             data.theme = data.theme ?? __theme() as APMapOptions[ 'theme' ];
+            data.units = data.units ?? __units() as APMapOptions[ 'units' ];
             el.id = id;
 
             loader.replaceWith( el );
