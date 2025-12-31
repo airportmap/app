@@ -26,8 +26,8 @@
   "devDependencies": {
     "@airportmap/build-tools": "github:airportmap/build-tools",
     "@airportmap/types": "github:airportmap/types",
-    "@types/express": "^5.0.3",
-    "@types/node": "^24.3.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.3",
     "cross-env": "^10.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
