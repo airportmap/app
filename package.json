@@ -21,7 +21,7 @@
   "dependencies": {
     "@airportmap/map": "github:airportmap/map",
     "@airportmap/server": "github:airportmap/server",
-    "pug": "^3.0.3"
+    "pug": "^3.0.4"
   },
   "devDependencies": {
     "@airportmap/build-tools": "github:airportmap/build-tools",
